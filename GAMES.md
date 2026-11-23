@@ -127,3 +127,12 @@ Classic tasks include multipart place-value partitions, odd/even selection, arit
 At the user's explicit request, a one-time v3.3 fresh-start migration clears Big Maths local keys (settings, profiles, records and onboarding) and then sets a durable reset marker. No other game's keys are touched; later reloads and releases retain newly created data. First-run now requires a child's name and an answer method; a labelled plus button next to the name adds another child. There is no default “Player 1” in the UI.
 
 The new transparent raster logo is assets/logo-v4.webp; its built-in generation prompt is assets/logo-v4-prompt.txt. The full-resolution master is saved in the workspace output/imagegen/big-maths/logo-v4.png. The home, course/week controls, worksheet choices, round setup, settings, navigation and practice cards now share calmer surfaces, clear text contrast and a consistent green/lilac illustrated palette.
+
+## Shared material and typography system (v3.4.0)
+A self-hosted Nunito Sans variable font replaces device-dependent rounded/display/handwriting UI fallbacks. Source: the Google Fonts repository, ofl/nunitosans; OFL is bundled beside the WOFF2. Body, navigation, instructions, equations, keypad and settings share the same family, with distinct weight and size roles. Typed numerals remain clear; handwritten ink and OCR behavior are unchanged.
+
+The Big Maths wrapper is now the card surface, containing both the launch button and the independent worksheet selector. Interactive elements remain siblings rather than nesting buttons. A generated subtle paper texture, dimensional button edges, soft highlights and consistent green/purple accents extend across home, onboarding, launch choices, settings, quizzes, number keypad, menus, Maths games and result tiles. Mathematical illustrations remain accurate instructional diagrams. Legacy decorative polygons, rainbow frames and folded corners are replaced by one readable question surface.
+
+Question panels fill available space more consistently, with larger answer areas and usable landscape treatment. Progress states, selected choices, right/wrong answers, disabled controls and reduced-motion behavior are retained. The v3.3 fresh-start marker remains unchanged: this UI release does not reset newly created profiles or records again.
+
+Texture master: workspace output/imagegen/big-maths/paper-texture.png. App asset and built-in generation prompt: assets/paper-texture.webp and assets/paper-texture-prompt.txt.

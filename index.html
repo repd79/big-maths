@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Big Maths">
-<meta name="theme-color" content="#3fae49">
+<meta name="theme-color" content="#f5f6ee">
 <title>Big Maths · Beat That</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-v3-180.png">
@@ -445,7 +445,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .worksheet-source{font-size:14px;font-weight:600;color:#665285;text-underline-offset:3px}#setModal .setcard{border:1px solid #d3dfc8;border-radius:26px;box-shadow:0 14px 70px #193f2f30;padding:24px;background:#fafcf6}#setModal h2{font-family:var(--title);font-size:28px;color:#35553b}#setModal .row{padding-bottom:12px;border-bottom:1px solid #e3eadc}#setModal .row>.lab,#setModal .row>label{font-size:17px}.xbtn{border:1px solid #d9e4d0;border-radius:22px;box-shadow:0 4px 0 #dce5d4}.xbtn .xt{color:#35553b}.stats-card{border-width:1px!important;box-shadow:0 14px 70px #193f2f30}#firstRun .install-panel summary{font-weight:650;font-size:16px;cursor:pointer}.brandrow .brand-mascot{transform:scale(1.25)}
 #home #goGames,#home #goExtra{grid-column:auto}.worksheet-choice{display:block}.worksheet-heading{cursor:pointer;list-style:none}.worksheet-heading::-webkit-details-marker{display:none}.worksheet-heading>div{flex:1}.worksheet-change{font-size:13px;font-weight:700;color:#665285;background:#eee8f4;border-radius:9px;padding:7px 9px}.worksheet-options{display:grid;gap:12px;margin-top:14px}.worksheet-choice:not([open]) .worksheet-options{display:none}.worksheet-heading p{margin-bottom:0}.worksheet-choice[open]{box-shadow:0 4px 0 #dce5d4}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.3.0">
+<link rel="stylesheet" href="maths-games.css?v=3.4.0">
+<link rel="preload" href="assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="premium-ui.css?v=3.4.0">
 </head>
 <body>
 
@@ -458,7 +460,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
     </div>
     <div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.3.0 · Fresh adventures</button>
+    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.4.0 · Fresh adventures</button>
     <div class="settings">
       <div class="row"><label class="lab" for="childProfile">Who’s playing?</label><div class="profile-controls"><select id="childProfile" aria-label="Player"></select><button class="btn" id="addProfile" aria-label="Add another child" title="Add another child">+</button></div></div>
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
@@ -520,8 +522,8 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <section id="games" class="screen">
  <div class="frame"></div><div class="topbar"><button class="btn" id="gamesBack">← Home</button><div class="badge-title">MATHS GAMES</div></div>
  <div class="xwrap"><p class="trail-help" id="gamesIntro"></p>
- <div class="mg-menu-lead"><button class="xbtn mg-random" id="randomGames"><span class="xf">🎲</span><span class="xt">Play</span><span>Jump into an adventure! A new game every time.</span><span class="xb">All topics · No timer</span></button>
- </div><details class="mg-practice"><summary>Choose a game to practise</summary><p>Take a closer look at one topic.</p><button class="xbtn" id="openTrails"><span class="xf">🔗 4 + 6</span><span class="xt">Number trails</span><span>Slide to connect pairs: sums, differences and multiples.</span><span class="xb">12 pairs · No timer</span></button>
+ <div class="mg-menu-lead"><button class="xbtn mg-random" id="randomGames"><span class="xf" data-i="games"></span><span class="xt">Play</span><span>Jump into an adventure! A new game every time.</span><span class="xb">All topics · No timer</span></button>
+ </div><details class="mg-practice"><summary>Choose a game to practise</summary><p>Take a closer look at one topic.</p><button class="xbtn" id="openTrails"><span class="xf" data-i="numbers"></span><span class="xt">Number trails</span><span>Slide to connect pairs: sums, differences and multiples.</span><span class="xb">12 pairs · No timer</span></button>
  <div class="seg" id="gameFilters" aria-label="Filter games"></div><div class="xgrid" id="gameCatalogue"></div></details></div>
 </section>
 <section id="trails" class="screen">
@@ -531,7 +533,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
   <div class="trail-heading"><h2 id="trailGoal">Make 10</h2><span class="chip" id="trailCount">0 / 12 pairs</span></div>
   <p class="trail-help" id="trailHelp"></p><progress id="trailProgress" max="12" value="0" aria-label="Pairs found"></progress>
   <div class="trail-board" id="trailBoard" role="group" aria-label="Number pairs"><svg id="trailLine" aria-hidden="true"><line/></svg></div>
-  <p id="trailStatus" role="status" aria-live="polite"></p><div class="trail-actions"><button class="btn" id="trailHint">💡 A little hint</button><button class="btn primary" id="trailNext">↻ New board</button></div>
+  <p id="trailStatus" role="status" aria-live="polite"></p><div class="trail-actions"><button class="btn" id="trailHint"><span data-i="help"></span> A little hint</button><button class="btn primary" id="trailNext">↻ New board</button></div>
  </div>
 </section>
 
@@ -592,7 +594,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Default timer</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.3.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.4.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice">Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -603,13 +605,13 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.3.0"></script>
-<script src="classic-sheets.js?v=3.3.0"></script>
-<script src="curriculum.js?v=3.3.0"></script>
-<script src="profiles.js?v=3.3.0"></script>
-<script src="round-options.js?v=3.3.0"></script>
-<script src="progress.js?v=3.3.0"></script>
-<script src="signed-ink.js?v=3.3.0"></script>
+<script src="course-sheets.js?v=3.4.0"></script>
+<script src="classic-sheets.js?v=3.4.0"></script>
+<script src="curriculum.js?v=3.4.0"></script>
+<script src="profiles.js?v=3.4.0"></script>
+<script src="round-options.js?v=3.4.0"></script>
+<script src="progress.js?v=3.4.0"></script>
+<script src="signed-ink.js?v=3.4.0"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -2228,7 +2230,7 @@ $('#roundCancel').onclick=()=>$('#roundSetup').close();
 $('#roundPlay').onclick=()=>{settings.mode=roundMode;save();const seconds=BMRoundOptions.dialSeconds(Number($('#timeWheel').value),BM_SHEETS[settings.level].seconds);$('#roundSetup').close();if(roundKind==='sums')startSums(seconds);else startClic();};
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.3.0';
+const APP_VERSION = 'v3.4.0';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2324,6 +2326,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.3.0"></script>
+<script src="maths-games.js?v=3.4.0"></script>
 </body>
 </html>
