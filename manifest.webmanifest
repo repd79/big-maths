@@ -1,1 +1,24 @@
-{"id":"./","name":"Big Maths · Beat That","short_name":"Big Maths","start_url":"./?app=1","scope":"./","display":"standalone","background_color":"#f6fbef","theme_color":"#3fae49","icons":[{"src":"icon.png","sizes":"any","type":"image/png","purpose":"any"}]}
+{
+  "id": "./",
+  "name": "Big Maths \u00b7 Beat That",
+  "short_name": "Big Maths",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6fbef",
+  "theme_color": "#3fae49",
+  "icons": [
+    {
+      "src": "icon-v3-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-v3-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

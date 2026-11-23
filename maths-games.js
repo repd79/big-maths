@@ -50,7 +50,7 @@ const MathsGames = (() => {
  add('bonds-eight','Domino bonds to 8','Calculation','⚄',()=>bondTask(8,true));
  add('bonds-nine','Make 9','Calculation','9',()=>bondTask(9,true));
  add('neighbours','1 more, 10 more','Numbers','↔',()=>{const n=11+R(79),delta=pick([-10,-1,1,10]);return num(`What is ${Math.abs(delta)} ${delta>0?'more':'less'} than ${n}?`,n+delta,equation(`${n} ${delta>0?'+':'−'} ${Math.abs(delta)} = ?`),'A step sideways changes the units. A step up or down changes the tens.');});
- add('cartoon-calculation','Adding & subtracting','Calculation','🦸',()=>{const n=12+R(70),d=pick([-10,-1,1,10]);return num(`The number hero has ${n} stars and ${d<0?'loses':'collects'} ${Math.abs(d)} ${Math.abs(d)===1?'star':'stars'}. How many stars does the hero have now?`,n+d,`<div class="mg-hero">🦸</div>${equation(`${n} ${d<0?'−':'+'} ${Math.abs(d)} = ?`)}`,'Count on or back by 1 or 10.');});
+ add('cartoon-calculation','Adding & subtracting','Calculation','🦸',()=>{const n=12+R(70),d=pick([-10,-1,1,10]);return num(`The number hero has ${n} stars and ${d<0?'loses':'collects'} ${Math.abs(d)} ${Math.abs(d)===1?'star':'stars'}. How many stars does the hero have now?`,n+d,`<div class="mg-hero">${UI.i('hero')}</div>${equation(`${n} ${d<0?'−':'+'} ${Math.abs(d)} = ?`)}`,'Count on or back by 1 or 10.');});
  add('coin-stacks','10p & 1p stacks','Money','🪙',()=>{const tens=1+R(8),ones=R(10);return num('Each tall stack has ten 1p coins. What is the total in pence?',tens*10+ones,`<div class="mg-coins">${Array.from({length:tens},()=>'<span class="mg-stack">10 × 1p</span>').join('')}${Array.from({length:ones},()=>coin(1)).join('')}</div>`,'Count ten for every stack, then add the loose pennies.');});
  add('money-bonds','Number bonds with money','Money','➕',()=>{const n=1+R(8),a=R(n+1)*10,total=n*10;return num(`How many more pence make ${total}p?`,total-a,`${coins(a)}${equation(`${a}p + ? = ${total}p`)}`,'Count up from the first amount to the total.');});
  add('over-ten','Sums across 10','Calculation','🚗',()=>{const a=6+R(4),b=11-a+R(a-1);return num('Add the numbers. Try making 10 first.',a+b,`${dots(a)}${equation(`${a} + ${b} = ?`)}${dots(b)}`,'Move enough from the second group to make the first group up to ten.');});
@@ -107,7 +107,7 @@ const MathsGames = (() => {
   const cats=['All','Numbers','Calculation','Money','Time','Shapes'],filters=$('#gameFilters');filters.innerHTML='';
   cats.forEach(c=>{const b=el('button',null,c);b.setAttribute('aria-pressed',String(c===category));b.onclick=()=>{category=c;renderMenu();};filters.append(b);});
   const host=$('#gameCatalogue');host.innerHTML='';
-  tasks.filter(t=>category==='All'||category===t.category).forEach(t=>{const b=el('button','xbtn',`<span class="xf">${t.icon}</span><span class="xt">${t.title}</span><span class="xb">${t.category}</span>`);b.dataset.game=t.id;b.onclick=()=>start(t.id);host.append(b);});
+  tasks.filter(t=>category==='All'||category===t.category).forEach(t=>{const b=el('button','xbtn',`<span class="xf">${UI.i(t.id==='cartoon-calculation'?'hero':t.category==='Time'?'clock':t.category==='Shapes'?'games':t.category==='Calculation'?'practice':'numbers')}</span><span class="xt">${t.title}</span><span class="xb">${t.category}</span>`);b.dataset.game=t.id;b.onclick=()=>start(t.id);host.append(b);});
   $('#gamesIntro').textContent='Tap Play and let the adventure choose your next game!';
  }
  function start(id){cancelAdvance();random=id==='random';bag=[];correct=0;total=0;chosen=id;next();}
@@ -119,7 +119,7 @@ const MathsGames = (() => {
   }
   current=tasks.find(t=>t.id===chosen);task=prepareTask(current.generate());solved=false;show('activity');
   $('#mgTitle').textContent=current.title;$('#mgMode').textContent=random?'▶ Play':current.category;
-  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgHint').textContent='💡 Help';$('#mgHint').setAttribute('aria-expanded','false');$('#mgNext').textContent='Skip →';$('#mgScore').textContent=`⭐ ${correct} stars`;
+  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgHint').innerHTML=UI.i('help')+' Help';$('#mgHint').setAttribute('aria-expanded','false');$('#mgNext').textContent='Skip →';$('#mgScore').textContent=`⭐ ${correct} stars`;
   stage.innerHTML='';const visual=el('div','mg-visual',task.visual||'');stage.append(visual);
   const response=el('div','mg-response');stage.append(response);
   if(task.kind==='select'){
@@ -134,7 +134,7 @@ const MathsGames = (() => {
    const options=el('div','mg-choices'+(task.optionVisual?' illustrated':''));task.options.forEach(v=>{const b=el('button','mg-option',task.optionVisual?task.optionVisual(v):String(v));b.setAttribute('aria-label',task.optionVisual?current.id==='clock-day'?`${v} o’clock`:current.id==='fractions'?`${v} of ${task.den} parts coloured`:String(v):String(v));b.dataset.answer=String(v);b.onclick=()=>{if(solved)return;const ok=String(v)===String(task.answer);if(!ok){b.classList.add('wrong');b.setAttribute('aria-invalid','true');}else b.classList.add('right');feedback(ok);};options.append(b);});response.append(options);
   }
   if(task.kind==='hundred'){const grid=el('div','mg-hundred');for(let i=1;i<=100;i++)grid.append(el('span',i===task.missing?'missing':'',i===task.missing?'?':String(i)));visual.append(grid);}
-  updateProgress();readProblem();
+  updateProgress();
  }
  function updateProgress(){
   $('#mgProgress').innerHTML=`<span class="mg-star-track" aria-label="${correct%5} of 5 stars">${Array.from({length:5},(_,i)=>i<correct%5?'★':'☆').join(' ')}</span><br>${correct>=5?`Explorer level ${1+Math.floor(correct/5)} · `:''}Collect 5 stars to level up!`;
@@ -147,9 +147,9 @@ const MathsGames = (() => {
  }
  $('#mgNext').onclick=()=>next();$('#mgBack').onclick=()=>{cancelAdvance();cancelSpeech();show('games');};$('#mgHint').onclick=()=>{
   const existing=stage.querySelector('.equation-hint');
-  if(existing){existing.remove();$('#mgFeedback').textContent='Tap your answer!';$('#mgHint').textContent='💡 Help';$('#mgHint').setAttribute('aria-expanded','false');return;}
+  if(existing){existing.remove();$('#mgFeedback').textContent='Tap your answer!';$('#mgHint').innerHTML=UI.i('help')+' Help';$('#mgHint').setAttribute('aria-expanded','false');return;}
   $('#mgFeedback').className='mg-feedback';$('#mgFeedback').textContent=task.hint;
-  if(task.equation){const hint=el('div','equation-hint'),caption=el('p','mg-hint-label','Calculation hint'),calculation=el('div','mg-equation',task.equation);hint.append(caption,calculation);stage.querySelector('.mg-visual').append(hint);$('#mgHint').textContent='Hide hint';$('#mgHint').setAttribute('aria-expanded','true');}
+  if(task.equation){const hint=el('div','equation-hint'),caption=el('p','mg-hint-label','Calculation hint'),calculation=el('div','mg-equation',task.equation);hint.append(caption,calculation);stage.querySelector('.mg-visual').append(hint);$('#mgHint').innerHTML=UI.i('help')+' Hide hint';$('#mgHint').setAttribute('aria-expanded','true');}
  };
  $('#mgListen').onclick=readProblem;
  new MutationObserver(()=>{if(!$('#activity').classList.contains('on')){cancelAdvance();cancelSpeech();}}).observe($('#activity'),{attributes:true,attributeFilter:['class']});

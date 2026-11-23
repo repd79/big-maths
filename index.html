@@ -13,8 +13,8 @@
 <meta name="theme-color" content="#3fae49">
 <title>Big Maths · Beat That</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon.png">
-<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon-v3-180.png">
+<link rel="icon" type="image/png" href="icon-v3-64.png">
 <style>
 :root{
   --brand:#3fae49; --brand-d:#1d6b2c; --line:#cfe6c4; --blue:#00aeef; --orange:#fbbd78; --pink:#f58cc8; --gray:#7b7b7b;
@@ -408,8 +408,21 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .install-panel{padding:16px;background:white;border:2px solid var(--line);border-radius:18px;margin:16px 0}.install-panel p{font-size:16px;margin:8px 0}
 @media(max-width:760px){#kp .keys{grid-template-columns:repeat(7,1fr)}.q-gq .content.structured,.q-oral .content.structured{padding:20px 18px 20px 55px}.spk{width:48px;height:48px;font-size:24px;border-width:3px;left:0}.sheet-pager{gap:5px;font-size:13px}.sheet-pager .btn{font-size:13px;padding:0 8px}.setup-dialog{padding:20px}.setup-choices button{font-size:19px}.answer-part{max-width:120px}}
 
+
+/* Illustrated raster icon family: commissioned together, no emoji substitutes. */
+.app-icon{display:inline-block;width:1.55em;height:1.55em;object-fit:contain;vertical-align:middle;flex-shrink:0;pointer-events:none;user-select:none}
+.card-go .em{width:116px;height:116px;right:12px;top:8px;filter:drop-shadow(0 4px 5px #16412530)}
+.card-go .em .app-icon{width:100%;height:100%}.ibtn{width:58px;height:58px}.ibtn .em{width:44px;height:44px}.ibtn .app-icon{width:44px;height:44px}
+.pipwrap .brand-mascot{height:clamp(120px,20vh,175px);width:auto;max-width:130px;object-fit:contain}.pp .brand-mascot{height:100%;width:100%;object-fit:contain}.cert-pip .brand-mascot{max-width:100%;max-height:230px;object-fit:contain}
+.reward-cup{width:100%;height:80px}.xbtn .xf .app-icon{width:70px;height:70px}.setup-welcome{display:flex;align-items:center;gap:12px}.setup-welcome img{width:80px;height:96px;object-fit:contain}.setup-welcome h2{margin:0}.setup-art{display:block;width:110px;height:110px;object-fit:contain;margin:0 auto 10px}.setup-choices button{padding:18px 12px;min-height:190px}.setup-choices small{line-height:1.4}.setup-dialog{max-width:700px}.setup-dialog .install-panel{margin:12px 0}
+#mgListen [data-i]{display:inline-flex}#mgListen .app-icon{width:44px;height:44px}.spk{background:#fffdf4;border:2px solid #d9e9c9;box-shadow:0 4px 0 #b1c79d;display:flex;align-items:center;justify-content:center}.spk .app-icon{width:80%;height:80%}
+#mgHint .app-icon{width:38px;height:38px}.mg-hero .app-icon{width:130px;height:150px;object-fit:contain}.setcard h2{display:flex;align-items:center;gap:10px}.setcard h2 .app-icon{width:48px;height:48px}
+.q-gq .content.structured,.q-oral .content.structured{justify-content:flex-start;justify-content:safe center}
+@media(max-width:600px){.setup-art{width:82px;height:82px}.setup-choices button{min-height:168px}.setup-welcome img{width:64px;height:78px}.setup-dialog p{font-size:16px}.setup-dialog h2{font-size:25px}.card-go .em{width:90px;height:90px}.xbtn .xf .app-icon{width:56px;height:56px}}
+
+.big-maths-choice{min-width:0}.big-maths-choice .card-go{width:100%;min-height:190px}.worksheet-choice{background:white;border:2px solid var(--line);border-radius:18px;padding:14px;margin-top:10px;display:grid;gap:10px}.worksheet-choice small{font-size:14px;line-height:1.4}.worksheet-choice .seg{flex-wrap:wrap}.worksheet-choice .seg button{font-size:15px;padding:10px}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.0.2">
+<link rel="stylesheet" href="maths-games.css?v=3.1.0">
 </head>
 <body>
 
@@ -422,17 +435,16 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
     </div>
     <div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <div class="home-ver-pill" id="verBadge" title="Click to reload latest version">v3.0.2 · Course challenges</div>
+    <div class="home-ver-pill" id="verBadge" title="Click to reload latest version">v3.1.0 · Course challenges</div>
     <div class="settings">
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
-      <div class="row"><div class="lab">Big Maths set</div><div class="seg" id="segClicSet"></div></div>
       <div class="row" id="rowWeek"><div class="lab">Week</div><div class="seg" id="segWeek"></div></div>
     </div>
     <div class="play">
       <button class="card-go a" id="goSums"><span class="em" data-i="clock"></span><div><h2>Beat That</h2><p id="beatDescription">Questions matched to your course.</p></div><span class="best" id="bestSums"></span></button>
-      <button class="card-go b" id="goClic"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>10 skills, one at a time. Listen once, then work it out.</p></div><span class="best" id="bestClic"></span></button>
-      <button class="card-go d" id="goGames"><span class="em" aria-hidden="true">🔗</span><div><h2>Maths games</h2><p>Numbers, money, clocks, shapes and more. Tap Play for a new adventure.</p></div><span class="best">Play & explore</span></button>
-      <button class="card-go c" id="goExtra"><span class="em" data-i="dice"></span><div><h2>Extra practice</h2><p>Pick a topic: Learn Its, jigsaw, Pim, Smile, Mully, stories…</p></div><span class="best">All levels</span></button>
+      <div class="big-maths-choice">      <button class="card-go b" id="goClic"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>10 skills, one at a time. Listen once, then work it out.</p></div><span class="best" id="bestClic"></span></button><div class="worksheet-choice"><b>Big Maths worksheet</b><div class="seg" id="segClicSet"></div><small>Choose the worksheet used at school. Big Maths only.</small></div></div>
+      <button class="card-go d" id="goGames"><span class="em" data-i="games"></span><div><h2>Maths games</h2><p>Numbers, money, clocks, shapes and more. Tap Play for a new adventure.</p></div><span class="best">Play & explore</span></button>
+      <button class="card-go c" id="goExtra"><span class="em" data-i="practice"></span><div><h2>Extra practice</h2><p>Pick a topic: Learn Its, jigsaw, Pim, Smile, Mully, stories…</p></div><span class="best">All levels</span></button>
     </div>
   </div>
 </section>
@@ -502,7 +514,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <section id="activity" class="screen">
  <div class="frame"></div><div class="topbar"><button class="btn" id="mgBack">← Games</button><div class="badge-title">MATHS GAMES</div><span class="chip" id="mgMode"></span></div>
  <div class="mg-wrap"><div class="mg-heading"><h2 id="mgTitle"></h2><span class="chip" id="mgScore">0 solved</span></div>
- <div class="mg-question"><p id="mgPrompt"></p><button class="btn" id="mgListen" aria-label="Listen to the problem">🔊 Listen</button></div><div id="mgStage" class="mg-stage"></div><p id="mgFeedback" class="mg-feedback" role="status" aria-live="polite"></p>
+ <div class="mg-question"><p id="mgPrompt"></p><button class="btn" id="mgListen" aria-label="Listen to the problem"><span data-i="audio"></span> Listen</button></div><div id="mgStage" class="mg-stage"></div><p id="mgFeedback" class="mg-feedback" role="status" aria-live="polite"></p>
  <div class="mg-actions"><button class="btn" id="mgHint">💡 A little hint</button><button class="btn primary" id="mgNext">Next puzzle →</button></div><p class="mg-foot" id="mgProgress"></p></div>
 </section>
 
@@ -523,9 +535,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 
 <dialog class="setup-dialog" id="moveProgress" aria-labelledby="moveTitle"><h2 id="moveTitle">Bring your progress with you</h2><p>This link contains your Big Maths settings and records from the old app. Restore them here?</p><p id="moveStatus" role="status"></p><button class="btn primary" id="moveRestore">Restore my progress</button> <button class="btn" id="moveFresh">Start fresh</button></dialog>
 <dialog class="setup-dialog" id="firstRun" aria-labelledby="setupTitle">
-<h2 id="setupTitle">Let's make it yours</h2>
+<div class="setup-welcome"><img src="assets/icons/mascot.webp" alt=""><h2 id="setupTitle">Let's make it yours</h2></div>
 <p>How would you like to write your answers?</p>
-<div class="setup-choices"><button id="setupPencil" aria-pressed="false">✎ Pencil<small>Write with your Pencil or finger</small></button><button id="setupKeypad" aria-pressed="false">▦ Keypad<small>Tap numbers or use a keyboard</small></button></div>
+<div class="setup-choices"><button id="setupPencil" aria-pressed="false"><img class="setup-art" src="assets/icons/pencil.webp" alt=""><b>Pencil</b><small>Write with your Pencil or finger</small></button><button id="setupKeypad" aria-pressed="false"><img class="setup-art" src="assets/icons/keypad.webp" alt=""><b>Keypad</b><small>Tap numbers or use a keyboard</small></button></div>
 <p>You can change this later in Settings.</p>
 <div class="install-panel"><b>Keep Big Maths on your Home Screen</b><p class="installInstructions"></p><button class="btn installNative" hidden>Install app</button><a href="https://support.apple.com/en-gb/guide/ipad/ipad8f1f7a29/ipados" target="_blank" rel="noopener">iPad instructions</a></div>
 <button class="btn primary" id="setupDone" disabled>Let's play</button>
@@ -535,7 +547,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div id="kp" aria-label="Number keypad"><div class="keys" id="kpKeys"></div></div>
 
 <div class="modal" id="setModal"><div class="setcard">
-  <h2>⚙️ Settings</h2>
+  <h2><span data-i="gear"></span> Settings</h2>
   <div class="row"><div class="lab">School year</div><div class="seg" id="segLevel"></div></div>
       <div class="row"><div class="lab">Mode</div>
         <div class="sw"><span class="l" id="lPrac"><i data-i="pencil" class="ic"></i> Practice</span><label class="switch"><input type="checkbox" id="swMode" aria-label="Exam mode"><i></i></label><span class="l" id="lExam"><i data-i="exam" class="ic"></i> Exam</span></div>
@@ -546,7 +558,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Timer (Beat That)</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.0.2</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.1.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice">Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -557,10 +569,10 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.0.2"></script>
-<script src="curriculum.js?v=3.0.2"></script>
-<script src="progress.js?v=3.0.2"></script>
-<script src="signed-ink.js?v=3.0.2"></script>
+<script src="course-sheets.js?v=3.1.0"></script>
+<script src="curriculum.js?v=3.1.0"></script>
+<script src="progress.js?v=3.1.0"></script>
+<script src="signed-ink.js?v=3.1.0"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -796,20 +808,9 @@ function starPolyCss(n,ri){const pts=[];for(let i=0;i<n*2;i++){const r=i%2?50*ri
 /* ---------- identidad gráfica: marca, mascota Pip, pegatinas y certificado (diseños propios) ---------- */
 
 const UI=(()=>{
-  const O='#1d6b2c',G='#3fae49',Y='#ffd84a',W='#fff',P='#ff8fa3';
-  const w=(b)=>`<svg class="ui" viewBox="0 0 32 32" aria-hidden="true" stroke-linejoin="round" stroke-linecap="round">${b}</svg>`;
-  const I={
-    clock:w(`<rect x="13" y="1.8" width="6" height="4" rx="1.2" fill="${G}" stroke="${O}" stroke-width="2"/><path d="M25 7l2.2 2.2" stroke="${O}" stroke-width="2.6" fill="none"/><circle cx="16" cy="18" r="11" fill="${W}" stroke="${O}" stroke-width="2.4"/><path d="M16 18V7.6A10.4 10.4 0 0 1 26.4 18z" fill="${Y}"/><circle cx="16" cy="18" r="11" fill="none" stroke="${O}" stroke-width="2.4"/><path d="M16 18l5-5" stroke="${O}" stroke-width="2.6" fill="none"/><circle cx="16" cy="18" r="1.8" fill="${O}"/>`),
-    nums:w(`<g transform="rotate(-10 11 19)"><rect x="3" y="9" width="14" height="14" rx="3.5" fill="${Y}" stroke="${O}" stroke-width="2.2"/><text x="10" y="20.6" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="11.5" text-anchor="middle" fill="${O}" stroke="none">1</text></g><g transform="rotate(9 22 19)"><rect x="15" y="12" width="14" height="14" rx="3.5" fill="${W}" stroke="${O}" stroke-width="2.2"/><text x="22" y="23.4" font-family="Nunito,Arial Rounded MT Bold,Arial,sans-serif" font-weight="900" font-size="11.5" text-anchor="middle" fill="${G}" stroke="none">2</text></g><path d="M25 2.5l1.1 2.7 2.7 1.1-2.7 1.1L25 10.1l-1.1-2.7-2.7-1.1 2.7-1.1z" fill="${Y}" stroke="${O}" stroke-width="1.3"/>`),
-    pencil:w(`<g transform="rotate(45 16 16)"><rect x="12" y="2.5" width="8" height="5" rx="1.6" fill="${P}" stroke="${O}" stroke-width="2"/><rect x="12" y="7" width="8" height="15" fill="${Y}" stroke="${O}" stroke-width="2"/><path d="M12 22l4 8 4-8z" fill="#f6d9ae" stroke="${O}" stroke-width="2"/><path d="M14.6 27l1.4 3 1.4-3z" fill="${O}" stroke="none"/></g>`),
-    exam:w(`<rect x="6" y="4.5" width="20" height="25" rx="3.5" fill="${W}" stroke="${O}" stroke-width="2.2"/><rect x="11" y="2" width="10" height="5.5" rx="2" fill="${G}" stroke="${O}" stroke-width="2"/><path d="M10.5 14.5l2.2 2.2 4-4.4" fill="none" stroke="${G}" stroke-width="2.4"/><path d="M19 14.5h3.5M10.5 22h12" stroke="${O}" stroke-width="2.2" fill="none"/>`),
-    dice:w(`<g transform="rotate(-8 16 16)"><rect x="4.5" y="4.5" width="23" height="23" rx="6" fill="${W}" stroke="${O}" stroke-width="2.4"/><g fill="${G}" stroke="${O}" stroke-width="1"><circle cx="10.8" cy="10.8" r="2.2"/><circle cx="21.2" cy="10.8" r="2.2"/><circle cx="16" cy="16" r="2.2"/><circle cx="10.8" cy="21.2" r="2.2"/><circle cx="21.2" cy="21.2" r="2.2"/></g></g>`),
-    lens:w(`<circle cx="13" cy="13" r="8" fill="${W}" stroke="${O}" stroke-width="2.6"/><path d="M9.2 12a4 4 0 0 1 3.4-3.2" fill="none" stroke="${G}" stroke-width="2"/><path d="M19 19l8 8" stroke="${O}" stroke-width="4.6"/><path d="M19 19l8 8" stroke="${Y}" stroke-width="1.8"/>`),
-    trophy:w(`<path d="M9 5h14v8a7 7 0 0 1-14 0z" fill="${Y}" stroke="${O}" stroke-width="2.2"/><path d="M9 7H4.5c0 5 2 7 5 7.5M23 7h4.5c0 5-2 7-5 7.5" fill="none" stroke="${O}" stroke-width="2.2"/><path d="M16 20v4M11 28h10l-1.5-4h-7z" fill="${G}" stroke="${O}" stroke-width="2.2"/><path d="M16 8.2l1.1 2.3 2.5.3-1.8 1.7.5 2.5-2.3-1.2-2.3 1.2.5-2.5-1.8-1.7 2.5-.3z" fill="${W}" stroke="none"/>`),
-    reload:w(`<path d="M14 6A10 10 0 1 0 25 12" fill="none" stroke="${O}" stroke-width="4.4"/><path d="M14 6A10 10 0 1 0 25 12" fill="none" stroke="${G}" stroke-width="2.6"/><polygon points="26,5 25,13 17,11" fill="${Y}" stroke="${O}" stroke-width="2"/><circle cx="16" cy="16" r="3.2" fill="${Y}" stroke="${O}" stroke-width="1.8"/>`),
-    gear:w(`<path d="M14 7L13.9 3h4.2l-.1 4 4.8 2.8 3.4-2.1 2.1 3.6-3.5 1.9v5.6l3.5 1.9-2.1 3.6-3.4-2.1-4.8 2.8.1 4h-4.2l.1-4-4.8-2.8-3.4 2.1-2.1-3.6 3.5-1.9v-5.6l-3.5-1.9 2.1-3.6 3.4 2.1z" fill="${Y}" stroke="${O}" stroke-width="2.2"/><circle cx="16" cy="16" r="4.2" fill="${W}" stroke="${O}" stroke-width="2.2"/><circle cx="16" cy="16" r="1.8" fill="${G}"/>`)
-  };
-  return {i:k=>I[k],fill(root){(root||document).querySelectorAll('[data-i]').forEach(n=>{n.innerHTML=I[n.dataset.i]})}};
+  const names={nums:'numbers',gear:'settings',dice:'games',exam:'practice',lens:'help'};
+  const i=key=>`<img class="app-icon" src="assets/icons/${names[key]||key}.webp" alt="" aria-hidden="true" draggable="false">`;
+  return{i,fill(root){(root||document).querySelectorAll('[data-i]').forEach(n=>n.innerHTML=i(n.dataset.i));}};
 })();
 const BRAND=(()=>{
   const FF="ui-rounded,'SF Pro Rounded','Arial Rounded MT Bold','Avenir Next Rounded','Avenir Next',system-ui,sans-serif";
@@ -825,25 +826,8 @@ const BRAND=(()=>{
     </g>
     <path d="M70 156Q200 144 326 150" stroke="#ffd21a" stroke-width="4" fill="none" stroke-linecap="round"/>${starG(338,148,12)}</svg>`;
   // Pip: mascota original (blob turquesa con antenas de estrella)
-  const pip=(mood)=>{
-    const up=mood==='cheer';
-    const arms=up?`<path d="M20 70Q6 56 12 36M80 70Q94 56 88 36" stroke="#1a8f8f" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M20 70Q6 56 12 36M80 70Q94 56 88 36" stroke="#31c4c4" stroke-width="5" stroke-linecap="round" fill="none"/>`
-      :`<path d="M18 74Q6 80 8 92M82 74Q94 80 92 92" stroke="#1a8f8f" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M18 74Q6 80 8 92M82 74Q94 80 92 92" stroke="#31c4c4" stroke-width="5" stroke-linecap="round" fill="none"/>`;
-    return `<svg viewBox="0 0 100 110" aria-hidden="true">
-      <path d="M38 26Q33 10 22 8M62 26Q67 10 78 8" stroke="#1a8f8f" stroke-width="4" fill="none" stroke-linecap="round"/>${starG(21,8,8)}${starG(79,8,8)}
-      ${arms}
-      <ellipse cx="38" cy="104" rx="11" ry="5" fill="#1a8f8f"/><ellipse cx="62" cy="104" rx="11" ry="5" fill="#1a8f8f"/>
-      <ellipse cx="50" cy="66" rx="35" ry="36" fill="#31c4c4" stroke="#1a8f8f" stroke-width="3.5"/>
-      <ellipse cx="50" cy="80" rx="21" ry="18" fill="#a8ecec"/>
-      <circle cx="37" cy="54" r="12" fill="#fff" stroke="#1a8f8f" stroke-width="3"/><circle cx="63" cy="54" r="12" fill="#fff" stroke="#1a8f8f" stroke-width="3"/>
-      <circle cx="39" cy="56" r="5.5" fill="#1b2430"/><circle cx="61" cy="56" r="5.5" fill="#1b2430"/><circle cx="41" cy="54" r="1.8" fill="#fff"/><circle cx="63" cy="54" r="1.8" fill="#fff"/>
-      <path d="M33 70q17 20 34 0z" fill="#7a1230" stroke="#1a8f8f" stroke-width="3" stroke-linejoin="round"/><ellipse cx="50" cy="77" rx="8" ry="4.2" fill="#ff6f8a"/>
-      <circle cx="24" cy="68" r="4.5" fill="#ff9ab0" opacity=".8"/><circle cx="76" cy="68" r="4.5" fill="#ff9ab0" opacity=".8"/></svg>`;
-  };
-  const trophy=()=>`<svg viewBox="0 0 70 80" aria-hidden="true"><path d="M16 14C2 14 2 36 20 40M54 14c14 0 14 22-4 26" stroke="#d99a00" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M14 8h42v14c0 16-9 26-21 26S14 38 14 22z" fill="#ffd21a" stroke="#d99a00" stroke-width="3.5" stroke-linejoin="round"/>
-    <rect x="30" y="46" width="10" height="14" fill="#f2b705" stroke="#d99a00" stroke-width="3"/><rect x="20" y="60" width="30" height="10" rx="3" fill="#ffd21a" stroke="#d99a00" stroke-width="3.5"/>${starG(35,26,8.5).replace('#ffd21a','#ff8a2a').replace('#d99a00','#c4601a')}
-    <path d="M22 14v14" stroke="#fff6b0" stroke-width="3.5" stroke-linecap="round" opacity=".8"/></svg>`;
+  const pip=()=>'<img class="brand-mascot" src="assets/icons/mascot.webp" alt="" aria-hidden="true">';
+  const trophy=()=>'<img class="app-icon reward-cup" src="assets/icons/trophy.webp" alt="" aria-hidden="true">';
   const pick=r=>r>=.9?{t:'I’m a Super Star!',c1:'#3fae49',c2:'#7ee084'}:r>=.7?{t:'Maths Whizz!',c1:'#e53935',c2:'#ff8a80'}:r>=.4?{t:'Great work!',c1:'#1a8fe0',c2:'#6cc4ff'}:{t:'Well done!',c1:'#f5c518',c2:'#ffe680'};
   const sticker=(score,total,sm)=>{const p=pick(total?score/total:0);
     return `<div class="sticker${sm?' sm':''}" style="--c1:${p.c1};--c2:${p.c2}"><svg class="arc" viewBox="0 0 200 200"><path id="arcp${sm?'s':'b'}" d="M26 112a74 74 0 0 1 148 0" fill="none"/>
@@ -1019,7 +1003,8 @@ mLife.y5=mLife.y56;mLife.y6=mLife.y56;
 for(const [t,nm] of MTABS){const i=MATH_NODES.findIndex(n=>n.tab===t&&n.bt);MATH_NODES.splice(i+1,0,MN(t,'life-'+t,'📖','Real life maths','Real life maths! Read the story and write the answer.',mLife[t],{per:3,bt:false,story:true}));}
 const lvName=()=>(MTABS.find(l=>l[0]===settings.level)||MTABS[1])[1];
 const contentCourse=()=>settings.level;
-const clicLevel=()=>{const list=BMContent.courses[settings.level];return list.includes(settings.clicSets?.[settings.level])?settings.clicSets[settings.level]:list[0]};
+const clicLevel=()=>{const list=BMContent.courses[settings.level];const selected=settings.clicSets?.[settings.level];if(settings.level==='y1'&&(!settings.schoolSeriesVersion||selected==='school'||selected==null))return 'school';return list.includes(selected)?selected:list[0]};
+const clicLabel=()=>clicLevel()==='school'?'School worksheet · Week '+settings.week:'CLIC '+clicLevel();
 const courseTime=()=>settings.time==='course'?BM_SHEETS[settings.level].seconds:settings.time;
 const wk=()=>settings.level==='y1'?settings.week:settings.level+'-v3';
 const toD=q=>({t:'gq',...q});
@@ -1053,7 +1038,7 @@ function chips(host,noWeek){
   const kpm=settings.input==='keypad';
   host.append(el('span','chip',settings.auto?UI.i('lens')+(kpm?' Auto-check':' Auto-read'):UI.i('pencil')+(kpm?' As typed':' As written')));
 }
-const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?'clic-'+clicLevel()+'-v3':week}.${extra}.${mode}`;
+const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?(clicLevel()==='school'?'school-y1-week-'+settings.week:'clic-'+clicLevel()+'-v3'):week}.${extra}.${mode}`;
 const bestTimeKey=(kind,week,mode)=>`bm.best.time.${kind}.${week}.${mode}`;
 
 /* ---------- caja de escritura ---------- */
@@ -1325,8 +1310,8 @@ function speakText(t){
       if(token!==speechToken||index>=sentences.length)return;
       const u=new SpeechSynthesisUtterance(sentences[index]);
       u.lang=englishSpeechVoice?.lang||'en-GB';if(englishSpeechVoice)u.voice=englishSpeechVoice;
-      u.rate=.80;u.pitch=1.16;u.volume=1;
-      u.onend=()=>{if(token===speechToken&&index+1<sentences.length)speechPauseTimer=setTimeout(()=>next(index+1),700);};
+      u.rate=.74;u.pitch=1.16;u.volume=1;
+      u.onend=()=>{if(token===speechToken&&index+1<sentences.length)speechPauseTimer=setTimeout(()=>next(index+1),850);};
       ss.speak(u);
     };
     next(0);return sentences.length>0;
@@ -1361,10 +1346,10 @@ function refreshHome(){
   $('#lvChip').textContent='🎓 '+lvName()+'  ·  change';
   $('#rowWeek').style.display='';
   const levels=BMContent.courses[settings.level];
-  segBuild($('#segClicSet'),levels.map((n,i)=>[n,n===20?'Extra challenge':'Set '+(i+1)]),clicLevel,v=>settings.clicSets[settings.level]=v);
+  segBuild($('#segClicSet'),[...(settings.level==='y1'?[['school','School worksheets · original']]:[]),...levels.map(n=>[n,n===20?'CLIC 20 · Extra':'CLIC '+n])],clicLevel,v=>{settings.clicSets[settings.level]=v;settings.schoolSeriesVersion=1});
   $('#beatDescription').textContent=BM_SHEETS[settings.level].count+' questions. '+(settings.time==='course'?courseTime()+' seconds for this course.':'Choose where to start!');
   segBuild($('#segTime'),[['course','Course default ('+BM_SHEETS[settings.level].seconds+' s)'],[20,'20 s'],[30,'30 s'],[60,'1 min'],[90,'90 s'],[100,'100 s'],[0,'No timer']],()=>settings.time,v=>settings.time=v);
-  segBuild($('#segInput'),[['pencil',UI.i('pencil')+' Pencil'],['keypad','🔢 Keypad']],()=>settings.input,v=>settings.input=v);
+  segBuild($('#segInput'),[['pencil',UI.i('pencil')+' Pencil'],['keypad',UI.i('keypad')+' Keypad']],()=>settings.input,v=>settings.input=v);
   const kpm=settings.input==='keypad';
   $('#hintInput').textContent=kpm?'Tap a box and type the answer on the on-screen number keypad.':'Write the answers by hand with the Apple Pencil.';
   $('#labAuto').textContent=kpm?'Auto-check':'Handwriting recognition';
@@ -1869,7 +1854,23 @@ $('#statsModal').addEventListener('click',e=>{if(e.target===$('#statsModal'))$('
 
 /* ================= BIG MATHS ================= */
 const C={qs:[],i:0,speakN:0,done:false};
-function buildClicData(){return BMContent.generate(clicLevel());}
+function buildClicData(){
+ if(clicLevel()!=='school')return BMContent.generate(clicLevel());
+ const weeks=settings.week==='rand'?ENABLED:[settings.week];
+ const data=CLIC[weeks[rnd(weeks.length)]];
+ return [
+  {t:'star',n:1+rnd(10)},
+  {t:'order',nums:data.order},
+  {t:'more',...data.more},
+  {t:'add',...data.add},
+  {t:'double',n:data.double},
+  {t:'plus',...data.plus},
+  {t:'half',n:data.half},
+  {t:'count',...data.count},
+  {t:'missing',...data.missing},
+  {t:'take',...data.take}
+ ];
+}
 function iconHTML(k){return ART.svg(k)}
 function starPoly(n,ri){const pts=[];for(let i=0;i<n*2;i++){const r=i%2?50*ri/100:50,a=Math.PI*i/n-Math.PI/2;pts.push(`${(50+r*Math.cos(a)).toFixed(1)}% ${(50+r*Math.sin(a)).toFixed(1)}%`)}return `polygon(${pts.join(',')})`}
 function qShell(type){
@@ -1887,7 +1888,7 @@ function buildQ(d,idx){
       sh.style.clipPath=starPoly(12,80);
       label='🔊 Listen and write';exp=String(d.n);
       ct.append(ans('oval',d.n,boxes,label));
-      const sp=el('button','spk','🔊');sp.setAttribute('aria-label','Listen');
+      const sp=el('button','spk',UI.i('audio'));sp.setAttribute('aria-label','Listen');
       sp.addEventListener('click',()=>{sp.classList.add('talk');speak(d.n);setTimeout(()=>sp.classList.remove('talk'),1400)});
       q.append(sp);q.speakBtn=sp;
       break;}
@@ -1963,7 +1964,7 @@ function buildQ(d,idx){
     case 'half':{label=`Half of ${d.n}`;exp=String(d.n/2);
       ct.append(el('span','big',`Half of ${d.n} is...`),ans('oval',d.n/2,boxes,label));break;}
   }
-  if(d.t!=='star'){const listen=el('button','spk','🔊');listen.setAttribute('aria-label','Listen');listen.onclick=()=>speakText(d.say||BMContent.speech(d.q||label));q.append(listen);q.speakBtn=listen;}
+  if(d.t!=='star'){const listen=el('button','spk',UI.i('audio'));listen.setAttribute('aria-label','Listen');listen.onclick=()=>speakText(d.say||BMContent.speech(d.q||label));q.append(listen);q.speakBtn=listen;}
   if(d.t==='take')sh.style.clipPath=starPoly(14,76);
   boxes.forEach(b=>b.onchange=()=>updateDots());
   return {d,q,boxes,label,exp,verdict:null,idx};
@@ -1974,7 +1975,7 @@ function startClic(spec){
   const data=C.spec?C.spec.mk():buildClicData();
   const st=$('#qstage');st.innerHTML='';
   C.qs=data.map(buildQ);C.qs.forEach(x=>st.append(x.q));C.i=0;C.done=false;
-  chips($('#clicChips'),true);$('#clicChips').append(el('span','chip',lvName()));if(!C.spec)$('#clicChips').append(el('span','chip',clicLevel()===20?'Extra challenge':'Set '+(BMContent.courses[settings.level].indexOf(clicLevel())+1)));if(C.spec)$('#clicChips').append(el('span','chip',C.spec.title));
+  chips($('#clicChips'),true);$('#clicChips').append(el('span','chip',lvName()));if(!C.spec)$('#clicChips').append(el('span','chip',clicLabel()));if(C.spec)$('#clicChips').append(el('span','chip',C.spec.title));
   const dots=$('#dots');dots.innerHTML='';
   C.qs.forEach((x,i)=>{const b=el('button',null,String(i+1));b.addEventListener('click',()=>goQ(i,true));dots.append(b)});
   session.active=true;show('clic');goQ(0,true);
@@ -1991,8 +1992,8 @@ function goQ(i,userGesture){
   $('#revealQ').style.display=(!settings.auto&&settings.mode==='practice')?'':'none';
   $('#revealQ').textContent='👁 Show answer';
   updateDots();
-  if(x.d.t==='star'&&userGesture){speak(x.d.n);if(x.q.speakBtn){x.q.speakBtn.classList.add('talk');setTimeout(()=>x.q.speakBtn.classList.remove('talk'),1400)}}
-  else if(userGesture)speakText(x.d.say||BMContent.speech(x.d.q||x.label));
+  if(x.d.t==='star'&&userGesture&&!C.spec){speak(x.d.n);if(x.q.speakBtn){x.q.speakBtn.classList.add('talk');setTimeout(()=>x.q.speakBtn.classList.remove('talk'),1400)}}
+  else if(userGesture&&!C.spec)speakText(x.d.say||BMContent.speech(x.d.q||x.label));
   else cancelSpeech();
 }
 function updateDots(){
@@ -2061,8 +2062,8 @@ function renderExtra(){
   MTABS.forEach(([k,n])=>{const b=el('button',null,n);b.setAttribute('aria-pressed',String(X.tab===k));b.addEventListener('click',()=>{X.tab=k;renderExtra()});tabs.append(b)});
   const g=$('#xgrid');g.innerHTML='';
   MATH_NODES.filter(n=>(n.tab===X.tab||(n.tab==='y56'&&['y5','y6'].includes(X.tab)))&&!n.bt).forEach(n=>{
-    const best=store.get(bestKey('xtra',X.tab,n.id,settings.mode),null);
-    const b=el('button','xbtn',`<span class="xf">${n.face}</span><span class="xt">${n.title}</span><span class="xb">${best==null?'New':UI.i('trophy')+' Best: '+best+'/10'}</span>`);
+    const best=store.get(bestKey('xtra',X.tab,n.id+'-v3',settings.mode),null);
+    const b=el('button','xbtn',`<span class="xf">${UI.i(/li|ult/.test(n.id)?'numbers':/pim/.test(n.id)?'mascot':/mully|smile/.test(n.id)?'hero':/jig|mix/.test(n.id)?'games':'practice')}</span><span class="xt">${n.title}</span><span class="xb">${best==null?'New':UI.i('trophy')+' Best: '+best}</span>`);
     b.addEventListener('click',()=>startClic({id:n.id+'-v3',title:n.title,tab:X.tab,mk:()=>mShuf(n.gen()).slice(0,/^m-li|^m-ult/.test(n.id)?Infinity:10).map(toD)}));
     g.append(b);
   });
@@ -2158,7 +2159,7 @@ const Trails=(()=>{
 })();
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.0.2';
+const APP_VERSION = 'v3.1.0';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2220,7 +2221,7 @@ const incomingProgress=location.hash.startsWith('#bm-progress=')?location.hash.s
 const clearIncoming=()=>history.replaceState(null,'',location.pathname+location.search);
 $('#moveFresh').onclick=()=>{clearIncoming();$('#moveProgress').close();if(!store.get('bm.onboarding.v1',false))$('#firstRun').showModal();};
 $('#moveRestore').onclick=()=>{try{if(incomingProgress.length>512000)throw Error('This transfer is too large. Use a backup file instead.');BMProgress.restore(localStorage,JSON.parse(decodeURIComponent(incomingProgress)));clearIncoming();location.reload();}catch(error){$('#moveStatus').textContent=error.message;}};
-$('#speechVoice').onchange=()=>{settings.speechVoice=$('#speechVoice').value;save();refreshSpeechVoice();speakText('Hello! Let’s have a go at some maths. Take your time and do your best.');};
+$('#speechVoice').onchange=()=>{settings.speechVoice=$('#speechVoice').value;save();refreshSpeechVoice();};
 $('#tryVoice').onclick=()=>speakText('Hello! Let’s have a go at some maths. Take your time and do your best.');
 $('#backupProgress').onclick=()=>{
  const file=new Blob([JSON.stringify(BMProgress.exportData(localStorage),null,2)],{type:'application/json'}),url=URL.createObjectURL(file),link=document.createElement('a');link.href=url;link.download='big-maths-progress.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('#progressStatus').textContent='Backup saved. Keep it to move your records to the new app.';
@@ -2253,6 +2254,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.0.2"></script>
+<script src="maths-games.js?v=3.1.0"></script>
 </body>
 </html>

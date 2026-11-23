@@ -20,7 +20,8 @@ const BMProgress=(()=>{
     if(['course',0,20,30,60,90,100].includes(value.time))settings.time=value.time;
     if(value.week==='rand'||Number.isInteger(value.week)&&value.week>=1&&value.week<=10)settings.week=value.week;
     if(value.timingVersion===3)settings.timingVersion=3;
-    if(value.clicSets&&typeof value.clicSets==='object'){settings.clicSets={};for(const [course,n]of Object.entries(value.clicSets))if(/^(rec|y[1-6])$/.test(course)&&Number.isInteger(n)&&n>=1&&n<=20)settings.clicSets[course]=n;}
+    if(value.schoolSeriesVersion===1)settings.schoolSeriesVersion=1;
+    if(value.clicSets&&typeof value.clicSets==='object'){settings.clicSets={};for(const [course,n]of Object.entries(value.clicSets))if(/^(rec|y[1-6])$/.test(course)&&(Number.isInteger(n)&&n>=1&&n<=20||course==='y1'&&n==='school'))settings.clicSets[course]=n;}
     clean[key]=JSON.stringify(settings);
    }
   }
