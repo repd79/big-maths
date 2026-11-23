@@ -39,3 +39,5 @@ test('CLIC 6 has the ten source skills, including four-part ordering, parity and
 test('reading-number skills do not speak the number that the child must read',()=>{
  const q=content.generate(1)[2];assert.equal(q.say,'Read this number aloud.');assert.ok(!q.say.includes(q.a));
 });
+
+test('modern CLIC 19 retains decimal division and the specified column methods',()=>{for(let i=0;i<50;i++){const qs=content.generate(19);assert.match(qs[5].q,/÷/);assert.equal(qs[5].parts,undefined);assert.equal(qs[6].column,true);assert.equal(qs[7].column,true);assert.match(qs[8].q,/^[\d.]+ × \d{2} =$/);assert.equal(qs[8].column,true);assert.match(qs[9].q,/÷/);assert.equal(qs[9].column,true);}});

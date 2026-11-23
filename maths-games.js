@@ -119,7 +119,7 @@ const MathsGames = (() => {
   }
   current=tasks.find(t=>t.id===chosen);task=prepareTask(current.generate());solved=false;show('activity');
   $('#mgTitle').textContent=current.title;$('#mgMode').textContent=random?'▶ Play':current.category;
-  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgHint').innerHTML=UI.i('help')+' Help';$('#mgHint').setAttribute('aria-expanded','false');$('#mgNext').textContent='Skip →';$('#mgScore').textContent=`⭐ ${correct} stars`;
+  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgHint').innerHTML=UI.i('help')+' Help';$('#mgHint').setAttribute('aria-expanded','false');$('#mgNext').innerHTML='Skip '+UI.i('play');$('#mgScore').textContent=`⭐ ${correct} stars`;
   stage.innerHTML='';const visual=el('div','mg-visual',task.visual||'');stage.append(visual);
   const response=el('div','mg-response');stage.append(response);
   if(task.kind==='select'){

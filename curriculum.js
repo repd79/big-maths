@@ -11,6 +11,8 @@ const BMContent=(()=>{
  const sub=(digits=2,other=digits,column=false)=>()=>{let a=r(10**(digits-1),10**digits-1),b=r(10**(other-1),10**other-1);if(a<b)[a,b]=[b,a];return operation(a,'−',b,{column});};
  const mul=(digits=1,other=1,column=false)=>()=>operation(r(10**(digits-1),10**digits-1),'×',r(10**(other-1),10**other-1),{column});
  const div=(digits=2,tables=[2,3,4,5],remainder=false,column=false)=>()=>{const d=pick(tables),answer=r(Math.ceil(10**(digits-1)/d),Math.floor((10**digits-1)/d)),rem=remainder?r(1,d-1):0;return q(`${answer*d+rem} ÷ ${d} =`,answer,{a:rem?`${answer} r${rem}`:String(answer),column});};
+ const decimalDivision=()=>{const d=pick([2,3,4,5,6,7,8,9]),answer=r(11,99)/10;return operation(answer*d,'÷',d);};
+ const columnDecimalDivision=()=>operation(r(101,999),'÷',pick([2,4,5,8]),{column:true});
  const tables=[2,3,4,5,6,7,8,9];
  const seq=(step=1,negative=false)=>()=>{const s=typeof step==='function'?step():step,base=negative?-r(1,10)*Math.abs(s):r(1,12)*s,k=r(1,3),ns=Array.from({length:5},(_,i)=>base+i*s);return q(`Complete the sequence: ${ns.map((n,i)=>i===k?'?':fmt(n)).join(', ')}`,ns[k]);};
  const partition=(digits=2,dp=0)=>()=>{const scale=10**dp,n=r(10**(digits-1),10**digits-1);const raw=String(n);return multi(`Partition ${fmt(n/scale)} into place values.`,[...raw].map((v,i)=>[`10${String.fromCharCode(0x2070)} place ${i+1}`,Number(v)*10**(digits-i-1-dp)]).map(([_,a],i)=>[['Thousands','Hundreds','Tens','Ones','Tenths','Hundredths','Thousandths'][3-(digits-dp-1)+i]||`Part ${i+1}`,a]));};
@@ -60,7 +62,7 @@ const BMContent=(()=>{
   16:[partition(3,1),seq(-1,true),scale(10,true),mully(150,999),pim(.1),mul(),div(3),div(3),sub(3,3,true),div(3,tables,false,true)],
   17:[scale(100,true),smile(.01),mully(300,999),square,decimalOp('+',1),sub(3),()=>{const ns=[r(101,999),r(101,999),r(11,99)];return q(`Add in columns: ${ns.join(' + ')}`,ns.reduce((a,b)=>a+b),{column:true});},sub(5,5,true),mul(3,2,true),div(4,tables,false,true)],
   18:[partition(5,3),numberSense(100000,99999999),seq(-25,true),gap(),scale(1000,true),primes,decimalOp('+',2),decimalOp('−',1),div(4),add(5,5,true)],
-  19:[digitValue(3),gap(true),decimalOp('+',2,1),decimalOp('−',3,1),()=>operation(r(2,9),'×',r(101,999)/100),partition(4,3),decimalOp('+',3,1),decimalOp('−',3,2),scale(1000,true),div(4)],
+  19:[digitValue(3),gap(true),decimalOp('+',2,1),decimalOp('−',3,1),()=>operation(r(2,9),'×',r(101,999)/100),decimalDivision,()=>({...decimalOp('+',3,1)(),column:true}),()=>({...decimalOp('−',3,2)(),column:true}),()=>operation(r(101,999)/100,'×',r(11,99),{column:true}),columnDecimalDivision],
   20:[()=>q('Calculate 8 divided by two fifths.',20),fraction('+'),()=>oral('Explain why 36% is less than 3/8.','3/8 = 37.5%, which is greater than 36%.'),()=>q('Convert 5/8 to a percentage.',62.5),()=>q('Increase £32 by 15%.',36.8),()=>oral('Give a fraction between 1/3 and 1/2.','For example 2/5.'),()=>q('Decrease 72 metres by 35%.',46.8),()=>q('A recipe for 6 people needs 750 ml of juice. How many ml are needed for 10 people?',1250),()=>q('A camera costs £140 after a 30% discount. What was its original price?',200),()=>multi('Divide 180 in the ratio 3 : 4 : 5.',[['3 parts',45],['4 parts',60],['5 parts',75]])]
  };
  const courses={rec:[1,2,3],y1:[4,5,6],y2:[7,8,9],y3:[10,11,12],y4:[13,14,15],y5:[16,17,18],y6:[19,20]};

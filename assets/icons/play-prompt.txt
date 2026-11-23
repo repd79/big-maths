@@ -1,0 +1,7 @@
+Created with the built-in image generation tool.
+
+Initial prompt:
+Use case: stylized-concept. Asset type: transparent raster play icon for a premium children's maths app button. A single right-pointing triangular PLAY symbol with softly rounded corners, warm golden cream front, gentle gold sides, subtle purple beveled edge. Exquisitely crafted dimensional toy object with a soft painted storybook surface, matching friendly lime-green monsters and purple/gold learning tools. Straight-on frontal view, strong clear silhouette, large centered symbol with comfortable 12 percent padding. No circular or square button behind it, no text, no letters, no extra objects. Genuine transparent alpha background. High legibility at 24–40 pixels. Soft natural light, no dramatic shadow, no vector/flat clipart look.
+
+Final refinement:
+Edit this image. Remove ALL characters, monsters, blocks, abacus, ruler, mathematical symbols and every object sitting on the triangular face. Keep ONLY the simple right-pointing rounded golden cream triangular PLAY symbol with its purple beveled edge. Its entire large triangular front face must be plain, empty, uninterrupted golden cream material. Absolutely no drawing, scene, animal, object, face, text, symbol or decoration on the triangle. Keep the orientation, painted material and transparent background. The final image must be one clean simple play-arrow icon, usable at 24 pixels.
