@@ -1,0 +1,4 @@
+const{test}=require('node:test'),assert=require('node:assert/strict'),ink=require('../signed-ink.js');
+test('a separate middle-height minus sign is isolated before the digit model',()=>{const digits=[[30,0],[45,0],[30,100]],minus=[[0,50],[20,50]],s=ink.split([minus,digits]);assert.equal(s.negative,true);assert.deepEqual(s.strokes,[digits]);});
+test('a seven crossbar and top bar are not interpreted as a negative sign',()=>{assert.equal(ink.split([[[0,0],[45,0]],[[45,0],[15,100]],[[5,50],[40,50]]]).negative,false);assert.equal(ink.split([[[0,0],[20,0]],[[30,0],[45,0],[30,100]]]).negative,false);});
+test('unsigned digits and tiny dot strokes retain their recognition path',()=>{const strokes=[[[0,0],[20,100]],[[30,0],[50,100]]];assert.equal(ink.split(strokes).negative,false);assert.equal(ink.split([[[0,20]],[[30,0],[50,100]]]).negative,false);});

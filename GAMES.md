@@ -101,3 +101,8 @@ Learn Its Steps 1-15 use the full current-and-two-previous-step challenge; Step 
 First visit asks Pencil or Keypad once; Settings retains the choice, Home Screen installation instructions, and backup/restore. iPad help follows Apple's Safari instructions. The manifest supports standalone launch, without promising offline playback. Spoken questions no longer append the visible equation. Self-contained problems hide their calculation until Help is requested; direct arithmetic retains it. Wrong-answer feedback does not reveal a strategy automatically.
 
 Existing records are not deleted. Changed tests use new record namespaces; unchanged Year 1 Beat That keeps its existing keys. JSON backup/restore moves only Big Maths preferences and records, conservatively merging best scores/times. Browser storage is separate on a new domain.
+
+### Voice and independent hosting (v3.0.1)
+English speech prefers known female British voices and enhanced variants when exposed by the browser, avoids character/novelty voices, and offers a persistent voice selector and preview for iPad and Android. All prompts use rate 0.80, pitch 1.16, volume 1, and 700 ms between sentences; decimal points are not sentence breaks. Every navigation/retry cancels pending speech and pauses. Actual quality depends on available device voices; this has not been auditioned on a physical iPad or Android device.
+
+The standalone repository is repd79/big-maths and the Pages project is big-maths. The old games address keeps its own local records. Settings provides an explicit transfer link to the new app (URL fragment, not server query data), which asks the user to restore; JSON backup/restore is also available. The source ZIPs and PDFs stay local and are excluded from publication.

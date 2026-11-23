@@ -13,6 +13,7 @@ const BMProgress=(()=>{
    else if(value&&typeof value==='object'){
     const settings={};
     if(['rec','y1','y2','y3','y4','y5','y6','y56'].includes(value.level))settings.level=value.level;
+    if(typeof value.speechVoice==='string'&&value.speechVoice.length<300)settings.speechVoice=value.speechVoice;
     if(['pencil','keypad'].includes(value.input))settings.input=value.input;
     if(['practice','exam'].includes(value.mode))settings.mode=value.mode;
     if(typeof value.auto==='boolean')settings.auto=value.auto;

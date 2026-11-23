@@ -112,7 +112,7 @@ const MathsGames = (() => {
  }
  function start(id){cancelAdvance();random=id==='random';bag=[];correct=0;total=0;chosen=id;next();}
  function next(){
-  cancelAdvance();window.speechSynthesis?.cancel();
+  cancelAdvance();cancelSpeech();
   if(random){if(!bag.length){bag=shuffle(['trails',...tasks.map(t=>t.id)]);if(bag[bag.length-1]===current?.id)[bag[0],bag[bag.length-1]]=[bag[bag.length-1],bag[0]];}chosen=bag.pop();}
   if(chosen==='trails'){
    current={id:'trails'};Trails.open();$('#trailNext').textContent=random?'Next game →':'↻ New board';return;
@@ -140,14 +140,14 @@ const MathsGames = (() => {
   $('#mgProgress').innerHTML=`<span class="mg-star-track" aria-label="${correct%5} of 5 stars">${Array.from({length:5},(_,i)=>i<correct%5?'★':'☆').join(' ')}</span><br>${correct>=5?`Explorer level ${1+Math.floor(correct/5)} · `:''}Collect 5 stars to level up!`;
  }
  function feedback(ok){
-  const f=$('#mgFeedback');sound(ok);window.speechSynthesis?.cancel();
+  const f=$('#mgFeedback');sound(ok);cancelSpeech();
   f.className=ok?'mg-feedback good':'mg-feedback retry';
   f.textContent=ok?(correct%5===4?'🏆 Level up! Amazing exploring!':'⭐ Brilliant! Next adventure…'):'Try again. Tap Help if you would like a hint.';
   if(ok){solved=true;correct++;total++;$('#mgScore').textContent=`⭐ ${correct} ${correct===1?'star':'stars'}`;updateProgress();$('#mgHint').hidden=true;stage.classList.add('celebrate');stage.querySelectorAll('button').forEach(b=>b.disabled=true);advanceTimer=setTimeout(()=>{if($('#activity').classList.contains('on'))next();},1250);}
  }
- $('#mgNext').onclick=()=>next();$('#mgBack').onclick=()=>{cancelAdvance();window.speechSynthesis?.cancel();show('games');};$('#mgHint').onclick=()=>{$('#mgFeedback').className='mg-feedback';$('#mgFeedback').textContent=task.hint;if(task.equation&&!stage.querySelector('.equation-hint')){const hint=el('div','mg-equation equation-hint',task.equation);stage.querySelector('.mg-visual').append(hint);}};
+ $('#mgNext').onclick=()=>next();$('#mgBack').onclick=()=>{cancelAdvance();cancelSpeech();show('games');};$('#mgHint').onclick=()=>{$('#mgFeedback').className='mg-feedback';$('#mgFeedback').textContent=task.hint;if(task.equation&&!stage.querySelector('.equation-hint')){const hint=el('div','mg-equation equation-hint',task.equation);stage.querySelector('.mg-visual').append(hint);}};
  $('#mgListen').onclick=readProblem;
- new MutationObserver(()=>{if(!$('#activity').classList.contains('on')){cancelAdvance();window.speechSynthesis?.cancel();}}).observe($('#activity'),{attributes:true,attributeFilter:['class']});
+ new MutationObserver(()=>{if(!$('#activity').classList.contains('on')){cancelAdvance();cancelSpeech();}}).observe($('#activity'),{attributes:true,attributeFilter:['class']});
  $('#randomGames').onclick=()=>start('random');$('#openTrails').onclick=()=>start('trails');
  $('#goGames').addEventListener('click',renderMenu);renderMenu();
  return {start,next,isRandom:()=>random,tasks,getState:()=>({id:current?.id,task,solved,random,correct,bag:[...bag]})};

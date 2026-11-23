@@ -422,7 +422,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
     </div>
     <div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <div class="home-ver-pill" id="verBadge" title="Click to reload latest version">v3.0.0 · Course challenges</div>
+    <div class="home-ver-pill" id="verBadge" title="Click to reload latest version">v3.0.1 · Course challenges</div>
     <div class="settings">
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
       <div class="row"><div class="lab">Big Maths set</div><div class="seg" id="segClicSet"></div></div>
@@ -521,6 +521,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 </section>
 
 
+<dialog class="setup-dialog" id="moveProgress" aria-labelledby="moveTitle"><h2 id="moveTitle">Bring your progress with you</h2><p>This link contains your Big Maths settings and records from the old app. Restore them here?</p><p id="moveStatus" role="status"></p><button class="btn primary" id="moveRestore">Restore my progress</button> <button class="btn" id="moveFresh">Start fresh</button></dialog>
 <dialog class="setup-dialog" id="firstRun" aria-labelledby="setupTitle">
 <h2 id="setupTitle">Let's make it yours</h2>
 <p>How would you like to write your answers?</p>
@@ -545,19 +546,21 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Timer (Beat That)</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.0.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.0.1</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
-  <div class="row"><div class="lab">Keep my progress</div><div><button class="btn" id="backupProgress">Save backup</button> <button class="btn" id="restoreProgress">Restore backup</button><input type="file" id="progressFile" accept="application/json,.json" hidden><p id="progressStatus" role="status"></p><div class="hint" style="grid-column:auto">Move your settings and records to another browser or the new app address.</div></div></div>
+  <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice">Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
+  <div class="row"><div class="lab">Keep my progress</div><div><button class="btn" id="backupProgress">Save backup</button> <button class="btn" id="restoreProgress">Restore backup</button> <button class="btn primary" id="moveToNewApp" hidden>Move to the new Big Maths app</button><input type="file" id="progressFile" accept="application/json,.json" hidden><p id="progressStatus" role="status"></p><div class="hint" style="grid-column:auto">Move your settings and records to another browser or the new app address.</div></div></div>
   <div class="row"><div class="lab">Home Screen app</div><button class="btn" id="setInstall">Add as an app</button></div>
   <div class="acts2"><button class="btn primary" id="setClose">Done</button></div>
 </div></div>
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.0.0"></script>
-<script src="curriculum.js?v=3.0.0"></script>
-<script src="progress.js?v=3.0.0"></script>
+<script src="course-sheets.js?v=3.0.1"></script>
+<script src="curriculum.js?v=3.0.1"></script>
+<script src="progress.js?v=3.0.1"></script>
+<script src="signed-ink.js?v=3.0.1"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -723,7 +726,7 @@ const BMRecog = (() => {
       const b = bbox([].concat(...g.strokes)), w = b.x1 - b.x0, h = b.y1 - b.y0;
       if (g.strokes.length && w / Math.max(h, 1) > 1.3) out.push(...splitWide(g.strokes)); else out.push(g.strokes);
     }
-    return out.slice(0, 5);
+    return out.slice(0, 10);
   }
   function recognize(strokes) {
     if (!strokes.length) return { text: '', conf: 0 };
@@ -1185,7 +1188,7 @@ class Box{
   rec(){
     if(this.kpMode)return {text:this.typed,conf:this.typed?1:0};
     const n=this.strokes.reduce((a,s)=>a+s.length,0)+':'+this.strokes.length;
-    if(!this._rc||this._rc.k!==n)this._rc={k:n,r:BMRecog.recognize(this.strokes)};
+    if(!this._rc||this._rc.k!==n){const signed=BMSignedInk.split(this.strokes),result=BMRecog.recognize(signed.strokes);this._rc={k:n,r:{text:(signed.negative&&result.text?'-':'')+result.text,conf:result.conf}};}
     return this._rc.r;
   }
   hasInk(){return this.strokes.length>0||this.typed.length>0}
@@ -1278,28 +1281,55 @@ window.KP={
 };
 // Prefer named female English voices; voice order varies across iPadOS and browsers.
 function selectEnglishVoice(voices){
-  const female=/\b(serena|kate|martha|stephanie|samantha|karen|moira|tessa|victoria|susan|zira|hazel|aria|jenny|sonia|libby|sara|female)\b/i;
+  const female=/\b(serena|kate|martha|stephanie|samantha|karen|moira|tessa|victoria|fiona|nicky|zoe|susan|zira|hazel|aria|jenny|sonia|libby|sara|female)\b/i;
   const male=/\b(daniel|arthur|oliver|george|james|thomas|alex|fred|david|mark|guy|ryan|male)\b/i;
-  const novelty=/\b(albert|bad news|bahh|bells|boing|bubbles|cellos|good news|hysterical|jester|organ|trinoids|whisper|wobble|zarvox)\b/i;
+  const novelty=/\b(albert|bad news|bahh|bells|boing|bubbles|cellos|good news|hysterical|jester|organ|trinoids|whisper|wobble|zarvox|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley|superstar|junior|ralph)\b/i;
   return voices.filter(v=>/^en(?:[-_]|$)/i.test(v.lang)&&!novelty.test(v.name))
     .map(v=>({voice:v,score:(female.test(v.name)?1000:0)+(male.test(v.name)?-500:0)
       +(/^en[-_]GB$/i.test(v.lang)?100:0)+(/premium|enhanced|natural|neural/i.test(v.name)?30:0)
-      +(/\bserena\b/i.test(v.name)?10:0)+(v.localService?5:0)}))
+      +(/\bserena\b/i.test(v.name)?10:0)+(/\bsamantha\b/i.test(v.name)?20:0)+(v.localService?5:0)}))
     .sort((a,b)=>b.score-a.score)[0]?.voice||null;
 }
 let englishSpeechVoice=null;
 function refreshSpeechVoice(){
-  try{englishSpeechVoice=selectEnglishVoice(window.speechSynthesis.getVoices());}catch(_){}
+  try{
+    const voices=window.speechSynthesis.getVoices(),preferred=typeof settings!=='undefined'?settings.speechVoice:null;
+    englishSpeechVoice=voices.find(v=>v.voiceURI===preferred&&/^en(?:[-_]|$)/i.test(v.lang))||selectEnglishVoice(voices);
+    if(typeof document!=='undefined')renderSpeechChoices(voices);
+  }catch(_){}
+}
+function renderSpeechChoices(voices){
+  const select=document.getElementById('speechVoice');if(!select)return;
+  const english=voices.filter(v=>/^en(?:[-_]|$)/i.test(v.lang)&&!/\b(albert|bad news|bahh|bells|boing|bubbles|cellos|good news|hysterical|jester|organ|trinoids|whisper|wobble|zarvox|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley|superstar|junior|ralph)\b/i.test(v.name));
+  const signature=english.map(v=>v.voiceURI).join('|');
+  if(select.dataset.voices!==signature||!select.options.length){
+    select.textContent='';const auto=document.createElement('option');auto.value='';auto.textContent='Recommended female voice';select.append(auto);
+    english.sort((a,b)=>(/^en[-_]GB$/i.test(b.lang)?1:0)-(/^en[-_]GB$/i.test(a.lang)?1:0)||a.name.localeCompare(b.name)).forEach(voice=>{const option=document.createElement('option');option.value=voice.voiceURI;option.textContent=voice.name+' · '+voice.lang;select.append(option);});select.dataset.voices=signature;
+  }
+  select.value=english.some(v=>v.voiceURI===settings.speechVoice)?settings.speechVoice:'';
+  const note=document.getElementById('voiceNote');if(note)note.textContent=englishSpeechVoice?'Using '+englishSpeechVoice.name+' ('+englishSpeechVoice.lang+'). This list depends on the voices your device makes available to the browser.':'English voices are still loading. Tap Try voice to refresh.';
+}
+
+let speechToken=0,speechPauseTimer=null;
+function cancelSpeech(){
+  speechToken++;clearTimeout(speechPauseTimer);speechPauseTimer=null;
+  try{window.speechSynthesis?.cancel();}catch(_){}
 }
 function speakText(t){
   try{
     const ss=window.speechSynthesis;if(!ss)return false;
-    refreshSpeechVoice();ss.cancel();
-    const u=new SpeechSynthesisUtterance(t);
-    u.lang=englishSpeechVoice?.lang||'en-GB';
-    if(englishSpeechVoice)u.voice=englishSpeechVoice;
-    u.rate=.95;u.pitch=1.08;u.volume=1;
-    ss.speak(u);return true;
+    refreshSpeechVoice();cancelSpeech();const token=speechToken;
+    // Split at sentence boundaries, never at decimal points. The user gesture starts sentence one.
+    const sentences=String(t).trim().split(/(?<=[.!?])\s+(?=[A-Z])/).filter(Boolean);
+    const next=index=>{
+      if(token!==speechToken||index>=sentences.length)return;
+      const u=new SpeechSynthesisUtterance(sentences[index]);
+      u.lang=englishSpeechVoice?.lang||'en-GB';if(englishSpeechVoice)u.voice=englishSpeechVoice;
+      u.rate=.80;u.pitch=1.16;u.volume=1;
+      u.onend=()=>{if(token===speechToken&&index+1<sentences.length)speechPauseTimer=setTimeout(()=>next(index+1),700);};
+      ss.speak(u);
+    };
+    next(0);return sentences.length>0;
   }catch(e){return false}
 }
 function speak(n){return speakText(WORDS[n])}
@@ -1325,7 +1355,8 @@ function bestText(kind,total,extraFn){
 }
 function refreshHome(){
   $('#homeBrand').innerHTML=BRAND.wordmark();$('#homePip').innerHTML=BRAND.pip('normal');
-  segBuild($('#segWeek'),[...ENABLED.map(w=>[w,String(w)]),['rand',UI.i('dice')+' Random (mix of all weeks)']],()=>settings.week,v=>settings.week=v);
+  if(settings.week!=='rand'&&settings.week>BM_SHEETS[settings.level].sheets.length)settings.week=1;
+  segBuild($('#segWeek'),[...Array.from({length:BM_SHEETS[settings.level].sheets.length},(_,i)=>i+1).map(w=>[w,String(w)]),['rand',UI.i('dice')+' Random (mix of all weeks)']],()=>settings.week,v=>settings.week=v);
   segBuild($('#segLevel'),MTABS.map(([k,n])=>[k,n]),()=>settings.level,v=>settings.level=v);
   $('#lvChip').textContent='🎓 '+lvName()+'  ·  change';
   $('#rowWeek').style.display='';
@@ -1938,7 +1969,7 @@ function buildQ(d,idx){
   return {d,q,boxes,label,exp,verdict:null,idx};
 }
 function startClic(spec){
-  window.speechSynthesis&&speechSynthesis.cancel();
+  cancelSpeech();
   C.spec=spec&&spec.mk?spec:null;
   const data=C.spec?C.spec.mk():buildClicData();
   const st=$('#qstage');st.innerHTML='';
@@ -1962,7 +1993,7 @@ function goQ(i,userGesture){
   updateDots();
   if(x.d.t==='star'&&userGesture){speak(x.d.n);if(x.q.speakBtn){x.q.speakBtn.classList.add('talk');setTimeout(()=>x.q.speakBtn.classList.remove('talk'),1400)}}
   else if(userGesture)speakText(x.d.say||BMContent.speech(x.d.q||x.label));
-  else window.speechSynthesis&&speechSynthesis.cancel();
+  else cancelSpeech();
 }
 function updateDots(){
   const practiceAuto=settings.auto&&settings.mode==='practice';
@@ -1982,9 +2013,9 @@ function updateDots(){
 $('#prevQ').addEventListener('click',()=>goQ(Math.max(0,C.i-1),true));
 $('#nextQ').addEventListener('click',()=>{if(C.i<C.qs.length-1)goQ(C.i+1,true);else finishClic()});
 $('#revealQ').addEventListener('click',()=>{const x=C.qs[C.i];const on=!x.boxes[0].host.classList.contains('show-rv');x.boxes.forEach(b=>b.reveal(on));$('#revealQ').textContent=on?'🙈 Hide':'👁 Show answer'});
-$('#clicBack').addEventListener('click',()=>{session.active=false;window.speechSynthesis&&speechSynthesis.cancel();if(C.spec){renderExtra();show('extra')}else{refreshHome();show('home')}});
+$('#clicBack').addEventListener('click',()=>{session.active=false;cancelSpeech();if(C.spec){renderExtra();show('extra')}else{refreshHome();show('home')}});
 function finishClic(){
-  session.active=false;window.speechSynthesis&&speechSynthesis.cancel();
+  session.active=false;cancelSpeech();
   C.qs.forEach(x=>{x.boxes.forEach(b=>{b.lock();b.reveal(false)});
     const g=x.boxes.map(b=>b.grade());x.verdict=g.some(v=>v===null)?null:g.every(v=>v===true);});
   let rec=false,score10=0;
@@ -2127,7 +2158,7 @@ const Trails=(()=>{
 })();
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.0.0';
+const APP_VERSION = 'v3.0.1';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2183,6 +2214,14 @@ if(window.speechSynthesis){
 UI.fill();refreshHome();
 
 
+$('#moveToNewApp').hidden=location.hostname!=='games-78f.pages.dev';
+$('#moveToNewApp').onclick=()=>{location.href='https://big-maths.pages.dev/#bm-progress='+encodeURIComponent(JSON.stringify(BMProgress.exportData(localStorage)));};
+const incomingProgress=location.hash.startsWith('#bm-progress=')?location.hash.slice(13):null;
+const clearIncoming=()=>history.replaceState(null,'',location.pathname+location.search);
+$('#moveFresh').onclick=()=>{clearIncoming();$('#moveProgress').close();if(!store.get('bm.onboarding.v1',false))$('#firstRun').showModal();};
+$('#moveRestore').onclick=()=>{try{if(incomingProgress.length>512000)throw Error('This transfer is too large. Use a backup file instead.');BMProgress.restore(localStorage,JSON.parse(decodeURIComponent(incomingProgress)));clearIncoming();location.reload();}catch(error){$('#moveStatus').textContent=error.message;}};
+$('#speechVoice').onchange=()=>{settings.speechVoice=$('#speechVoice').value;save();refreshSpeechVoice();speakText('Hello! Let’s have a go at some maths. Take your time and do your best.');};
+$('#tryVoice').onclick=()=>speakText('Hello! Let’s have a go at some maths. Take your time and do your best.');
 $('#backupProgress').onclick=()=>{
  const file=new Blob([JSON.stringify(BMProgress.exportData(localStorage),null,2)],{type:'application/json'}),url=URL.createObjectURL(file),link=document.createElement('a');link.href=url;link.download='big-maths-progress.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('#progressStatus').textContent='Backup saved. Keep it to move your records to the new app.';
 };
@@ -2210,10 +2249,10 @@ let setupInput=null;
 for(const [id,value] of [['setupPencil','pencil'],['setupKeypad','keypad']])$('#'+id).onclick=()=>{setupInput=value;$('#setupPencil').setAttribute('aria-pressed',String(value==='pencil'));$('#setupKeypad').setAttribute('aria-pressed',String(value==='keypad'));$('#setupDone').disabled=false;};
 $('#setupDone').onclick=()=>{if(!setupInput)return;settings.input=setupInput;save();store.set('bm.onboarding.v1',true);$('#firstRun').close();refreshHome();};
 renderInstallHelp();
-if(!store.get('bm.onboarding.v1',false))$('#firstRun').showModal();
+if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboarding.v1',false))$('#firstRun').showModal();
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.0.0"></script>
+<script src="maths-games.js?v=3.0.1"></script>
 </body>
 </html>
