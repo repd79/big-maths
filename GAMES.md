@@ -136,3 +136,8 @@ The Big Maths wrapper is now the card surface, containing both the launch button
 Question panels fill available space more consistently, with larger answer areas and usable landscape treatment. Progress states, selected choices, right/wrong answers, disabled controls and reduced-motion behavior are retained. The v3.3 fresh-start marker remains unchanged: this UI release does not reset newly created profiles or records again.
 
 Texture master: workspace output/imagegen/big-maths/paper-texture.png. App asset and built-in generation prompt: assets/paper-texture.webp and assets/paper-texture-prompt.txt.
+
+## Monster app identity and clearer controls (v3.4.1)
+The existing monster's close-up portrait is used for PNG favicons (32/64), Apple Home Screen icon (180), manifest icons (192/512), and square Open Graph/Twitter thumbnail (1024). Filenames are new so browsers can fetch the updated artwork. Manifest identity, profiles and the fresh-start marker stay unchanged. The artwork was derived from the existing mascot through the built-in image generator; master and prompt are preserved.
+
+The source worksheet link is removed from the player interface. The school-year control separates the year label from a purple Change action, retaining one accessible button and a clear accessible name. The random-week option is simply Random.

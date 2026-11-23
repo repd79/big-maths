@@ -12,9 +12,21 @@
 <meta name="apple-mobile-web-app-title" content="Big Maths">
 <meta name="theme-color" content="#f5f6ee">
 <title>Big Maths · Beat That</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Big Maths · Beat That">
+<meta property="og:description" content="A friendly maths adventure. Practise, play and beat your best!">
+<meta property="og:url" content="https://big-maths.pages.dev/">
+<meta property="og:image" content="https://big-maths.pages.dev/icon-monster-1024.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="The friendly green Big Maths monster">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Big Maths · Beat That">
+<meta name="twitter:image" content="https://big-maths.pages.dev/icon-monster-1024.png">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-v3-180.png">
-<link rel="icon" type="image/png" href="icon-v3-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-monster-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-monster-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="icon-monster-64.png">
 <style>
 :root{
   --brand:#3fae49; --brand-d:#1d6b2c; --line:#cfe6c4; --blue:#00aeef; --orange:#fbbd78; --pink:#f58cc8; --gray:#7b7b7b;
@@ -445,9 +457,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .worksheet-source{font-size:14px;font-weight:600;color:#665285;text-underline-offset:3px}#setModal .setcard{border:1px solid #d3dfc8;border-radius:26px;box-shadow:0 14px 70px #193f2f30;padding:24px;background:#fafcf6}#setModal h2{font-family:var(--title);font-size:28px;color:#35553b}#setModal .row{padding-bottom:12px;border-bottom:1px solid #e3eadc}#setModal .row>.lab,#setModal .row>label{font-size:17px}.xbtn{border:1px solid #d9e4d0;border-radius:22px;box-shadow:0 4px 0 #dce5d4}.xbtn .xt{color:#35553b}.stats-card{border-width:1px!important;box-shadow:0 14px 70px #193f2f30}#firstRun .install-panel summary{font-weight:650;font-size:16px;cursor:pointer}.brandrow .brand-mascot{transform:scale(1.25)}
 #home #goGames,#home #goExtra{grid-column:auto}.worksheet-choice{display:block}.worksheet-heading{cursor:pointer;list-style:none}.worksheet-heading::-webkit-details-marker{display:none}.worksheet-heading>div{flex:1}.worksheet-change{font-size:13px;font-weight:700;color:#665285;background:#eee8f4;border-radius:9px;padding:7px 9px}.worksheet-options{display:grid;gap:12px;margin-top:14px}.worksheet-choice:not([open]) .worksheet-options{display:none}.worksheet-heading p{margin-bottom:0}.worksheet-choice[open]{box-shadow:0 4px 0 #dce5d4}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.4.0">
+<link rel="stylesheet" href="maths-games.css?v=3.4.1">
 <link rel="preload" href="assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="premium-ui.css?v=3.4.0">
+<link rel="stylesheet" href="premium-ui.css?v=3.4.1">
 </head>
 <body>
 
@@ -460,7 +472,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
     </div>
     <div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.4.0 · Fresh adventures</button>
+    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.4.1 · Fresh adventures</button>
     <div class="settings">
       <div class="row"><label class="lab" for="childProfile">Who’s playing?</label><div class="profile-controls"><select id="childProfile" aria-label="Player"></select><button class="btn" id="addProfile" aria-label="Add another child" title="Add another child">+</button></div></div>
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
@@ -468,7 +480,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
     </div>
     <div class="play">
       <button class="card-go a" id="goSums"><span class="em" data-i="clock"></span><div><h2>Beat That</h2><p id="beatDescription">Questions matched to your course.</p></div><span class="card-footer"><span class="best" id="bestSums"></span><span class="play-cue">Play</span></span></button>
-      <div class="big-maths-choice">      <button class="card-go b" id="goClic"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your school worksheet, one challenge at a time.</p></div><span class="card-footer"><span class="best" id="bestClic"></span><span class="play-cue">Play</span></span></button><details class="worksheet-choice" id="classicChoices"><summary class="worksheet-heading"><img src="assets/icons/practice.webp" alt=""><div><b>School worksheet</b><p id="classicDescription"></p></div><span class="worksheet-change">Change</span></summary><div class="worksheet-options"><div class="seg" id="segClassicLevel"></div><small>Suggested start for this year. Choose the level used at school.</small><a class="worksheet-source" id="classicSource" href="https://www.kingsfurlong.net/big-maths" target="_blank" rel="noopener">View the original school worksheet</a><details id="modernChoices"><summary>School uses CLIC 1–20?</summary><p>A different series. Match the CLIC number on your school sheet.</p><div class="seg" id="segClicSet"></div></details></div></details></div>
+      <div class="big-maths-choice">      <button class="card-go b" id="goClic"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your school worksheet, one challenge at a time.</p></div><span class="card-footer"><span class="best" id="bestClic"></span><span class="play-cue">Play</span></span></button><details class="worksheet-choice" id="classicChoices"><summary class="worksheet-heading"><img src="assets/icons/practice.webp" alt=""><div><b>School worksheet</b><p id="classicDescription"></p></div><span class="worksheet-change">Change</span></summary><div class="worksheet-options"><div class="seg" id="segClassicLevel"></div><small>Suggested start for this year. Choose the level used at school.</small><details id="modernChoices"><summary>School uses CLIC 1–20?</summary><p>A different series. Match the CLIC number on your school sheet.</p><div class="seg" id="segClicSet"></div></details></div></details></div>
       <button class="card-go d" id="goGames"><span class="em" data-i="games"></span><div><h2>Maths games</h2><p>Numbers, money, clocks, shapes and more. Tap Play for a new adventure.</p></div><span class="best">Play & explore</span></button>
       <button class="card-go c" id="goExtra"><span class="em" data-i="practice"></span><div><h2>Extra practice</h2><p>Pick a topic: Learn Its, jigsaw, Pim, Smile, Mully, stories…</p></div><span class="best">All levels</span></button>
     </div>
@@ -594,7 +606,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Default timer</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.4.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.4.1</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice">Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -605,13 +617,13 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.4.0"></script>
-<script src="classic-sheets.js?v=3.4.0"></script>
-<script src="curriculum.js?v=3.4.0"></script>
-<script src="profiles.js?v=3.4.0"></script>
-<script src="round-options.js?v=3.4.0"></script>
-<script src="progress.js?v=3.4.0"></script>
-<script src="signed-ink.js?v=3.4.0"></script>
+<script src="course-sheets.js?v=3.4.1"></script>
+<script src="classic-sheets.js?v=3.4.1"></script>
+<script src="curriculum.js?v=3.4.1"></script>
+<script src="profiles.js?v=3.4.1"></script>
+<script src="round-options.js?v=3.4.1"></script>
+<script src="progress.js?v=3.4.1"></script>
+<script src="signed-ink.js?v=3.4.1"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -1386,14 +1398,13 @@ function refreshHome(){
   renderProfiles();
   $('#homeBrand').innerHTML=BRAND.wordmark();$('#homePip').innerHTML=BRAND.pip('normal');
   if(settings.week!=='rand'&&settings.week>BM_SHEETS[settings.level].sheets.length)settings.week=1;
-  segBuild($('#segWeek'),[...Array.from({length:BM_SHEETS[settings.level].sheets.length},(_,i)=>i+1).map(w=>[w,String(w)]),['rand',UI.i('dice')+' Random (mix of all weeks)']],()=>settings.week,v=>settings.week=v);
+  segBuild($('#segWeek'),[...Array.from({length:BM_SHEETS[settings.level].sheets.length},(_,i)=>i+1).map(w=>[w,String(w)]),['rand',UI.i('dice')+' Random']],()=>settings.week,v=>settings.week=v);
   segBuild($('#segLevel'),MTABS.map(([k,n])=>[k,n]),()=>settings.level,v=>settings.level=v);
-  $('#lvChip').textContent=lvName()+' · Change';
+  $('#lvChip').innerHTML='<span class="course-name">'+lvName()+'</span><span class="course-change">Change</span>';
+  $('#lvChip').setAttribute('aria-label','Change school year, currently '+lvName());
   $('#rowWeek').style.display='';
   segBuild($('#segClassicLevel'),[1,2,3,4,5].map(n=>[n,'Level '+n]),()=>clicLevel()==='school'?classicLevel():null,v=>{settings.classicLevels[settings.level]=v;settings.worksheetSeries='classic'});
   $('#classicDescription').textContent=clicLabel();
-  $('#classicSource').href='https://www.kingsfurlong.net/attachments/documents.asp?id='+(153+classicLevel());
-  $('#classicSource').hidden=settings.worksheetSeries==='modern';
   segBuild($('#segClicSet'),Array.from({length:20},(_,i)=>[i+1,'CLIC '+(i+1)]),()=>clicLevel()==='school'?null:clicLevel(),v=>{settings.clicSets[settings.level]=v;settings.worksheetSeries='modern';});
   $('#modernChoices').open=settings.worksheetSeries==='modern';
   $('#beatDescription').textContent=BM_SHEETS[settings.level].count+' questions. '+(settings.time==='course'?courseTime()+' seconds for this course.':'Choose where to start!');
@@ -2230,7 +2241,7 @@ $('#roundCancel').onclick=()=>$('#roundSetup').close();
 $('#roundPlay').onclick=()=>{settings.mode=roundMode;save();const seconds=BMRoundOptions.dialSeconds(Number($('#timeWheel').value),BM_SHEETS[settings.level].seconds);$('#roundSetup').close();if(roundKind==='sums')startSums(seconds);else startClic();};
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.4.0';
+const APP_VERSION = 'v3.4.1';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2326,6 +2337,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.4.0"></script>
+<script src="maths-games.js?v=3.4.1"></script>
 </body>
 </html>
