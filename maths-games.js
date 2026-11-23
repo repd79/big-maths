@@ -119,8 +119,8 @@ const MathsGames = (() => {
   }
   current=tasks.find(t=>t.id===chosen);task=prepareTask(current.generate());solved=false;show('activity');
   $('#mgTitle').textContent=current.title;$('#mgMode').textContent=random?'▶ Play':current.category;
-  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgNext').textContent='Skip →';$('#mgScore').textContent=`⭐ ${correct} stars`;
-  stage.innerHTML='';const visual=el('div','mg-visual',task.visual||'');stage.append(visual);const buddy=el('div','mg-buddy',mascot());buddy.setAttribute('aria-hidden','true');visual.prepend(buddy);
+  $('#mgPrompt').textContent=task.prompt;$('#mgFeedback').textContent='Tap your answer!';$('#mgFeedback').className='mg-feedback';stage.classList.remove('celebrate');$('#mgHint').hidden=false;$('#mgHint').textContent='💡 Help';$('#mgHint').setAttribute('aria-expanded','false');$('#mgNext').textContent='Skip →';$('#mgScore').textContent=`⭐ ${correct} stars`;
+  stage.innerHTML='';const visual=el('div','mg-visual',task.visual||'');stage.append(visual);
   const response=el('div','mg-response');stage.append(response);
   if(task.kind==='select'){
    const grid=el('div','mg-number-grid'),found=new Set();
@@ -145,7 +145,12 @@ const MathsGames = (() => {
   f.textContent=ok?(correct%5===4?'🏆 Level up! Amazing exploring!':'⭐ Brilliant! Next adventure…'):'Try again. Tap Help if you would like a hint.';
   if(ok){solved=true;correct++;total++;$('#mgScore').textContent=`⭐ ${correct} ${correct===1?'star':'stars'}`;updateProgress();$('#mgHint').hidden=true;stage.classList.add('celebrate');stage.querySelectorAll('button').forEach(b=>b.disabled=true);advanceTimer=setTimeout(()=>{if($('#activity').classList.contains('on'))next();},1250);}
  }
- $('#mgNext').onclick=()=>next();$('#mgBack').onclick=()=>{cancelAdvance();cancelSpeech();show('games');};$('#mgHint').onclick=()=>{$('#mgFeedback').className='mg-feedback';$('#mgFeedback').textContent=task.hint;if(task.equation&&!stage.querySelector('.equation-hint')){const hint=el('div','mg-equation equation-hint',task.equation);stage.querySelector('.mg-visual').append(hint);}};
+ $('#mgNext').onclick=()=>next();$('#mgBack').onclick=()=>{cancelAdvance();cancelSpeech();show('games');};$('#mgHint').onclick=()=>{
+  const existing=stage.querySelector('.equation-hint');
+  if(existing){existing.remove();$('#mgFeedback').textContent='Tap your answer!';$('#mgHint').textContent='💡 Help';$('#mgHint').setAttribute('aria-expanded','false');return;}
+  $('#mgFeedback').className='mg-feedback';$('#mgFeedback').textContent=task.hint;
+  if(task.equation){const hint=el('div','equation-hint'),caption=el('p','mg-hint-label','Calculation hint'),calculation=el('div','mg-equation',task.equation);hint.append(caption,calculation);stage.querySelector('.mg-visual').append(hint);$('#mgHint').textContent='Hide hint';$('#mgHint').setAttribute('aria-expanded','true');}
+ };
  $('#mgListen').onclick=readProblem;
  new MutationObserver(()=>{if(!$('#activity').classList.contains('on')){cancelAdvance();cancelSpeech();}}).observe($('#activity'),{attributes:true,attributeFilter:['class']});
  $('#randomGames').onclick=()=>start('random');$('#openTrails').onclick=()=>start('trails');
