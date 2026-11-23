@@ -26,6 +26,8 @@ const BMProgress=(()=>{
     if(value.timerDefaultsVersion===1)settings.timerDefaultsVersion=1;
     if(value.timingVersion===3)settings.timingVersion=3;
     if(value.schoolSeriesVersion===1)settings.schoolSeriesVersion=1;
+    if(['classic','modern'].includes(value.worksheetSeries))settings.worksheetSeries=value.worksheetSeries;
+    if(value.classicLevels&&typeof value.classicLevels==='object'){settings.classicLevels={};for(const [course,n] of Object.entries(value.classicLevels))if(/^(rec|y[1-6])$/.test(course)&&Number.isInteger(n)&&n>=1&&n<=5)settings.classicLevels[course]=n;}
     if(value.clicSets&&typeof value.clicSets==='object'){settings.clicSets={};for(const [course,n]of Object.entries(value.clicSets))if(/^(rec|y[1-6])$/.test(course)&&(Number.isInteger(n)&&n>=1&&n<=20||course==='y1'&&n==='school'))settings.clicSets[course]=n;}
     clean[key]=JSON.stringify(settings);
    }

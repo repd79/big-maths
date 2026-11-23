@@ -8,7 +8,7 @@ const BMProfiles=(()=>{
  }
  function create(storage){
   let state;try{state=clean(JSON.parse(storage.getItem(META)));}catch(_){}
-  state ||= {active:'legacy',children:[{id:'legacy',name:'Player 1'}]};
+  state ||= {active:'legacy',children:[{id:'legacy',name:'Your name'}]};
   const persist=()=>storage.setItem(META,JSON.stringify(state));
   const key=k=>state.active==='legacy'||!(k==='bm.settings'||k.startsWith('bm.best.'))?k:'bm.child.'+state.active+'.'+k.slice(3);
   function activate(id){if(!state.children.some(p=>p.id===id))throw Error('Choose an existing player.');state.active=id;persist();}
@@ -16,6 +16,11 @@ const BMProfiles=(()=>{
   function rename(name){name=String(name||'').trim();if(!name||name.length>40)throw Error('Use a name between 1 and 40 characters.');state.children.find(p=>p.id===state.active).name=name;persist();}
   return {key,activate,add,rename,list:()=>state.children.map(p=>({...p})),active:()=>state.active};
  }
- return {create,clean,validId};
+ function freshStart(storage){
+  const flag='bm.fresh-start.v3.3';if(storage.getItem(flag)==='done')return false;
+  const keys=[];for(let i=0;i<storage.length;i++){const key=storage.key(i);if(key&&key.startsWith('bm.'))keys.push(key);}
+  for(const key of keys)storage.removeItem(key);storage.setItem(flag,'done');return true;
+ }
+ return {create,clean,validId,freshStart};
 })();
 if(typeof module!=='undefined')module.exports=BMProfiles;
