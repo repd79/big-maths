@@ -1,0 +1,12 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const source=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const start=source.indexOf('const BMRecog = (() => {'),end=source.indexOf('</script>',start);
+const context={module:{exports:{}}};vm.createContext(context);vm.runInContext(source.slice(start,end),context);
+const candidates=context.module.exports.crossedSevenBackbones;
+test('a seven with a separate middle bar gets a plain-seven candidate',()=>{const main=[[0,0],[45,0],[15,100]];const result=candidates([main,[[5,50],[40,50]]]);assert.equal(result.length,1);assert.equal(result[0][0],main);});
+test('a three-stroke seven and a right-to-left middle bar are supported',()=>{assert.equal(candidates([[[0,0],[45,0]],[[45,0],[15,100]],[[40,60],[5,58]]]).length,1);});
+test('a normal seven is left alone',()=>{assert.equal(candidates([[[0,0],[45,0],[15,100]]]).length,0);});
+test('crossed fours and ones are not treated as seven backbones',()=>{assert.equal(candidates([[[40,0],[0,55]],[[0,55],[50,55]],[[40,0],[40,100]]]).length,0);assert.equal(candidates([[[0,20],[25,0],[25,100]],[[5,50],[40,50]]]).length,0);});
+test('top bars and scribbles are not removed as a middle bar',()=>{assert.equal(candidates([[[0,0],[45,0],[15,100]],[[5,-25],[40,-25]]]).length,0);assert.equal(candidates([[[0,0],[45,0],[15,100]],[[5,50],[40,50],[5,50],[40,50]]]).length,0);});
