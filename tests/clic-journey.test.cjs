@@ -1,0 +1,6 @@
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const J=require('../clic-journey.js');
+test('three perfect assessments in consecutive weeks move to the next CLIC',()=>{let state={level:4};for(const week of ['2026-11-02','2026-11-09','2026-11-16'])state=J.record(state,{level:4,score:10,set:1,week}).state;assert.equal(state.level,5);assert.equal(J.streak(state.records,4),3);});
+test('repeating one week cannot create a promotion',()=>{let state={level:5};for(let i=0;i<5;i++)state=J.record(state,{level:5,score:10,set:i+1,week:'2026-11-02'}).state;assert.equal(state.level,5);assert.equal(state.records.length,1);assert.equal(J.streak(state.records,5),1);});
+test('a lower score or missing week interrupts the streak',()=>{let state={level:6};for(const [week,score]of [['2026-11-02',10],['2026-11-09',9],['2026-11-16',10]])state=J.record(state,{level:6,score,set:1,week}).state;assert.equal(J.streak(state.records,6),1);state=J.record(state,{level:6,score:10,set:2,week:'2026-11-30'}).state;assert.equal(J.streak(state.records,6),1);});
+test('oral assessments stay on one sheet; written sets cycle after ten',()=>{assert.equal(J.record({}, {level:4,set:1,score:9}).state.sets[4],1);assert.equal(J.record({}, {level:5,set:10,score:9}).state.sets[5],1);});

@@ -134,3 +134,50 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 @media(max-width:700px){#home #goSums>.em,#home #clicCardIntro>.em{width:145px;height:155px;right:16px;top:22px}#home #goSums h2,#home #clicCardIntro h2{margin-right:125px}#home #goSums p,#home #clicCardIntro p{margin-right:130px}#home .big-maths-choice>#clicCardIntro{min-height:190px}#home .worksheet-dropdown{margin:8px 24px 0;gap:10px}}
 
 @media(max-width:700px){#home #goSums{min-height:285px}}
+
+#home .worksheet-dropdown{margin-top:6px}
+#home .worksheet-set{margin-top:8px}#home .worksheet-set select{flex:0 1 130px}
+#home .worksheet-set[hidden]{display:none}
+#home .worksheet-note{margin:8px 25px 0;font-size:14px;line-height:1.35;color:#586f50}
+#home .worksheet-note:empty{display:none}
+.assessment-tag{font:800 16px var(--font);color:#75538e;background:#eee5f4;padding:8px 14px;border-radius:12px;margin:0}
+/* Compact, aligned home header: the brand sits beside the child and course. */
+#home .wrap{gap:18px;padding-top:76px;width:min(1180px,96vw)}
+.home-heading{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:center;gap:26px;width:100%}
+#home .home-heading .brandrow{width:100%;max-width:none;margin:0;gap:2px}
+#home .home-heading .brandrow .pipwrap{width:55px}#home .home-heading .brand-mascot{height:95px;transform:none}
+#home .home-heading .settings{width:100%;padding:18px 22px;gap:12px}
+#home .home-heading #childProfile{font-size:18px;font-weight:700;min-height:44px;padding:8px 13px}
+#home .home-heading .profile-course-grid{grid-template-columns:minmax(160px,1fr) auto;gap:20px}
+#home .home-heading #lvChip{min-height:44px}#home .home-heading .course-name{font-size:17px}
+#home .home-heading #addProfile{font-size:24px;min-height:42px;padding:0 13px;border-radius:12px}
+#home .home-heading .row>.lab{font-size:14px}#home .home-heading #rowWeek{gap:10px;align-items:center}
+#home .home-heading #segWeek{gap:6px}#home .home-heading #segWeek button{font-size:14px;padding:7px 10px;min-width:34px;min-height:36px;border-radius:10px}
+#home .home-heading #segWeek .app-icon{width:23px;height:23px}
+#home .play{width:100%;gap:18px}
+#home #goSums,#home .big-maths-choice{min-height:292px}
+#home .big-maths-choice>#clicCardIntro{min-height:155px;padding:22px 22px 0}
+#home #goSums>.em,#home #clicCardIntro>.em{width:145px;height:155px;right:17px;top:16px}
+#home #goSums h2,#home #clicCardIntro h2{margin-right:132px}
+#home #goSums p,#home #clicCardIntro p{margin-right:137px}
+#home #goSums{padding:22px 22px 20px}
+#home .big-maths-choice .big-maths-footer{padding:15px 22px 20px;min-height:87px}
+.classic-controls{display:flex;align-items:center;gap:10px;margin:6px 22px 0;min-height:44px}
+.classic-controls>span{font-size:16px;font-weight:750;margin-right:auto;color:#3d5940}.classic-controls label{font-size:14px;color:#607456}
+.classic-controls select{font:700 16px var(--font);min-height:42px;min-width:76px;padding:6px 10px;border:1px solid #cbd8bc;background:#fffdf5;border-radius:11px;color:#3d5940}
+#home .clic-path-card{--card-color:#e8e1ef;min-height:230px}#home .clic-path-card .card-footer{margin-top:25px}
+#home #goExtra{grid-column:1/-1;min-height:150px}
+.clic-path-wrap{width:min(720px,92vw);margin:12px auto;padding:26px;background:#fffdf7;border:1px solid #d8e2cd;border-radius:26px;overflow:auto}
+.clic-path-wrap h1{font-size:36px;line-height:1.1;margin:0 0 15px;color:#35543c}.clic-path-wrap p{font-size:17px;line-height:1.5;color:#587050}
+.clic-path-options{display:flex;flex-wrap:wrap;gap:16px;margin:20px 0}.clic-path-options label{display:flex;gap:10px;align-items:center;font-weight:700}.clic-path-options select{font:700 17px var(--font);min-height:46px;padding:8px 14px;border:1px solid #cbd8bc;border-radius:12px;background:#fff;color:#3d5940}
+.clic-path-options label[hidden]{display:none}.journey-streak{font-size:23px;font-weight:800;color:#76578e;margin-top:24px}.clic-path-wrap .journey-rule{font-size:15px}.clic-path-wrap .assessment-tag{color:#75538e}
+#confirmClicAssessment{margin:12px auto}
+@media(max-width:1000px) and (min-width:701px){.home-heading{grid-template-columns:175px minmax(0,1fr);gap:18px}#home .home-heading .brandrow .pipwrap{width:38px}#home .home-heading .brand-mascot{height:75px}#home .home-heading .settings{padding:16px}#home .home-heading #rowWeek{flex-direction:column;align-items:flex-start}#home #goSums>.em,#home #clicCardIntro>.em{width:125px;height:140px;right:10px;top:20px}#home #goSums h2,#home #clicCardIntro h2{margin-right:112px}#home #goSums p,#home #clicCardIntro p{margin-right:117px}}
+@media(max-width:700px){#home .wrap{padding-top:64px;gap:15px}.home-heading{grid-template-columns:1fr;gap:12px}#home .home-heading .brandrow{width:205px;margin:auto}#home .home-heading .brandrow .pipwrap{width:45px}#home .home-heading .brand-mascot{height:75px}#home .home-heading .settings{padding:16px}#home .home-heading .profile-course-grid{grid-template-columns:minmax(0,1fr) auto;gap:12px}#home .home-heading .profile-course-grid .profile-controls{gap:7px}#home .home-heading #childProfile{font-size:17px}#home .home-heading #lvChip{gap:7px;padding-left:10px}#home .home-heading .course-name{font-size:16px}#home .home-heading .course-change{font-size:13px;padding:0 8px}#home .home-heading #rowWeek{align-items:flex-start;gap:8px}#home #goSums{min-height:265px}#home .big-maths-choice>#clicCardIntro{min-height:170px}#home #goExtra{grid-column:auto}.classic-controls{gap:8px}.classic-controls>span{font-size:15px}.clic-path-wrap{padding:22px}}
+#home .wrap{padding-top:22px}
+.home-brand{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0}
+#home .home-brand .topbtns{position:static;display:flex;gap:9px}
+#home .home-brand .ibtn{width:40px;height:40px;border-radius:13px}
+#home .home-brand .ibtn .em,#home .home-brand .ibtn .app-icon{width:30px;height:30px}
+#home .home-brand .home-ver-pill{position:static;align-self:center;margin:0;font-size:12px;padding:0;min-height:18px;opacity:.65}
+@media(max-width:700px){#home .wrap{padding-top:16px}.home-brand{position:relative;min-height:95px;justify-content:center;padding-right:80px}.home-heading{gap:10px}#home .home-heading .brandrow{width:190px;margin:0}#home .home-brand .topbtns{position:absolute;right:0;top:18px}#home .home-brand .home-ver-pill{position:absolute;right:18px;top:68px}#home .home-brand .brandrow .pipwrap{width:40px}}

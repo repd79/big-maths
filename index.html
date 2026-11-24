@@ -457,9 +457,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .worksheet-source{font-size:14px;font-weight:600;color:#665285;text-underline-offset:3px}#setModal .setcard{border:1px solid #d3dfc8;border-radius:26px;box-shadow:0 14px 70px #193f2f30;padding:24px;background:#fafcf6}#setModal h2{font-family:var(--title);font-size:28px;color:#35553b}#setModal .row{padding-bottom:12px;border-bottom:1px solid #e3eadc}#setModal .row>.lab,#setModal .row>label{font-size:17px}.xbtn{border:1px solid #d9e4d0;border-radius:22px;box-shadow:0 4px 0 #dce5d4}.xbtn .xt{color:#35553b}.stats-card{border-width:1px!important;box-shadow:0 14px 70px #193f2f30}#firstRun .install-panel summary{font-weight:650;font-size:16px;cursor:pointer}.brandrow .brand-mascot{transform:scale(1.25)}
 #home #goGames,#home #goExtra{grid-column:auto}.worksheet-choice{display:block}.worksheet-heading{cursor:pointer;list-style:none}.worksheet-heading::-webkit-details-marker{display:none}.worksheet-heading>div{flex:1}.worksheet-change{font-size:13px;font-weight:700;color:#665285;background:#eee8f4;border-radius:9px;padding:7px 9px}.worksheet-options{display:grid;gap:12px;margin-top:14px}.worksheet-choice:not([open]) .worksheet-options{display:none}.worksheet-heading p{margin-bottom:0}.worksheet-choice[open]{box-shadow:0 4px 0 #dce5d4}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.4.4">
+<link rel="stylesheet" href="maths-games.css?v=3.5.0">
 <link rel="preload" href="assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="premium-ui.css?v=3.4.4">
+<link rel="stylesheet" href="premium-ui.css?v=3.5.0">
 </head>
 <body>
 
@@ -467,22 +467,23 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <section id="home" class="screen on">
   <div class="frame"></div>
   <div class="wrap">
+    <div class="home-heading"><div class="home-brand"><div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
     <div class="topbtns">
       <button class="ibtn" id="btnReload" aria-label="Reload" title="Reload newest version"><span class="em" data-i="reload"></span></button>
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
-    </div>
-    <div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.4.4 · Fresh adventures</button>
+    </div><button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.5.0</button></div>
     <div class="settings">
       <div class="profile-course-grid">
       <div class="row"><label class="lab" for="childProfile">Who’s playing?</label><div class="profile-controls"><select id="childProfile" aria-label="Player"></select><button class="btn" id="addProfile" aria-label="Add another child" title="Add another child">+</button></div></div>
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
       </div>
-      <div class="row" id="rowWeek"><div class="lab">Week</div><div class="seg" id="segWeek"></div></div>
+      <div class="row" id="rowWeek"><div class="lab">Beat That week</div><div class="seg" id="segWeek"></div></div>
+    </div>
     </div>
     <div class="play">
       <button class="card-go a" id="goSums"><span class="em" data-i="clock"></span><div><h2>Beat That</h2><p id="beatDescription">Questions matched to your course.</p></div><span class="card-footer"><span class="best" id="bestSums"></span><span class="play-cue"><span data-i="play"></span>Play</span></span></button>
-      <div class="big-maths-choice"><div class="card-go b" id="clicCardIntro"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your school worksheet, one challenge at a time.</p></div></div><div class="worksheet-dropdown"><label for="worksheetSelect">Worksheet</label><select id="worksheetSelect" aria-label="School worksheet"></select></div><div class="card-footer big-maths-footer"><span class="best" id="bestClic"></span><button class="play-cue" id="goClic" aria-label="Play Big Maths"><span data-i="play"></span>Play</button></div></div>
+      <div class="big-maths-choice"><div class="card-go b" id="clicCardIntro"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your classic school worksheets.</p></div></div><div class="classic-controls"><span id="classicLevelLabel"></span><label for="worksheetWeek">Week</label><select id="worksheetWeek" aria-label="Big Maths week"></select></div><div class="card-footer big-maths-footer"><span class="best" id="bestClic"></span><button class="play-cue" id="goClic" aria-label="Play Big Maths"><span data-i="play"></span>Play</button></div></div>
+      <button class="card-go clic-path-card" id="goClicPath"><span class="em" data-i="practice"></span><div><h2>CLIC</h2><p>Your own path through the CLIC levels. Oral and written challenges.</p></div><span class="card-footer"><span class="best" id="journeyHomeLevel"></span><span class="play-cue"><span data-i="play"></span>Explore</span></span></button>
       <button class="card-go d" id="goGames"><span class="em" data-i="games"></span><div><h2>Maths games</h2><p>Numbers, money, clocks, shapes and more. Tap Play for a new adventure.</p></div><span class="best">Play & explore</span></button>
       <button class="card-go c" id="goExtra"><span class="em" data-i="practice"></span><div><h2>Extra practice</h2><p>Pick a topic: Learn Its, jigsaw, Pim, Smile, Mully, stories…</p></div><span class="best">All levels</span></button>
     </div>
@@ -522,6 +523,8 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
     <button class="btn primary big" id="nextQ">Next ▶</button>
   </div>
 </section>
+
+<section id="clicPath" class="screen"><div class="topbar"><button class="btn" id="clicPathBack"><span data-i="back"></span>Home</button><div class="spacer"></div></div><div class="clic-path-wrap"><h1>CLIC</h1><p id="clicRecommendation"></p><div class="clic-path-options"><label>Level <select id="journeyLevel" aria-label="CLIC level"></select></label><label id="journeySetRow">Set <select id="journeySet" aria-label="CLIC set"></select></label></div><p class="assessment-tag" id="journeyKind"></p><p id="journeyDescription"></p><div class="journey-streak" id="journeyStreak"></div><p class="journey-rule">Three weekly assessments in a row with 10/10 take you to the next CLIC. Practice does not count towards moving up.</p><button class="btn primary" id="journeyPlay"><span data-i="play"></span>Play</button></div></section>
 
 <!-- ================= EXTRA PRACTICE ================= -->
 <section id="extra" class="screen">
@@ -608,7 +611,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Default timer</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.4.4</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.5.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice"><span data-i="audio"></span>Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -619,13 +622,15 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.4.4"></script>
-<script src="classic-sheets.js?v=3.4.4"></script>
-<script src="curriculum.js?v=3.4.4"></script>
-<script src="profiles.js?v=3.4.4"></script>
-<script src="round-options.js?v=3.4.4"></script>
-<script src="progress.js?v=3.4.4"></script>
-<script src="signed-ink.js?v=3.4.4"></script>
+<script src="course-sheets.js?v=3.5.0"></script>
+<script src="classic-sheets.js?v=3.5.0"></script>
+<script src="curriculum.js?v=3.5.0"></script>
+<script src="weekly-clic.js?v=3.5.0"></script>
+<script src="clic-journey.js?v=3.5.0"></script>
+<script src="profiles.js?v=3.5.0"></script>
+<script src="round-options.js?v=3.5.0"></script>
+<script src="progress.js?v=3.5.0"></script>
+<script src="signed-ink.js?v=3.5.0"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -1051,8 +1056,12 @@ for(const [t,nm] of MTABS){const i=MATH_NODES.findIndex(n=>n.tab===t&&n.bt);MATH
 const lvName=()=>(MTABS.find(l=>l[0]===settings.level)||MTABS[1])[1];
 const contentCourse=()=>settings.level;
 const classicLevel=()=>BMClassic.suggested[settings.level];
-const clicLevel=()=>{const available=BMContent.courses[settings.level],chosen=settings.clicSets?.[settings.level];return settings.worksheetSeries==='modern'?(available.includes(chosen)?chosen:available[0]):'school'};
-const clicLabel=()=>clicLevel()==='school'?'Classic Level '+classicLevel()+' · '+(settings.week==='rand'?'Mixed weeks':'Week '+settings.week):'CLIC '+clicLevel();
+let worksheetMode='classic';
+const journeyLevel=()=>settings.journey?.level||settings.clicSets?.[settings.level]||BMContent.courses[settings.level][0];
+const clicLevel=()=>worksheetMode==='journey'?journeyLevel():'school';
+const worksheetKey=()=>clicLevel()==='school'?'classic-'+classicLevel():'clic-'+clicLevel();
+const worksheetWeek=()=>worksheetMode==='journey'?(settings.journey?.sets?.[journeyLevel()]||1):(settings.worksheetWeeks?.[worksheetKey()]??settings.week);
+const clicLabel=()=>{const n=clicLevel(),w=worksheetWeek();return n==='school'?'Classic Level '+classicLevel()+' · '+(w==='rand'?'Random week':'Week '+w):n<=4?'CLIC '+n+' · Oral assessment':'CLIC '+n+' · Set '+w};
 const courseTime=()=>BMRoundOptions.defaultSeconds(settings.time,BM_SHEETS[settings.level].seconds);
 const wk=()=>settings.level==='y1'?settings.week:settings.level+'-v3';
 const toD=q=>({t:'gq',...q});
@@ -1095,7 +1104,7 @@ function chips(host,noWeek){
   const kpm=settings.input==='keypad';
   host.append(el('span','chip',settings.auto?UI.i('lens')+(kpm?' Auto-check':' Auto-read'):UI.i('pencil')+(kpm?' As typed':' As written')));
 }
-const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?(clicLevel()==='school'?(classicLevel()===1?week:'classic-'+classicLevel()+'-week-'+settings.week):'clic-'+clicLevel()+'-v3'):week}.${extra}.${mode}`;
+const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?(clicLevel()==='school'?(classicLevel()===1?worksheetWeek():'classic-'+classicLevel()+'-week-'+worksheetWeek()):'clic-'+clicLevel()+(BMWeekly.has(clicLevel())?'-set-'+(clicLevel()===4?1:worksheetWeek())+'-official-v1':'-v3')):week}.${extra}.${mode}`;
 const bestTimeKey=(kind,week,mode)=>`bm.best.time.${kind}.${week}.${mode}`;
 
 /* ---------- caja de escritura ---------- */
@@ -1405,11 +1414,12 @@ function refreshHome(){
   $('#lvChip').innerHTML='<span class="course-name">'+lvName()+'</span><span class="course-change">Change</span>';
   $('#lvChip').setAttribute('aria-label','Change school year, currently '+lvName());
   $('#rowWeek').style.display='';
-  const worksheetSelect=$('#worksheetSelect');
-  worksheetSelect.replaceChildren();
-  const classicOption=document.createElement('option');classicOption.value='classic';classicOption.textContent='Classic Level '+classicLevel();worksheetSelect.append(classicOption);
-  for(const n of BMContent.courses[settings.level]){const option=document.createElement('option');option.value=String(n);option.textContent=n===20?'CLIC 20 · Extra':'CLIC '+n;worksheetSelect.append(option);}
-  worksheetSelect.value=clicLevel()==='school'?'classic':String(clicLevel());
+  $('#classicLevelLabel').textContent='Classic Level '+classicLevel();
+  const setSelect=$('#worksheetWeek');setSelect.replaceChildren();
+  const classicWeek=settings.worksheetWeeks?.['classic-'+classicLevel()]??settings.week;
+  for(const v of [...Array.from({length:10},(_,i)=>i+1),'rand']){const option=document.createElement('option');option.value=String(v);option.textContent=v==='rand'?'Random':String(v);setSelect.append(option);}
+  setSelect.value=String(classicWeek);
+  $('#journeyHomeLevel').textContent='CLIC '+journeyLevel();
   $('#beatDescription').textContent=BM_SHEETS[settings.level].count+' questions. '+(settings.time==='course'?courseTime()+' seconds for this course.':'Choose where to start!');
   segBuild($('#segTime'),[['course','Course default'],['double','2× course default'],[0,'No timer']],()=>settings.time,v=>settings.time=v);
   segBuild($('#segInput'),[['pencil',UI.i('pencil')+' Pencil'],['keypad',UI.i('keypad')+' Keypad']],()=>settings.input,v=>settings.input=v);
@@ -1424,12 +1434,29 @@ function refreshHome(){
     ?(settings.auto?'The app checks the typed numbers and marks them itself.':'The numbers are left as typed; a grown-up taps to mark ✓ or ✗ afterwards.')
     :(settings.auto?'The app reads the written numbers and marks them itself.':'The writing is left as it is; a grown-up taps to mark ✓ or ✗ afterwards.');
   $('#bestSums').innerHTML=bestText('sums',BM_SHEETS[settings.level].count,courseTime);
-  $('#bestClic').innerHTML=bestText('clic',10,()=>'x');
+  const modeBefore=worksheetMode;worksheetMode='classic';$('#bestClic').innerHTML=bestText('clic',10,()=>'x');worksheetMode=modeBefore;
 }
 $('#swAuto').addEventListener('change',e=>{settings.auto=e.target.checked;save();refreshHome()});
 $('#goSums').addEventListener('click',()=>prepareRound('sums'));
-$('#goClic').addEventListener('click',()=>prepareRound('clic'));
-$('#worksheetSelect').addEventListener('change',e=>{const value=e.target.value;settings.worksheetSeries=value==='classic'?'classic':'modern';if(value!=='classic')settings.clicSets[settings.level]=Number(value);save();refreshHome()});
+$('#goClic').addEventListener('click',()=>{worksheetMode='classic';prepareRound('clic')});
+$('#worksheetWeek').addEventListener('change',e=>{if(!settings.worksheetWeeks)settings.worksheetWeeks={};settings.worksheetWeeks['classic-'+classicLevel()]=e.target.value==='rand'?'rand':Number(e.target.value);save();refreshHome()});
+
+
+function renderClicPath(){
+ const level=journeyLevel(),select=$('#journeyLevel');select.replaceChildren();
+ for(let n=1;n<=20;n++){const option=document.createElement('option');option.value=n;option.textContent='CLIC '+n+(n<=4?' · Oral assessment':n===20?' · Extra':'');select.append(option);}select.value=String(level);
+ $('#clicRecommendation').textContent=lvName()+' suggests starting at CLIC '+BMContent.courses[settings.level][0]+'. You can choose another level.';
+ $('#journeySetRow').hidden=level<=4;const sets=$('#journeySet');sets.replaceChildren();for(let n=1;n<=10;n++){const option=document.createElement('option');option.value=n;option.textContent=String(n);sets.append(option);}sets.value=String(settings.journey?.sets?.[level]||1);
+ $('#journeyKind').textContent=level<=4?'Oral assessment':level===5?'Written + oral assessment':'Written assessment';
+ $('#journeyDescription').textContent=level<=4?'One assessment sheet. Say your answers aloud; a grown-up marks each skill.':level===5?'Ten weekly sheets. Questions marked Oral assessment are checked by a grown-up.':'Ten sets at this level. Choose one to practise or take your weekly assessment.';
+ const count=BMJourney.streak(settings.journey?.records||[],level);$('#journeyStreak').textContent=count+' / 3 weekly scores of 10/10';
+ if(!BMWeekly.has(level)){$('#journeyDescription').textContent='Practice variants. The numbered PDF sets are still being checked.';$('#journeyKind').textContent='Practice';}
+}
+$('#goClicPath').onclick=()=>{worksheetMode='journey';renderClicPath();show('clicPath')};
+$('#clicPathBack').onclick=()=>{worksheetMode='classic';refreshHome();show('home')};
+$('#journeyLevel').onchange=e=>{settings.journey={...settings.journey,level:Number(e.target.value)};save();renderClicPath()};
+$('#journeySet').onchange=e=>{const level=journeyLevel();settings.journey={...settings.journey,level,sets:{...settings.journey?.sets,[level]:Number(e.target.value)}};save()};
+$('#journeyPlay').onclick=()=>{worksheetMode='journey';prepareRound('clic');if(!BMWeekly.has(journeyLevel())){setRoundMode('practice');$('#roundExam').disabled=true;}else $('#roundExam').disabled=false;};
 
 /* ================= BEAT THAT ================= */
 const S={boxes:[],running:false,finished:false,t0:0,lastT:0,lastTouchedBox:null,lastInputAt:null,pendingFinishAt:null,finishTimer:null,raf:0,limit:0,elapsed:0,cells:[]};
@@ -1916,9 +1943,9 @@ $('#statsModal').addEventListener('click',e=>{if(e.target===$('#statsModal'))$('
 /* ================= BIG MATHS ================= */
 const C={qs:[],i:0,speakN:0,done:false};
 function buildClicData(){
- if(clicLevel()!=='school')return BMContent.generate(clicLevel());
- if(classicLevel()!==1)return BMClassic.generate(classicLevel(),settings.week);
- const weeks=settings.week==='rand'?ENABLED:[settings.week];
+ if(clicLevel()!=='school')return BMWeekly.has(clicLevel())?BMWeekly.generate(clicLevel(),worksheetWeek()):BMContent.generate(clicLevel());
+ if(classicLevel()!==1)return BMClassic.generate(classicLevel(),worksheetWeek());
+ const weeks=worksheetWeek()==='rand'?ENABLED:[worksheetWeek()];
  const data=CLIC[weeks[rnd(weeks.length)]];
  return [
   {t:'star',n:1+rnd(10)},
@@ -1993,7 +2020,7 @@ function buildQ(d,idx){
       ct.append(el('span','big',`${d.a} + ${d.b} =`),ans('oval',d.a+d.b,boxes,label));break;}
     case 'oral':{
       label=d.q;exp=d.a;ct.classList.add('structured');
-      ct.append(el('p','story',d.q),el('p','teacher-note','Say it aloud. A grown-up marks this skill.'));
+      ct.append(el('p','assessment-tag','Oral assessment'),el('p','story',d.q),el('p','teacher-note','Say it aloud. A grown-up marks this skill.'));
       const h=el('div');h.hidden=true;const box=new Box(h,d.a);boxes.push(box);ct.append(h);
       let marked=null;const options=el('div','oral-controls');
       [['Not yet',false],['Got it',true]].forEach(([text,value])=>{const button=el('button','btn',text);button.onclick=()=>{if(!session.active)return;marked=value;box.typed='marked';options.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));box.setState(value?'ok':'bad');updateDots();};options.append(button);});
@@ -2028,12 +2055,13 @@ function buildQ(d,idx){
   }
   if(d.t!=='star'){const listen=el('button','spk',UI.i('audio'));listen.setAttribute('aria-label','Listen');listen.onclick=()=>speakText(d.say||BMContent.speech(d.q||label));q.append(listen);q.speakBtn=listen;}
   if(d.t==='take')sh.style.clipPath=starPoly(14,76);
+  if(d.acceptRange)boxes.forEach(b=>{b.matches=text=>BMWeekly.acceptsRange(d.acceptRange,text)});
   boxes.forEach(b=>b.onchange=()=>updateDots());
   return {d,q,boxes,label,exp,verdict:null,idx};
 }
 function startClic(spec){
   cancelSpeech();
-  C.spec=spec&&spec.mk?spec:null;
+  C.spec=spec&&spec.mk?spec:null;C.journey=!C.spec&&worksheetMode==='journey';C.journeyLevel=C.journey?journeyLevel():null;C.journeySet=C.journey?worksheetWeek():null;C.assessmentConfirmed=false;
   const data=C.spec?C.spec.mk():buildClicData();
   const st=$('#qstage');st.innerHTML='';
   C.qs=data.map(buildQ);C.qs.forEach(x=>st.append(x.q));C.i=0;C.done=false;
@@ -2075,7 +2103,7 @@ function updateDots(){
 $('#prevQ').addEventListener('click',()=>goQ(Math.max(0,C.i-1),true));
 $('#nextQ').addEventListener('click',()=>{if(C.i<C.qs.length-1)goQ(C.i+1,true);else finishClic()});
 $('#revealQ').addEventListener('click',()=>{const x=C.qs[C.i];const on=!x.boxes[0].host.classList.contains('show-rv');x.boxes.forEach(b=>b.reveal(on));$('#revealQ').textContent=on?'🙈 Hide':'👁 Show answer'});
-$('#clicBack').addEventListener('click',()=>{session.active=false;cancelSpeech();if(C.spec){renderExtra();show('extra')}else{refreshHome();show('home')}});
+$('#clicBack').addEventListener('click',()=>{session.active=false;cancelSpeech();if(C.spec){renderExtra();show('extra')}else if(C.journey){renderClicPath();show('clicPath')}else{worksheetMode='classic';refreshHome();show('home')}});
 function finishClic(){
   session.active=false;cancelSpeech();
   C.qs.forEach(x=>{x.boxes.forEach(b=>{b.lock();b.reveal(false)});
@@ -2099,6 +2127,9 @@ function paintSummary(){
   const sc=$('#sumScore');sc.innerHTML='';sc.style.cssText='display:flex;align-items:center;gap:16px';
   if(settings.auto)sc.insertAdjacentHTML('beforeend',BRAND.sticker(score,C.qs.length,true));sc.append(scoreCircle(score,C.qs.length,120));
   $('#sumTip').textContent=settings.auto?'Tap a challenge to switch ✓/✗ if the app misread it.':'A grown-up taps each challenge to mark it ✓ if it is right.';
+  document.querySelector('#confirmClicAssessment')?.remove();
+  if(C.journey&&settings.mode==='exam'){const confirm=el('button','btn primary','Confirm weekly assessment');confirm.id='confirmClicAssessment';confirm.disabled=C.assessmentConfirmed;confirm.textContent=C.assessmentConfirmed?'Weekly assessment saved':'Confirm weekly assessment';confirm.onclick=()=>{if(C.qs.some(q=>q.verdict===null)){confirm.textContent='A grown-up must mark every question first';return;}const result=BMJourney.record(settings.journey,{level:C.journeyLevel,set:Number(C.journeySet),score:C.qs.filter(q=>q.verdict).length});settings.journey=result.state;C.assessmentConfirmed=true;save();confirm.disabled=true;confirm.textContent=result.promoted?'You have moved up to CLIC '+result.state.level+'!':'Saved · '+result.streak+' / 3 weekly scores of 10/10';};$('#sumTip').after(confirm);}
+
   const t=$('#tiles');t.innerHTML='';
   C.qs.forEach((x,i)=>{
     const tile=el('button','tile'+(x.verdict===true?' ok':x.verdict===false?' bad':''));
@@ -2113,7 +2144,7 @@ function paintSummary(){
 }
 $('#sumBackQ').addEventListener('click',()=>{show('clic');session.active=false;C.qs.forEach(x=>{x.boxes.forEach(b=>b.locked=true)});goQ(C.qs.length-1,false)});
 $('#sumAgain').addEventListener('click',()=>C.spec?startClic(C.spec):prepareRound('clic'));
-$('#sumHome').addEventListener('click',()=>{refreshHome();show('home')});
+$('#sumHome').addEventListener('click',()=>{worksheetMode='classic';refreshHome();show('home')});
 
 /* ================= EXTRA PRACTICE ================= */
 const X={tab:null};
@@ -2234,7 +2265,7 @@ $('#renameProfile').onclick=()=>{try{profiles.rename($('#profileName').value);re
 let roundKind='sums',roundMode='practice';
 function setRoundMode(mode){roundMode=mode;$('#roundPractice').setAttribute('aria-pressed',String(mode==='practice'));$('#roundExam').setAttribute('aria-pressed',String(mode==='exam'));}
 function renderRoundTime(){const step=Number($('#timeWheel').value),base=BM_SHEETS[settings.level].seconds,seconds=BMRoundOptions.dialSeconds(step,base);$('#roundTime').textContent=seconds?seconds+' seconds':'No timer';$('#roundTimeDetail').textContent=seconds?(1+step/10).toFixed(1)+'× course default · '+base+' seconds':'Take your time';$('#timeWheel').setAttribute('aria-valuetext',seconds?seconds+' seconds':'No timer');$('#timeDial').style.setProperty('--wheel-angle',(-135+step/11*270)+'deg');}
-function prepareRound(kind){cancelSpeech();roundKind=kind;setRoundMode(settings.mode);$('#roundTitle').textContent=kind==='sums'?'Beat That':'Big Maths';$('#roundSubtitle').textContent=lvName()+' · '+(kind==='sums'?BM_SHEETS[settings.level].count+' questions':clicLabel());$('#roundTimer').hidden=kind!=='sums';$('#clicTimingNote').hidden=kind==='sums';$('#timeWheel').value=BMRoundOptions.defaultStep(settings.time);renderRoundTime();$('#roundRecognitionNote').textContent=settings.auto?'':'Automatic checking is off. A grown-up will mark answers at the end.';$('#roundSetup').showModal();}
+function prepareRound(kind){$('#roundExam').disabled=false;cancelSpeech();roundKind=kind;setRoundMode(settings.mode);$('#roundTitle').textContent=kind==='sums'?'Beat That':worksheetMode==='journey'?'CLIC':'Big Maths';$('#roundSubtitle').textContent=lvName()+' · '+(kind==='sums'?BM_SHEETS[settings.level].count+' questions':clicLabel());$('#roundTimer').hidden=kind!=='sums';$('#clicTimingNote').hidden=kind==='sums';$('#timeWheel').value=BMRoundOptions.defaultStep(settings.time);renderRoundTime();$('#roundRecognitionNote').textContent=settings.auto?'':'Automatic checking is off. A grown-up will mark answers at the end.';$('#roundSetup').showModal();}
 $('#roundPractice').onclick=()=>setRoundMode('practice');$('#roundExam').onclick=()=>setRoundMode('exam');
 $('#timeWheel').oninput=renderRoundTime;
 $('#timeDial').onpointerdown=event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);turnTimeWheel(event);};
@@ -2244,7 +2275,7 @@ $('#roundCancel').onclick=()=>$('#roundSetup').close();
 $('#roundPlay').onclick=()=>{settings.mode=roundMode;save();const seconds=BMRoundOptions.dialSeconds(Number($('#timeWheel').value),BM_SHEETS[settings.level].seconds);$('#roundSetup').close();if(roundKind==='sums')startSums(seconds);else startClic();};
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.4.4';
+const APP_VERSION = 'v3.5.0';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2340,6 +2371,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.4.4"></script>
+<script src="maths-games.js?v=3.5.0"></script>
 </body>
 </html>
