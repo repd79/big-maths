@@ -457,9 +457,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .worksheet-source{font-size:14px;font-weight:600;color:#665285;text-underline-offset:3px}#setModal .setcard{border:1px solid #d3dfc8;border-radius:26px;box-shadow:0 14px 70px #193f2f30;padding:24px;background:#fafcf6}#setModal h2{font-family:var(--title);font-size:28px;color:#35553b}#setModal .row{padding-bottom:12px;border-bottom:1px solid #e3eadc}#setModal .row>.lab,#setModal .row>label{font-size:17px}.xbtn{border:1px solid #d9e4d0;border-radius:22px;box-shadow:0 4px 0 #dce5d4}.xbtn .xt{color:#35553b}.stats-card{border-width:1px!important;box-shadow:0 14px 70px #193f2f30}#firstRun .install-panel summary{font-weight:650;font-size:16px;cursor:pointer}.brandrow .brand-mascot{transform:scale(1.25)}
 #home #goGames,#home #goExtra{grid-column:auto}.worksheet-choice{display:block}.worksheet-heading{cursor:pointer;list-style:none}.worksheet-heading::-webkit-details-marker{display:none}.worksheet-heading>div{flex:1}.worksheet-change{font-size:13px;font-weight:700;color:#665285;background:#eee8f4;border-radius:9px;padding:7px 9px}.worksheet-options{display:grid;gap:12px;margin-top:14px}.worksheet-choice:not([open]) .worksheet-options{display:none}.worksheet-heading p{margin-bottom:0}.worksheet-choice[open]{box-shadow:0 4px 0 #dce5d4}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.5.0">
+<link rel="stylesheet" href="maths-games.css?v=3.5.2">
 <link rel="preload" href="assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="premium-ui.css?v=3.5.0">
+<link rel="stylesheet" href="premium-ui.css?v=3.5.2">
 </head>
 <body>
 
@@ -471,19 +471,19 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
     <div class="topbtns">
       <button class="ibtn" id="btnReload" aria-label="Reload" title="Reload newest version"><span class="em" data-i="reload"></span></button>
       <button class="ibtn" id="btnGear" aria-label="Settings" title="Settings"><span class="em" data-i="gear"></span></button>
-    </div><button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.5.0</button></div>
+    </div><button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.5.2</button></div>
     <div class="settings">
       <div class="profile-course-grid">
       <div class="row"><label class="lab" for="childProfile">Who’s playing?</label><div class="profile-controls"><select id="childProfile" aria-label="Player"></select><button class="btn" id="addProfile" aria-label="Add another child" title="Add another child">+</button></div></div>
       <div class="row" id="rowLvl"><div class="lab">School year</div><button class="btn" id="lvChip"></button></div>
       </div>
-      <div class="row" id="rowWeek"><div class="lab">Beat That week</div><div class="seg" id="segWeek"></div></div>
+      <div class="row" id="rowWeek"><div class="lab">Week</div><div class="week-stepper"><button class="week-arrow" id="previousWeek" aria-label="Previous week"><span data-i="back"></span></button><span id="currentWeek" aria-live="polite"></span><button class="week-arrow" id="nextWeek" aria-label="Next week"><span data-i="play"></span></button><button class="week-random" id="randomWeek"><span data-i="dice"></span>Random</button></div></div>
     </div>
     </div>
     <div class="play">
       <button class="card-go a" id="goSums"><span class="em" data-i="clock"></span><div><h2>Beat That</h2><p id="beatDescription">Questions matched to your course.</p></div><span class="card-footer"><span class="best" id="bestSums"></span><span class="play-cue"><span data-i="play"></span>Play</span></span></button>
-      <div class="big-maths-choice"><div class="card-go b" id="clicCardIntro"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your classic school worksheets.</p></div></div><div class="classic-controls"><span id="classicLevelLabel"></span><label for="worksheetWeek">Week</label><select id="worksheetWeek" aria-label="Big Maths week"></select></div><div class="card-footer big-maths-footer"><span class="best" id="bestClic"></span><button class="play-cue" id="goClic" aria-label="Play Big Maths"><span data-i="play"></span>Play</button></div></div>
-      <button class="card-go clic-path-card" id="goClicPath"><span class="em" data-i="practice"></span><div><h2>CLIC</h2><p>Your own path through the CLIC levels. Oral and written challenges.</p></div><span class="card-footer"><span class="best" id="journeyHomeLevel"></span><span class="play-cue"><span data-i="play"></span>Explore</span></span></button>
+      <div class="big-maths-choice"><div class="card-go b" id="clicCardIntro"><span class="em" data-i="nums"></span><div><h2>Big Maths</h2><p>Your classic school worksheets.</p></div></div><div class="classic-controls"><span id="classicLevelLabel"></span></div><div class="card-footer big-maths-footer"><span class="best" id="bestClic"></span><button class="play-cue" id="goClic" aria-label="Play Big Maths"><span data-i="play"></span>Play</button></div></div>
+      <button class="card-go clic-path-card" id="goClicPath"><span class="em" data-i="clic"></span><div><h2>CLIC</h2><p>Your own path through the CLIC levels. Oral and written challenges.</p></div><span class="card-footer"><span class="best" id="journeyHomeLevel"></span><span class="play-cue"><span data-i="play"></span>Explore</span></span></button>
       <button class="card-go d" id="goGames"><span class="em" data-i="games"></span><div><h2>Maths games</h2><p>Numbers, money, clocks, shapes and more. Tap Play for a new adventure.</p></div><span class="best">Play & explore</span></button>
       <button class="card-go c" id="goExtra"><span class="em" data-i="practice"></span><div><h2>Extra practice</h2><p>Pick a topic: Learn Its, jigsaw, Pim, Smile, Mully, stories…</p></div><span class="best">All levels</span></button>
     </div>
@@ -524,7 +524,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
   </div>
 </section>
 
-<section id="clicPath" class="screen"><div class="topbar"><button class="btn" id="clicPathBack"><span data-i="back"></span>Home</button><div class="spacer"></div></div><div class="clic-path-wrap"><h1>CLIC</h1><p id="clicRecommendation"></p><div class="clic-path-options"><label>Level <select id="journeyLevel" aria-label="CLIC level"></select></label><label id="journeySetRow">Set <select id="journeySet" aria-label="CLIC set"></select></label></div><p class="assessment-tag" id="journeyKind"></p><p id="journeyDescription"></p><div class="journey-streak" id="journeyStreak"></div><p class="journey-rule">Three weekly assessments in a row with 10/10 take you to the next CLIC. Practice does not count towards moving up.</p><button class="btn primary" id="journeyPlay"><span data-i="play"></span>Play</button></div></section>
+<section id="clicPath" class="screen"><div class="topbar"><button class="btn" id="clicPathBack"><span data-i="back"></span>Home</button><div class="spacer"></div></div><div class="clic-path-wrap"><img class="clic-path-art" src="assets/icons/clic.webp" alt=""><h1>CLIC</h1><p id="clicRecommendation"></p><div class="clic-path-options"><label>Level <select id="journeyLevel" aria-label="CLIC level"></select></label><label id="journeySetRow">Set <select id="journeySet" aria-label="CLIC set"></select></label></div><p class="assessment-tag" id="journeyKind"></p><p id="journeyDescription"></p><div class="journey-streak" id="journeyStreak"></div><p class="journey-rule">Three weekly assessments in a row with 10/10 take you to the next CLIC. Practice does not count towards moving up.</p><button class="btn primary" id="journeyPlay"><span data-i="play"></span>Play</button></div></section>
 
 <!-- ================= EXTRA PRACTICE ================= -->
 <section id="extra" class="screen">
@@ -583,7 +583,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
  <div class="setup-choices round-modes"><button id="roundPractice" aria-pressed="true"><img class="setup-art" src="assets/icons/pencil.webp" alt=""><b>Practice</b><small>Checks each answer as you go, so you can correct mistakes.</small></button><button id="roundExam" aria-pressed="false"><img class="setup-art" src="assets/icons/practice.webp" alt=""><b>Exam</b><small>Keeps you moving. Answers are checked together at the end.</small></button></div>
  <p id="roundRecognitionNote" class="hint"></p>
  <div id="roundTimer"><label for="timeWheel"><b>Make time your own</b></label><div class="timer-control"><div class="time-wheel" id="timeDial"><img src="assets/icons/clock.webp" alt=""><span class="wheel-hand"></span></div><div><output id="roundTime" for="timeWheel"></output><p id="roundTimeDetail"></p></div></div><input type="range" id="timeWheel" min="0" max="11" step="1" aria-label="Round duration"><div class="wheel-labels"><span>Course default</span><span>2×</span><span>No timer</span></div><p>Your default stays in Settings. This change is just for this round.</p></div>
- <p id="clicTimingNote" hidden>These CLIC worksheets have no fixed time limit. Take time to think.</p>
+ <p id="clicTimingNote" hidden>There is no fixed time limit. Take time to think.</p>
  <div class="launch-actions"><button class="btn" id="roundCancel"><span data-i="back"></span>Back</button><button class="btn primary" id="roundPlay"><span data-i="play"></span>Let's play</button></div>
 </dialog>
 <dialog class="setup-dialog" id="newProfile" aria-labelledby="profileTitle"><div class="setup-welcome"><img src="assets/icons/hero.webp" alt=""><h2 id="profileTitle">A new maths adventure</h2></div><p>Each player keeps their own school year, worksheets, settings and records on this device.</p><label for="newProfileName">Player name</label><input id="newProfileName" maxlength="40" autocomplete="off" placeholder="First name or nickname"><p id="newProfileStatus" role="status"></p><div class="launch-actions"><button class="btn" id="profileCancel"><span data-i="back"></span>Back</button><button class="btn primary" id="profileCreate">Create player</button></div></dialog>
@@ -611,7 +611,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Default timer</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.5.0</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.5.2</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice"><span data-i="audio"></span>Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -622,15 +622,15 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.5.0"></script>
-<script src="classic-sheets.js?v=3.5.0"></script>
-<script src="curriculum.js?v=3.5.0"></script>
-<script src="weekly-clic.js?v=3.5.0"></script>
-<script src="clic-journey.js?v=3.5.0"></script>
-<script src="profiles.js?v=3.5.0"></script>
-<script src="round-options.js?v=3.5.0"></script>
-<script src="progress.js?v=3.5.0"></script>
-<script src="signed-ink.js?v=3.5.0"></script>
+<script src="course-sheets.js?v=3.5.2"></script>
+<script src="classic-sheets.js?v=3.5.2"></script>
+<script src="curriculum.js?v=3.5.2"></script>
+<script src="weekly-clic.js?v=3.5.2"></script>
+<script src="clic-journey.js?v=3.5.2"></script>
+<script src="profiles.js?v=3.5.2"></script>
+<script src="round-options.js?v=3.5.2"></script>
+<script src="progress.js?v=3.5.2"></script>
+<script src="signed-ink.js?v=3.5.2"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -1060,7 +1060,7 @@ let worksheetMode='classic';
 const journeyLevel=()=>settings.journey?.level||settings.clicSets?.[settings.level]||BMContent.courses[settings.level][0];
 const clicLevel=()=>worksheetMode==='journey'?journeyLevel():'school';
 const worksheetKey=()=>clicLevel()==='school'?'classic-'+classicLevel():'clic-'+clicLevel();
-const worksheetWeek=()=>worksheetMode==='journey'?(settings.journey?.sets?.[journeyLevel()]||1):(settings.worksheetWeeks?.[worksheetKey()]??settings.week);
+const worksheetWeek=()=>worksheetMode==='journey'?(settings.journey?.sets?.[journeyLevel()]||1):settings.week;
 const clicLabel=()=>{const n=clicLevel(),w=worksheetWeek();return n==='school'?'Classic Level '+classicLevel()+' · '+(w==='rand'?'Random week':'Week '+w):n<=4?'CLIC '+n+' · Oral assessment':'CLIC '+n+' · Set '+w};
 const courseTime=()=>BMRoundOptions.defaultSeconds(settings.time,BM_SHEETS[settings.level].seconds);
 const wk=()=>settings.level==='y1'?settings.week:settings.level+'-v3';
@@ -1409,16 +1409,12 @@ function refreshHome(){
   renderProfiles();
   $('#homeBrand').innerHTML=BRAND.wordmark();$('#homePip').innerHTML=BRAND.pip('normal');
   if(settings.week!=='rand'&&settings.week>BM_SHEETS[settings.level].sheets.length)settings.week=1;
-  segBuild($('#segWeek'),[...Array.from({length:BM_SHEETS[settings.level].sheets.length},(_,i)=>i+1).map(w=>[w,String(w)]),['rand',UI.i('dice')+' Random']],()=>settings.week,v=>settings.week=v);
+  $('#currentWeek').textContent=settings.week==='rand'?'Random':'Week '+settings.week;$('#randomWeek').setAttribute('aria-pressed',String(settings.week==='rand'));
   segBuild($('#segLevel'),MTABS.map(([k,n])=>[k,n]),()=>settings.level,v=>settings.level=v);
   $('#lvChip').innerHTML='<span class="course-name">'+lvName()+'</span><span class="course-change">Change</span>';
   $('#lvChip').setAttribute('aria-label','Change school year, currently '+lvName());
   $('#rowWeek').style.display='';
   $('#classicLevelLabel').textContent='Classic Level '+classicLevel();
-  const setSelect=$('#worksheetWeek');setSelect.replaceChildren();
-  const classicWeek=settings.worksheetWeeks?.['classic-'+classicLevel()]??settings.week;
-  for(const v of [...Array.from({length:10},(_,i)=>i+1),'rand']){const option=document.createElement('option');option.value=String(v);option.textContent=v==='rand'?'Random':String(v);setSelect.append(option);}
-  setSelect.value=String(classicWeek);
   $('#journeyHomeLevel').textContent='CLIC '+journeyLevel();
   $('#beatDescription').textContent=BM_SHEETS[settings.level].count+' questions. '+(settings.time==='course'?courseTime()+' seconds for this course.':'Choose where to start!');
   segBuild($('#segTime'),[['course','Course default'],['double','2× course default'],[0,'No timer']],()=>settings.time,v=>settings.time=v);
@@ -1438,8 +1434,10 @@ function refreshHome(){
 }
 $('#swAuto').addEventListener('change',e=>{settings.auto=e.target.checked;save();refreshHome()});
 $('#goSums').addEventListener('click',()=>prepareRound('sums'));
+function stepWeek(direction){const count=BM_SHEETS[settings.level].sheets.length;settings.week=settings.week==='rand'?(direction>0?1:count):((settings.week-1+direction+count)%count)+1;save();refreshHome()}
+$('#previousWeek').onclick=()=>stepWeek(-1);$('#nextWeek').onclick=()=>stepWeek(1);$('#randomWeek').onclick=()=>{settings.week='rand';save();refreshHome()};
 $('#goClic').addEventListener('click',()=>{worksheetMode='classic';prepareRound('clic')});
-$('#worksheetWeek').addEventListener('change',e=>{if(!settings.worksheetWeeks)settings.worksheetWeeks={};settings.worksheetWeeks['classic-'+classicLevel()]=e.target.value==='rand'?'rand':Number(e.target.value);save();refreshHome()});
+
 
 
 function renderClicPath(){
@@ -1448,7 +1446,7 @@ function renderClicPath(){
  $('#clicRecommendation').textContent=lvName()+' suggests starting at CLIC '+BMContent.courses[settings.level][0]+'. You can choose another level.';
  $('#journeySetRow').hidden=level<=4;const sets=$('#journeySet');sets.replaceChildren();for(let n=1;n<=10;n++){const option=document.createElement('option');option.value=n;option.textContent=String(n);sets.append(option);}sets.value=String(settings.journey?.sets?.[level]||1);
  $('#journeyKind').textContent=level<=4?'Oral assessment':level===5?'Written + oral assessment':'Written assessment';
- $('#journeyDescription').textContent=level<=4?'One assessment sheet. Say your answers aloud; a grown-up marks each skill.':level===5?'Ten weekly sheets. Questions marked Oral assessment are checked by a grown-up.':'Ten sets at this level. Choose one to practise or take your weekly assessment.';
+ $('#journeyDescription').textContent=level<=4?'One oral assessment sheet, with no weekly sets. Your child answers aloud. For counting, continue from the short starting numbers shown. A grown-up listens and taps Got it or Not yet. There is no long list of numbers to write.':level===5?'Ten weekly sheets. Questions marked Oral assessment are checked by a grown-up.':'Ten sets at this level. Choose one to practise or take your weekly assessment.';
  const count=BMJourney.streak(settings.journey?.records||[],level);$('#journeyStreak').textContent=count+' / 3 weekly scores of 10/10';
  if(!BMWeekly.has(level)){$('#journeyDescription').textContent='Practice variants. The numbered PDF sets are still being checked.';$('#journeyKind').textContent='Practice';}
 }
@@ -2275,7 +2273,7 @@ $('#roundCancel').onclick=()=>$('#roundSetup').close();
 $('#roundPlay').onclick=()=>{settings.mode=roundMode;save();const seconds=BMRoundOptions.dialSeconds(Number($('#timeWheel').value),BM_SHEETS[settings.level].seconds);$('#roundSetup').close();if(roundKind==='sums')startSums(seconds);else startClic();};
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.5.0';
+const APP_VERSION = 'v3.5.2';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2371,6 +2369,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.5.0"></script>
+<script src="maths-games.js?v=3.5.2"></script>
 </body>
 </html>

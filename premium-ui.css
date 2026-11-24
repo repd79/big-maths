@@ -181,3 +181,24 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 #home .home-brand .ibtn .em,#home .home-brand .ibtn .app-icon{width:30px;height:30px}
 #home .home-brand .home-ver-pill{position:static;align-self:center;margin:0;font-size:12px;padding:0;min-height:18px;opacity:.65}
 @media(max-width:700px){#home .wrap{padding-top:16px}.home-brand{position:relative;min-height:95px;justify-content:center;padding-right:80px}.home-heading{gap:10px}#home .home-heading .brandrow{width:190px;margin:0}#home .home-brand .topbtns{position:absolute;right:0;top:18px}#home .home-brand .home-ver-pill{position:absolute;right:18px;top:68px}#home .home-brand .brandrow .pipwrap{width:40px}}
+/* One shared week selector, with room for the large brand on the left. */
+.home-heading{grid-template-columns:minmax(280px,.95fr) minmax(0,1.05fr);gap:26px}
+#home .home-heading .brandrow{width:100%}#home .home-heading .brandrow .pipwrap{width:75px}
+#home .home-heading .brand-mascot{height:145px}
+#home .home-brand .home-ver-pill{font-size:11px}
+#home .home-heading .profile-course-grid{grid-template-columns:minmax(0,1fr) auto;gap:14px}
+#home .home-heading #childProfile{font-size:16px;font-weight:650;min-height:42px;padding:8px 11px}
+#home .home-heading .profile-controls{max-width:285px}
+#home .home-heading #rowWeek{justify-content:center;gap:12px;flex-direction:row;align-items:center}
+.week-stepper{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.week-arrow{display:inline-flex;align-items:center;justify-content:center;width:44px;height:42px;border-radius:12px;background:linear-gradient(#fffef9,#edf2e3);border:1px solid #d2ddc8;box-shadow:0 3px 0 #cbd8bc}
+.week-arrow .app-icon{width:25px;height:25px;object-fit:contain}
+#currentWeek{font-size:16px;font-weight:750;min-width:75px;text-align:center;color:#496542;font-variant-numeric:tabular-nums}
+.week-random{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:7px 11px;border:1px solid #d2ddc8;background:#fffdf5;border-radius:12px;font-size:14px;font-weight:700;color:#526849;box-shadow:0 3px 0 #cbd8bc}
+.week-random .app-icon{width:26px;height:26px}.week-random[aria-pressed=true]{background:#e4ecd8;border-color:#8ea773}
+#home .classic-controls{min-height:30px;margin-top:6px}
+@media(min-width:701px) and (max-width:1000px){.home-heading{grid-template-columns:minmax(220px,.9fr) minmax(0,1.1fr);gap:16px}#home .home-heading .brandrow .pipwrap{width:55px}#home .home-heading .brand-mascot{height:115px}#home .home-heading .profile-course-grid{gap:10px}#home .home-heading .profile-controls{gap:7px}#home .home-heading #rowWeek{gap:8px}.week-stepper{gap:6px}.week-random{padding:7px 8px}}
+@media(max-width:700px){.home-heading{grid-template-columns:1fr;gap:12px}.home-brand{padding-right:0;padding-top:42px;min-height:0}#home .home-heading .brandrow{width:min(100%,360px);margin:0 auto}#home .home-heading .brandrow .pipwrap{width:60px}#home .home-heading .brand-mascot{height:115px}#home .home-brand .topbtns{top:0;right:0}#home .home-brand .home-ver-pill{top:10px;left:0;right:auto}#home .home-heading #childProfile{font-size:16px}#home .home-heading .profile-controls{max-width:none}#home .home-heading #rowWeek{justify-content:center;gap:8px}.week-stepper{gap:6px}.week-arrow{width:38px;height:40px}#currentWeek{min-width:65px}.week-random{font-size:13px;padding:6px 8px}.week-random .app-icon{width:23px;height:23px}}
+#home #goClicPath>.em{width:128px;height:138px;right:17px;top:17px}
+.clic-path-art{float:right;width:105px;height:115px;object-fit:contain;margin:0 0 10px 18px;filter:drop-shadow(0 5px 4px #41522c22)}
+@media(max-width:700px){#home #goClicPath>.em{width:112px;height:125px;right:14px}.clic-path-art{width:85px;height:95px}}
