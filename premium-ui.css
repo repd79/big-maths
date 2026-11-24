@@ -106,3 +106,18 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 /* Real raster action symbols accompany labels instead of replacing them. */
 .btn [data-i],.play-cue [data-i]{display:inline-flex;align-items:center;justify-content:center;flex:none}.btn>.app-icon,.btn [data-i] .app-icon{width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 2px 2px #31463225)}.play-cue{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding-left:17px;padding-right:20px}.play-cue .app-icon{width:28px;height:28px;filter:drop-shadow(0 2px 1px #233b2f40)}.app-icon.icon-back{transform:scaleX(-1)}#clic .nav .btn>.app-icon{width:30px;height:30px}.mg-random .xf .app-icon{width:90px;height:90px}.btn .app-icon.reward-cup{height:30px;width:30px}
 @media(max-width:600px){.profile-course-grid{grid-template-columns:1fr;gap:14px}.timer-control{grid-template-columns:116px minmax(0,1fr);gap:15px;min-height:116px}.timer-control .time-wheel{width:116px;height:116px}.timer-control .time-wheel img{width:90px;height:90px;margin:8px}#roundTime{font-size:25px;min-height:33px}#roundTimeDetail{font-size:15px;min-height:42px}.play-cue{padding-left:14px;padding-right:17px;gap:6px}.play-cue .app-icon{width:26px;height:26px}.btn [data-i] .app-icon{width:25px;height:25px}}
+
+/* Align the two main play actions on one baseline; level choices live above it. */
+#home .big-maths-choice>#clicCardIntro{min-height:0;flex:none;display:block;padding:25px 25px 0;cursor:default}#home .big-maths-choice .worksheet-choice{margin:18px 14px 0}#home .big-maths-choice .big-maths-footer{margin-top:auto;padding:24px 25px 25px;min-height:100px;flex:none}#home .big-maths-choice .best{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:650;background:#fffdf385;border:1px solid #ffffff99;padding:8px 10px;border-radius:11px;color:#4f6652}.play-cue{min-height:50px;line-height:1.2}.worksheet-group{display:grid;grid-template-columns:55px 1fr;gap:9px;align-items:center}.worksheet-group>span{font-size:14px;color:#748365;font-weight:650}.worksheet-options{gap:14px}
+@media(max-width:700px){#home .big-maths-choice>#clicCardIntro{min-height:0;padding:24px 24px 0}#home .big-maths-choice .big-maths-footer{padding:22px 24px 24px}#home .big-maths-choice .worksheet-choice{margin:17px 12px 0}.worksheet-group{grid-template-columns:1fr;gap:7px}}
+
+/* Keep the course at the right edge and the two primary actions level. */
+#home .profile-course-grid{grid-template-columns:minmax(0,1fr) auto;gap:28px}
+#home #rowLvl{justify-self:end}
+#home #goSums{height:100%}
+#home .big-maths-footer .play-cue,#home #goSums .play-cue{height:52px;min-height:52px}
+@media(max-width:600px){#home .profile-course-grid{grid-template-columns:1fr;gap:14px}#home #rowLvl{justify-self:start}}
+
+#home #goSums{padding-bottom:25px}
+#home .big-maths-choice>#clicCardIntro{min-height:145px}
+@media(max-width:700px){#home #goSums{padding-bottom:24px}#home .big-maths-choice>#clicCardIntro{min-height:150px}}
