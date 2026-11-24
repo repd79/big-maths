@@ -230,3 +230,26 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 .number-mark:before{content:'';position:absolute;top:-5px;left:calc(50% - 1px);width:2px;height:12px;background:#496454}
 .number-label{display:block;font-variant-numeric:tabular-nums;color:#35523f}
 @media(max-width:700px){#home .home-heading .brandrow .pipwrap{width:33.333%}#home .home-heading .brand-mascot{height:auto}#home #goSums{min-height:300px}#home .big-maths-choice>#clicCardIntro{min-height:195px}#home #goClicPath,#home #goGames{min-height:290px}#home #goExtra{min-height:240px}#home #goExtra p{margin-right:105px}}
+.clic-intro{max-width:53ch}
+#clicRecommendation{font-weight:750}
+.clic-path-options select{max-width:100%}
+.journey-progress{border-top:1px solid #dce7d3;margin-top:16px}
+.topic-description{font-size:15px;line-height:1.4}
+.q .number-guide{width:min(100%,640px);padding:12px clamp(5px,2vw,22px) 5px;background:#edf4e7;border:1px solid #ccddc3;border-radius:18px;flex:none}
+.number-guide-tip{margin:0 0 4px;text-align:center;color:#4f6956;font-size:clamp(13px,2vw,16px);font-weight:700}
+.q .number-guide .number-line{margin:8px auto 0;letter-spacing:0}
+.q .number-guide .number-line:before{top:9px;height:3px;background:#4b6a56;border-radius:3px}
+.number-guide .number-mark{padding:20px 0 5px;min-height:44px;color:#304e3d;border-radius:10px;font-size:inherit;font-weight:750}
+.number-guide .number-mark:before{top:3px;height:15px;background:#4b6a56}
+.number-guide .number-label{margin:auto;width:fit-content;min-width:1.35em;line-height:1.35;border-radius:6px}
+.number-guide .number-mark[aria-pressed=true] .number-label{background:#f7d880;color:#493a15;outline:2px solid #a47928}
+.number-guide .number-mark[aria-pressed=true]:before{width:4px;left:calc(50% - 2px);background:#9a6f22}
+.number-guide .number-mark:focus-visible{outline:2px solid #5d4382;outline-offset:-2px}
+.install-feature{display:grid;grid-template-columns:54px minmax(0,1fr);gap:14px;align-items:start}
+.install-feature .install-art{width:54px;height:54px;border-radius:12px;object-fit:contain}
+.install-feature h3{font-size:17px;line-height:1.25;margin:0;color:#35543c}
+.install-feature .installInstructions{font-size:15px;line-height:1.4;margin:6px 0}
+.install-feature a{display:inline-flex;align-items:center;min-height:36px;color:#62407e}
+.install-feature .installNative[hidden]{display:none}
+#home .home-heading #rowWeek{display:flex;justify-content:flex-start;align-items:center}
+#home .home-heading #rowWeek>.lab{flex:0 0 auto;min-width:0}

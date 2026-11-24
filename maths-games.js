@@ -108,7 +108,7 @@ const MathsGames = (() => {
   cats.forEach(c=>{const b=el('button',null,c);b.setAttribute('aria-pressed',String(c===category));b.onclick=()=>{category=c;renderMenu();};filters.append(b);});
   const host=$('#gameCatalogue');host.innerHTML='';
   tasks.filter(t=>category==='All'||category===t.category).forEach(t=>{const b=el('button','xbtn',`<span class="xf">${UI.i(t.id==='cartoon-calculation'?'hero':t.category==='Time'?'clock':t.category==='Shapes'?'games':t.category==='Calculation'?'practice':'numbers')}</span><span class="xt">${t.title}</span><span class="xb">${t.category}</span>`);b.dataset.game=t.id;b.onclick=()=>start(t.id);host.append(b);});
-  $('#gamesIntro').textContent='Tap Play and let the adventure choose your next game!';
+  $('#gamesIntro').textContent='Play at your own pace. Let us pick a game, or choose one below.';
  }
  function start(id){cancelAdvance();random=id==='random';bag=[];correct=0;total=0;chosen=id;next();}
  function next(){
