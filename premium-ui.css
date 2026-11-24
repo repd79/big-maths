@@ -121,3 +121,16 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 #home #goSums{padding-bottom:25px}
 #home .big-maths-choice>#clicCardIntro{min-height:145px}
 @media(max-width:700px){#home #goSums{padding-bottom:24px}#home .big-maths-choice>#clicCardIntro{min-height:150px}}
+
+/* Bigger characterful artwork, with a compact worksheet dropdown. */
+#home #goSums>.em,#home #clicCardIntro>.em{width:180px;height:190px;right:20px;top:22px}
+#home #goSums h2,#home #clicCardIntro h2{margin-right:170px}
+#home #goSums p,#home #clicCardIntro p{margin-right:175px}
+#home .big-maths-choice>#clicCardIntro{min-height:220px}
+#home .worksheet-dropdown{display:flex;align-items:center;gap:12px;margin:8px 25px 0;padding:0;min-width:0}
+.worksheet-dropdown label{font:650 14px var(--font);color:#607456;flex:none}
+.worksheet-dropdown select{flex:1;min-width:0;min-height:44px;padding:8px 34px 8px 13px;border:1px solid #cbd8bc;border-radius:12px;background-color:#fffdf5;color:#3d5940;font:750 16px var(--font);box-shadow:0 2px 0 #c7d6b3;cursor:pointer}
+@media(min-width:701px) and (max-width:1000px){#home #goSums>.em,#home #clicCardIntro>.em{width:140px;height:160px;right:12px;top:30px}#home #goSums h2,#home #clicCardIntro h2{margin-right:120px}#home #goSums p,#home #clicCardIntro p{margin-right:125px}}
+@media(max-width:700px){#home #goSums>.em,#home #clicCardIntro>.em{width:145px;height:155px;right:16px;top:22px}#home #goSums h2,#home #clicCardIntro h2{margin-right:125px}#home #goSums p,#home #clicCardIntro p{margin-right:130px}#home .big-maths-choice>#clicCardIntro{min-height:190px}#home .worksheet-dropdown{margin:8px 24px 0;gap:10px}}
+
+@media(max-width:700px){#home #goSums{min-height:285px}}
