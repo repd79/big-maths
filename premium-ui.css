@@ -209,3 +209,24 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 #home .home-heading>.topbtns .ibtn .em,#home .home-heading>.topbtns .ibtn .app-icon{width:33px;height:33px}
 @media(min-width:701px) and (max-width:1000px){.home-heading{grid-template-columns:minmax(220px,.9fr) minmax(0,1.1fr) 42px;gap:13px}#home .home-heading>.topbtns .ibtn{width:42px;height:42px}}
 @media(max-width:700px){.home-heading{grid-template-columns:minmax(0,1fr) 42px;gap:12px}.home-brand{grid-column:1;grid-row:1;padding:0;min-height:0}#home .home-heading .brandrow{width:100%;max-width:350px}#home .home-heading .settings{grid-column:1/-1;grid-row:2}#home .home-heading>.topbtns{grid-column:2;grid-row:1;align-self:center}#home .home-brand .home-ver-pill{position:static;font-size:11px}#home .home-heading .brandrow .pipwrap{width:50px}}
+/* Match the mascot and wordmark heights, with the version kept in Settings. */
+#home #verBadge{display:none}
+#home .home-heading .brandrow .pipwrap{width:33.333%;flex:none}
+#home .home-heading .brand-mascot{width:100%;height:auto;max-width:none;transform:none}
+#home .home-heading .brandrow{gap:0;align-items:center}
+#home .card-go p{font-size:16px;line-height:1.45}
+#home .card-meta{display:block;font-size:15px;line-height:1.4;color:#5c735a;margin-top:10px;max-width:100%}
+#home .card-footer .play-cue{margin-left:auto}
+#home .best:empty{display:none}
+#home #goSums,#home .big-maths-choice{min-height:280px}
+#home .big-maths-choice>#clicCardIntro{min-height:180px}
+#home #goClicPath,#home #goGames{min-height:270px}
+#home #goClicPath p,#home #goGames p{margin-right:125px}
+#home #goExtra{min-height:180px}#home #goExtra p{max-width:650px;margin-right:145px}
+/* A continuous mathematical axis, with aligned ticks and labels. */
+.q .number-line{position:relative;display:grid;grid-template-columns:repeat(var(--marks),minmax(0,1fr));width:min(100%,620px);padding:0;margin:20px auto 12px;font-size:clamp(14px,2.5vw,23px);line-height:1.2;flex:none}
+.q .number-line:before{content:'';position:absolute;left:calc(50% / var(--marks));right:calc(50% / var(--marks));top:0;height:2px;background:#496454}
+.number-mark{position:relative;display:block;text-align:center;padding-top:16px;min-width:0}
+.number-mark:before{content:'';position:absolute;top:-5px;left:calc(50% - 1px);width:2px;height:12px;background:#496454}
+.number-label{display:block;font-variant-numeric:tabular-nums;color:#35523f}
+@media(max-width:700px){#home .home-heading .brandrow .pipwrap{width:33.333%}#home .home-heading .brand-mascot{height:auto}#home #goSums{min-height:300px}#home .big-maths-choice>#clicCardIntro{min-height:195px}#home #goClicPath,#home #goGames{min-height:290px}#home #goExtra{min-height:240px}#home #goExtra p{margin-right:105px}}
