@@ -273,3 +273,16 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
   #home #goSums,#home .big-maths-choice{min-height:235px}
   #home #goClicPath,#home #goGames,#home #goExtra{min-height:198px}
 }
+.review-breakdown{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0;font-size:1rem;font-weight:750}
+.review-breakdown span,.review-status{display:inline-flex;border-radius:.65rem;padding:.3em .6em}
+.review-correct{background:#e3f1df;color:#355b35}
+.review-incorrect{background:#f8e4e0;color:#863b37}
+.review-blank{background:#ebeae1;color:#595b50}
+.review-review{background:#fff0cc;color:#704e20}
+.review-status{align-self:flex-start;font-size:.85rem;font-weight:750}
+#resumeRound[hidden]{display:none}
+#resumeRound{align-self:flex-start}
+.review .box.pend{outline:2px dashed #a47928;outline-offset:-2px}
+.resume-round[hidden]{display:none}
+#resumeExtra{align-self:flex-start}
+#sumScore{flex-wrap:wrap}
