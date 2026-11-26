@@ -457,9 +457,9 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 .worksheet-source{font-size:14px;font-weight:600;color:#665285;text-underline-offset:3px}#setModal .setcard{border:1px solid #d3dfc8;border-radius:26px;box-shadow:0 14px 70px #193f2f30;padding:24px;background:#fafcf6}#setModal h2{font-family:var(--title);font-size:28px;color:#35553b}#setModal .row{padding-bottom:12px;border-bottom:1px solid #e3eadc}#setModal .row>.lab,#setModal .row>label{font-size:17px}.xbtn{border:1px solid #d9e4d0;border-radius:22px;box-shadow:0 4px 0 #dce5d4}.xbtn .xt{color:#35553b}.stats-card{border-width:1px!important;box-shadow:0 14px 70px #193f2f30}#firstRun .install-panel summary{font-weight:650;font-size:16px;cursor:pointer}.brandrow .brand-mascot{transform:scale(1.25)}
 #home #goGames,#home #goExtra{grid-column:auto}.worksheet-choice{display:block}.worksheet-heading{cursor:pointer;list-style:none}.worksheet-heading::-webkit-details-marker{display:none}.worksheet-heading>div{flex:1}.worksheet-change{font-size:13px;font-weight:700;color:#665285;background:#eee8f4;border-radius:9px;padding:7px 9px}.worksheet-options{display:grid;gap:12px;margin-top:14px}.worksheet-choice:not([open]) .worksheet-options{display:none}.worksheet-heading p{margin-bottom:0}.worksheet-choice[open]{box-shadow:0 4px 0 #dce5d4}
 </style>
-<link rel="stylesheet" href="maths-games.css?v=3.5.7">
+<link rel="stylesheet" href="maths-games.css?v=3.5.8">
 <link rel="preload" href="assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="premium-ui.css?v=3.5.7">
+<link rel="stylesheet" href="premium-ui.css?v=3.5.8">
 </head>
 <body>
 
@@ -468,7 +468,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
   <div class="frame"></div>
   <div class="wrap">
     <div class="home-heading"><div class="home-brand"><div class="brandrow"><div class="pipwrap" id="homePip"></div><div class="brand" id="homeBrand"></div></div>
-    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.5.7</button></div>
+    <button class="home-ver-pill" id="verBadge" title="Reload latest version">v3.5.8</button></div>
     <div class="settings">
       <div class="profile-course-grid">
       <div class="row"><label class="lab" for="childProfile">Who’s playing?</label><div class="profile-controls"><select id="childProfile" aria-label="Player"></select><button class="btn" id="addProfile" aria-label="Add another child" title="Add another child">+</button></div></div>
@@ -526,7 +526,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
   </div>
 </section>
 
-<section id="clicPath" class="screen"><div class="topbar"><button class="btn" id="clicPathBack"><span data-i="back"></span>Home</button><div class="spacer"></div></div><div class="clic-path-wrap"><img class="clic-path-art" src="assets/icons/clic.webp" alt=""><h1>CLIC</h1><p class="clic-intro">CLIC stands for Counting, Learn Its, It’s Nothing New and Calculation. Each level brings together ten short challenges that build on skills from earlier levels.</p><p id="clicRecommendation"></p><div class="clic-path-options"><label>Level <select id="journeyLevel" aria-label="CLIC level" aria-describedby="clicRecommendation journeyDescription"></select></label><label id="journeySetRow">Set <select id="journeySet" aria-label="CLIC set"></select></label></div><p class="assessment-tag" id="journeyKind"></p><p id="journeyDescription"></p><div class="journey-progress" id="journeyProgress"><div class="journey-streak" id="journeyStreak"></div><p class="journey-rule">For a weekly assessment, choose Exam and confirm the score at the end. Score 10/10 for three weeks in a row to move up.</p></div><button class="btn primary" id="journeyPlay"><span data-i="play"></span>Choose mode</button> <button class="btn resume-round" id="resumeClic" hidden>Resume CLIC</button></div></section>
+<section id="clicPath" class="screen"><div class="topbar"><button class="btn" id="clicPathBack"><span data-i="back"></span>Home</button><div class="spacer"></div></div><div class="clic-path-wrap"><img class="clic-path-art" src="assets/icons/clic.webp" alt=""><h1>CLIC</h1><p class="clic-intro">CLIC stands for Counting, Learn Its, It’s Nothing New and Calculation. Each round has ten activities written for this app. Some ask you to say or show an answer, and others ask you to tap or write.</p><p id="clicRecommendation"></p><div class="clic-path-options"><label>Level <select id="journeyLevel" aria-label="CLIC level" aria-describedby="clicRecommendation journeyDescription"></select></label><label id="journeySetRow">Set <select id="journeySet" aria-label="CLIC set"></select></label></div><p class="assessment-tag" id="journeyKind"></p><p id="journeyDescription"></p><div class="journey-progress" id="journeyProgress"><div class="journey-streak" id="journeyStreak"></div><p class="journey-rule">For a weekly assessment, choose Exam and confirm the score at the end. Score 10/10 for three weeks in a row to move up.</p></div><button class="btn primary" id="journeyPlay"><span data-i="play"></span>Choose mode</button> <button class="btn resume-round" id="resumeClic" hidden>Resume CLIC</button></div></section>
 
 <!-- ================= EXTRA PRACTICE ================= -->
 <section id="extra" class="screen">
@@ -619,7 +619,7 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
         <div class="sw"><span class="l" id="lOff">Leave as written</span><label class="switch green"><input type="checkbox" id="swAuto" aria-label="Handwriting recognition"><i></i></label><span class="l" id="lOn">Read my numbers</span></div>
         <div class="hint" id="hintAuto"></div></div>
       <div class="row"><div class="lab">Default timer</div><div class="seg" id="segTime"></div></div>
-  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.5.7</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-23 · Course challenges)</span></div></div>
+  <div class="row"><div class="lab">Version</div><div style="font-weight:900;color:var(--brand-d);display:flex;align-items:center;gap:8px"><span>v3.5.8</span> <span style="font-size:13px;color:#55705a;font-weight:700">(2026-11-26 · Interactive CLIC)</span></div></div>
   <div class="row"><div class="lab">Update app</div><div><button class="btn" id="setReload"><span data-i="reload" style="display:inline-flex;width:1.2em;height:1.2em;vertical-align:-.25em;margin-right:6px"></span> Reload newest version</button><div class="hint" style="grid-column:auto;margin-top:6px">Fetches the newest version. Your records are kept.</div></div></div>
   <div class="row"><div class="lab">Records</div><button class="btn warn" id="setReset">Reset my records</button></div>
   <div class="row"><label for="speechVoice">English voice</label><div><select id="speechVoice" style="max-width:100%;font:inherit;padding:12px;border:2px solid var(--brand);border-radius:12px"></select> <button class="btn" id="tryVoice"><span data-i="audio"></span>Try voice</button><p id="voiceNote" class="hint" style="grid-column:auto;margin-top:8px"></p></div></div>
@@ -630,15 +630,14 @@ body.kp-on #sums .frame,body.kp-on #clic .frame{bottom:calc(var(--kph,92px) + 6p
 <div class="modal" id="modal"><div class="card" id="modalCard"></div></div>
 <div class="modal" id="statsModal"><div class="stats-card" id="statsCard"></div></div>
 
-<script src="course-sheets.js?v=3.5.7"></script>
-<script src="classic-sheets.js?v=3.5.7"></script>
-<script src="curriculum.js?v=3.5.7"></script>
-<script src="weekly-clic.js?v=3.5.7"></script>
-<script src="clic-journey.js?v=3.5.7"></script>
-<script src="profiles.js?v=3.5.7"></script>
-<script src="round-options.js?v=3.5.7"></script>
-<script src="progress.js?v=3.5.7"></script>
-<script src="signed-ink.js?v=3.5.7"></script>
+<script src="course-sheets.js?v=3.5.8"></script>
+<script src="classic-sheets.js?v=3.5.8"></script>
+<script src="curriculum.js?v=3.5.8"></script>
+<script src="clic-journey.js?v=3.5.8"></script>
+<script src="profiles.js?v=3.5.8"></script>
+<script src="round-options.js?v=3.5.8"></script>
+<script src="progress.js?v=3.5.8"></script>
+<script src="signed-ink.js?v=3.5.8"></script>
 <script>
 /* ===== Reconocedor de dígitos escritos a mano (CNN pequeña entrenada con MNIST + aumentos) ===== */
 const BMRecog = (() => {
@@ -1084,10 +1083,11 @@ const contentCourse=()=>settings.level;
 const classicLevel=()=>BMClassic.suggested[settings.level];
 let worksheetMode='classic';
 const journeyLevel=()=>settings.journey?.level||settings.clicSets?.[settings.level]||BMContent.courses[settings.level][0];
+const journeyCourse=()=>MTABS.find(([course])=>BMContent.courses[course].includes(journeyLevel()))?.[1];
 const clicLevel=()=>worksheetMode==='journey'?journeyLevel():'school';
 const worksheetKey=()=>clicLevel()==='school'?'classic-'+classicLevel():'clic-'+clicLevel();
-const worksheetWeek=()=>worksheetMode==='journey'?(settings.journey?.sets?.[journeyLevel()]||1):settings.week;
-const clicLabel=()=>{const n=clicLevel(),w=worksheetWeek();return n==='school'?(w==='rand'?'Random week':'Week '+w):n<=4?'CLIC '+n+' · Oral & practical':'CLIC '+n+(BMWeekly.has(n)?' · Set '+w:' · Practice')};
+const worksheetWeek=()=>{if(worksheetMode!=='journey')return settings.week;const level=journeyLevel();return BMContent.setCount(level)===1?1:settings.journey?.sets?.[level]||1;};
+const clicLabel=()=>{const n=clicLevel(),w=worksheetWeek();return n==='school'?(w==='rand'?'Random week':'Week '+w):n<=4?'CLIC '+n+' · Guided tasks':'CLIC '+n+' · Set '+w};
 const courseTime=()=>BMRoundOptions.defaultSeconds(settings.time,BM_SHEETS[settings.level].seconds);
 const wk=()=>settings.level==='y1'?settings.week:settings.level+'-v3';
 const toD=q=>({t:'gq',...q});
@@ -1130,7 +1130,7 @@ function chips(host,noWeek){
   const kpm=settings.input==='keypad';
   host.append(el('span','chip',settings.auto?UI.i('lens')+(kpm?' Auto-check':' Auto-read'):UI.i('pencil')+(kpm?' As typed':' As written')));
 }
-const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?(clicLevel()==='school'?(classicLevel()===1?worksheetWeek():'classic-'+classicLevel()+'-week-'+worksheetWeek()):'clic-'+clicLevel()+(BMWeekly.has(clicLevel())?'-set-'+(clicLevel()===4?1:worksheetWeek())+'-official-v1':'-v3')):week}.${extra}.${mode}`;
+const bestKey=(kind,week,extra,mode)=>`bm.best.${kind}.${kind==='clic'?(clicLevel()==='school'?(classicLevel()===1?worksheetWeek():'classic-'+classicLevel()+'-week-'+worksheetWeek()):'clic-'+clicLevel()+('-set-'+worksheetWeek()+'-interactive-v1')):week}.${extra}.${mode}`;
 const bestTimeKey=(kind,week,mode)=>`bm.best.time.${kind}.${week}.${mode}`;
 
 /* ---------- caja de escritura ---------- */
@@ -1523,32 +1523,24 @@ function renderClicPath(){
   const suggested=BMContent.courses[settings.level].filter(level=>level!==20);
   const courseLabel=suggested.length===1?'CLIC '+suggested[0]:'CLIC '+suggested[0]+'–'+suggested.at(-1);
   $('#clicRecommendation').textContent='Start with the level your school gives you. For '+lvName()+', we suggest '+courseLabel+'.';
-  const hasAssessment=BMWeekly.has(level);
-  $('#journeySetRow').hidden=level<=4||!hasAssessment;
-  $('#journeyProgress').hidden=!hasAssessment;
+  const count=BMContent.setCount(level);
+  $('#journeySetRow').hidden=count===1;
   const sets=$('#journeySet');
-  sets.replaceChildren(...Array.from({length:10},(_,i)=>new Option(String(i+1),i+1)));
+  sets.replaceChildren(...Array.from({length:count},(_,i)=>new Option(String(i+1),i+1)));
   sets.value=String(worksheetWeek());
-  $('#journeyKind').textContent=level<=4?'Oral and practical':level===5?'Written and oral':'Written';
+  $('#journeyKind').textContent=level<=4?'Guided activities':level===5||level===20?'Written and oral':'Written';
   $('#journeyDescription').textContent=level<=4
-    ?'Do one task at a time together. Your child answers aloud or shows what they can do. Tap Got it or Not yet after each task.'
-    :level===5
-      ?'Choose a set. Your child writes their answers and a grown-up marks the tasks labelled Oral assessment.'
-      :'Choose a set and work through the ten written questions one at a time.';
-  if(!hasAssessment){
-    $('#journeyDescription').textContent=level<=4
-      ?'Practise early skills together. Your child answers aloud or shows what they can do. Tap Got it or Not yet after each task.'
-      :'Practise ten questions based on the skills at this level. You’ll get a fresh mix each time.';
-    $('#journeyKind').textContent=level<=4?'Guided practice':'Practice questions';
-  }
+    ?'Sit with a grown-up. Some tasks are spoken or practical, and your grown-up marks those before you move on.'
+    :level===5||level===20
+      ?'Choose a set. Answer one question at a time and ask a grown-up to mark the spoken tasks.'
+      :'Choose a set and answer one question at a time. Each numbered set stays the same when you come back.';
   $('#journeyStreak').textContent=BMJourney.streak(settings.journey?.records||[],level)+' of 3 weekly scores of 10/10';
-  $('#journeyPlay').replaceChildren(el('span',null,UI.i('play')),document.createTextNode(hasAssessment?'Choose mode':'Practise'));
 }
 $('#goClicPath').onclick=()=>{worksheetMode='journey';renderClicPath();show('clicPath')};
 $('#clicPathBack').onclick=()=>{worksheetMode='classic';refreshHome();show('home')};
 $('#journeyLevel').onchange=e=>{settings.journey={...settings.journey,level:Number(e.target.value)};save();renderClicPath()};
 $('#journeySet').onchange=e=>{const level=journeyLevel();settings.journey={...settings.journey,level,sets:{...settings.journey?.sets,[level]:Number(e.target.value)}};save();renderClicPath()};
-$('#journeyPlay').onclick=()=>{worksheetMode='journey';prepareRound('clic');if(!BMWeekly.has(journeyLevel())){setRoundMode('practice');$('#roundExam').disabled=true;}else $('#roundExam').disabled=false;};
+$('#journeyPlay').onclick=()=>{worksheetMode='journey';prepareRound('clic');};
 
 /* ================= BEAT THAT ================= */
 const S={boxes:[],running:false,finished:false,t0:0,lastT:0,lastTouchedBox:null,lastInputAt:null,pendingFinishAt:null,finishTimer:null,raf:0,limit:0,elapsed:0,cells:[]};
@@ -2067,7 +2059,7 @@ $('#statsModal').addEventListener('click',e=>{if(e.target===$('#statsModal'))$('
 /* ================= BIG MATHS ================= */
 const C={qs:[],i:0,speakN:0,done:false};
 function buildClicData(){
- if(clicLevel()!=='school')return BMWeekly.has(clicLevel())?BMWeekly.generate(clicLevel(),worksheetWeek()):BMContent.generate(clicLevel());
+ if(clicLevel()!=='school')return BMContent.buildSet(clicLevel(),worksheetWeek());
  if(classicLevel()!==1)return BMClassic.generate(classicLevel(),worksheetWeek());
  const weeks=worksheetWeek()==='rand'?ENABLED:[worksheetWeek()];
  const data=CLIC[weeks[rnd(weeks.length)]];
@@ -2095,7 +2087,7 @@ function ans(cls,expected,boxes,label){
 }
 function buildNumberLine(numbers,interactive){
   const guide=el('div','number-guide');
-  const tip=el('p','number-guide-tip',interactive?'Tap a number to mark your place.':'Number line');
+  const tip=el('p','number-guide-tip',interactive?'Tap a tick to mark your place.':'Number line');
   const line=el('div','number-line');
   line.setAttribute('role',interactive?'group':'img');
   line.setAttribute('aria-label','Number line from '+numbers[0]+' to '+numbers.at(-1));
@@ -2103,6 +2095,7 @@ function buildNumberLine(numbers,interactive){
   for(const number of numbers){
     const mark=el(interactive?'button':'span','number-mark');
     mark.append(el('span','number-label',String(number)));
+    if(number==='?')mark.classList.add('number-missing');
     if(interactive){
       mark.type='button';
       mark.setAttribute('aria-pressed','false');
@@ -2116,6 +2109,70 @@ function buildNumberLine(numbers,interactive){
   }
   guide.append(tip,line);
   return guide;
+}
+function buildClicOrder(d,boxes){
+  const activity=el('div','clic-order');
+  const pool=el('div','clic-number-pool');
+  const slots=el('ol','clic-number-slots');
+  const reveal=el('p','clic-order-answer','Answer: '+d.a);
+  const feedback=el('p','clic-order-feedback');feedback.setAttribute('role','status');
+  const picked=[];
+  const host=el('div');host.hidden=true;
+  const box=new Box(host,d.a);boxes.push(box);
+  const correct=()=>picked.length===d.order.length&&picked.every((n,i)=>Number(n)===Number(d.parts[i].a));
+  const buttons=d.order.map(value=>{
+    const button=el('button','btn clic-number-tile',value);
+    button.addEventListener('click',()=>{picked.push(value);paint();});
+    pool.append(button);return button;
+  });
+  const positions=d.order.map((_,i)=>{
+    const slot=el('li');const button=el('button','clic-number-slot');
+    button.addEventListener('click',()=>{picked.splice(i,1);paint();});
+    slot.append(button);slots.append(slot);return button;
+  });
+  const reset=el('button','btn','Start over');
+  reset.addEventListener('click',()=>{picked.length=0;paint();});
+  function paint(){
+    buttons.forEach((button,i)=>{button.disabled=box.locked||picked.includes(d.order[i]);});
+    positions.forEach((button,i)=>{
+      button.textContent=picked[i]??i+1;
+      button.disabled=box.locked||i>=picked.length;
+      button.classList.toggle('filled',i<picked.length);
+      button.setAttribute('aria-label',i<picked.length?'Remove '+picked[i]:'Position '+(i+1));
+    });
+    reset.disabled=box.locked||!picked.length;
+    box.typed=picked.join(' → ');
+    const check=settings.mode==='practice'&&settings.auto&&picked.length===d.order.length;
+    box.setState(check?(correct()?'ok':'bad'):'empty');
+    activity.dataset.state=box.state;
+    feedback.textContent=check?(box.state==='ok'?'Correct!':'Try another order.'):'';
+    if(session.active&&!box.locked)updateDots();
+  }
+  box.grade=()=>settings.auto?correct():null;
+  const lock=box.lock.bind(box);
+  box.lock=()=>{lock();paint();};
+  const setReveal=box.reveal.bind(box);
+  box.reveal=value=>{setReveal(value);reveal.hidden=!value;};
+  reveal.hidden=true;
+  activity.append(pool,slots,reset,feedback,reveal,host);
+  paint();
+  return activity;
+}
+function buildClicCalculation(prompt){
+  const operands=prompt.match(/^([\d.]+) ([+−×÷]) ([\d.]+) =$/);
+  const total=prompt.match(/^Add in columns: ([\d.]+(?: \+ [\d.]+)+)$/);
+  if(!operands&&!total)return null;
+  const calculation=el('div','clic-vertical');
+  calculation.setAttribute('aria-label',prompt);
+  calculation.setAttribute('role','img');
+  if(operands?.[2]==='÷'){
+    calculation.classList.add('clic-division');
+    calculation.append(el('span','clic-divisor',operands[3]),el('span','clic-dividend',operands[1]));
+  }else{
+    const values=operands?[operands[1],operands[3]]:total[1].split(' + ');
+    values.forEach((number,i)=>calculation.append(el('span',null,i===values.length-1?(operands?.[2]||'+')+' '+number:number)));
+  }
+  return calculation;
 }
 function buildQ(d,idx){
   const boxes=[];let label='',exp='';
@@ -2168,18 +2225,33 @@ function buildQ(d,idx){
       ct.append(el('span','big',`${d.a} + ${d.b} =`),ans('oval',d.a+d.b,boxes,label));break;}
     case 'oral':{
       label=d.q;exp=d.a;ct.classList.add('structured');
-      ct.append(el('p','assessment-tag',d.sourceLevel<=4?'Oral & practical assessment':'Oral assessment'),el('p','story',d.q),el('p','teacher-note',d.sourceLevel<=4?'A grown-up listens or watches, then marks this skill.':'Say it aloud. A grown-up marks this skill.'));
+      ct.append(el('p','assessment-tag',d.level<=4?'Oral & practical assessment':'Oral assessment'),el('p','story',d.q),el('p','teacher-note',d.level<=4?'A grown-up listens or watches, then marks this skill.':'Say it aloud. A grown-up marks this skill.'));
       const h=el('div');h.hidden=true;const box=new Box(h,d.a);boxes.push(box);ct.append(h);
       let marked=null;const options=el('div','oral-controls');
       [['Not yet',false],['Got it',true]].forEach(([text,value])=>{const button=el('button','btn',text);button.onclick=()=>{if(!session.active)return;marked=value;box.typed='marked';options.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));box.setState(value?'ok':'bad');updateDots();};options.append(button);});
       box.grade=()=>marked;const lock=box.lock.bind(box);box.lock=()=>{lock();options.querySelectorAll('button').forEach(b=>b.disabled=true);};ct.append(options);break;
     }
     case 'gq':{
-      const st=!!d.story||!/^[-.\d]+ [×÷+−]/.test(d.q);label=d.q;exp=d.a.replace(/ r/,' remainder ');
-      ct.classList.add('structured');ct.append(el('p','story',d.q));
+      label=d.q;exp=d.a.replace(/ r/,' remainder ');
+      ct.classList.add('structured');
+      if(d.order){
+        ct.append(el('p','story',d.instruction),buildClicOrder(d,boxes));
+        break;
+      }
+      if(d.equationParts||d.sequence){
+        const values=d.equationParts||d.sequence;
+        ct.append(el('p','story',d.sequence?'Fill the gap in the sequence.':'Find the missing number.'));
+        const strip=el('div','clic-missing-strip');
+        values.forEach(value=>strip.append(value===null
+          ?ans('oval',d.a,boxes,'Missing number'):el('span','clic-value-tile',String(value))));
+        ct.append(strip);
+        break;
+      }
+      const vertical=d.level&&d.column?buildClicCalculation(d.q):null;
+      ct.append(vertical||el('p','story',d.q));
       if(d.dots)ct.append(el('div','object-dots',Array.from({length:d.dots},()=>'<span aria-hidden="true">★</span>').join('')));
       if(d.line)ct.append(buildNumberLine(d.line,settings.mode==='practice'));
-      if(d.column){const match=d.q.match(/^([\d.]+) ([+−×÷]) ([\d.]+) =$/);if(match)ct.querySelector('p').innerHTML=`<span class="column-sum">${match[1]}<br>${match[2]} ${match[3]}<br><span>────</span></span>`;}
+      if(d.column&&!vertical){const match=d.q.match(/^([\d.]+) ([+−×÷]) ([\d.]+) =$/);if(match)ct.querySelector('p').innerHTML=`<span class="column-sum">${match[1]}<br>${match[2]} ${match[3]}<br><span>────</span></span>`;}
       if(d.choices){
         const chosen=new Set(),options=el('div','choice-options'),h=el('div');h.hidden=true;
         const box=new Box(h,d.a);let submitted=false;boxes.push(box);ct.append(h);
@@ -2191,7 +2263,9 @@ function buildQ(d,idx){
         const row=el('div','answer-parts');d.parts.forEach(part=>{const group=el('label','answer-part');group.append(el('span',null,part.label),ans('oval',part.a,boxes,part.label));row.append(group);});ct.append(row);
       }else{
         const row=el('div','answer-parts'),m=d.a.match(/^(\d+) r(\d+)$/);
-        if(m)row.append(ans('oval rq',m[1],boxes,label),el('span','big','r'),ans('dig',m[2],boxes,label));
+        if(m)for(const [text,value] of [['Quotient',m[1]],['Remainder',m[2]]]){
+          const group=el('div','answer-part');group.append(el('span',null,text),ans('oval',value,boxes,text));row.append(group);
+        }
         else row.append(ans('oval'+(d.a.replace(/\./g,'').length>3?' wide':''),d.a,boxes,label));ct.append(row);
       }
       if(d.story&&d.equation&&settings.mode!=='exam'){
@@ -2203,7 +2277,7 @@ function buildQ(d,idx){
   }
   if(d.t!=='star'){const listen=el('button','spk',UI.i('audio'));listen.setAttribute('aria-label','Listen');listen.onclick=()=>speakText(d.say||BMContent.speech(d.q||label));q.append(listen);q.speakBtn=listen;}
   if(d.t==='take')sh.style.clipPath=starPoly(14,76);
-  if(d.acceptRange)boxes.forEach(b=>{b.matches=text=>BMWeekly.acceptsRange(d.acceptRange,text)});
+  if(d.acceptRange)boxes.forEach(b=>{b.matches=text=>BMContent.acceptsRange(d.acceptRange,text)});
   boxes.forEach(b=>b.onchange=()=>updateDots());
   return {d,q,boxes,label,exp,verdict:null,idx};
 }
@@ -2214,7 +2288,8 @@ function startClic(spec){
   const data=C.spec?C.spec.mk():buildClicData();
   const st=$('#qstage');st.innerHTML='';
   C.qs=data.map(buildQ);C.qs.forEach(x=>st.append(x.q));C.i=0;C.done=false;
-  chips($('#clicChips'),true);$('#clicChips').append(el('span','chip',lvName()));if(!C.spec)$('#clicChips').append(el('span','chip',clicLabel()));if(C.spec)$('#clicChips').append(el('span','chip',C.spec.title));
+  $('#clicBack').replaceChildren(el('span',null,UI.i('back')),document.createTextNode(C.journey?'CLIC':'Home'));
+  chips($('#clicChips'),true);$('#clicChips').append(el('span','chip',C.journey?journeyCourse():lvName()));if(!C.spec)$('#clicChips').append(el('span','chip',clicLabel()));if(C.spec)$('#clicChips').append(el('span','chip',C.spec.title));
   const dots=$('#dots');dots.innerHTML='';
   C.qs.forEach((x,i)=>{const b=el('button',null,String(i+1));b.addEventListener('click',()=>goQ(i,true));dots.append(b)});
   session.active=true;show('clic');goQ(0,true);
@@ -2290,7 +2365,8 @@ function paintSummary(){
     tile.disabled=status==='blank'||C.assessmentConfirmed;
     tile.append(el('div','qt',`${i+1}. ${x.label}`));
     const row=el('div','inkrow');
-    x.thumbs.forEach(u=>{const b=el('div','imgbox');const im=new Image();im.src=u;b.append(im);row.append(b)});
+    if(x.d.order)row.append(el('span','clic-order-result',x.boxes[0].typed||'—'));
+    else x.thumbs.forEach(u=>{const b=el('div','imgbox');const im=new Image();im.src=u;b.append(im);row.append(b)});
     tile.append(row);tile.append(el('div','exp',`Answer: <b>${x.exp}</b>`));
     tile.addEventListener('click',()=>{x.reviewed=true;x.verdict=x.verdict===true?false:true;paintSummary()});
     t.append(tile);
@@ -2420,7 +2496,7 @@ $('#renameProfile').onclick=()=>{try{profiles.rename($('#profileName').value);re
 let roundKind='sums',roundMode='practice';
 function setRoundMode(mode){roundMode=mode;$('#roundPractice').setAttribute('aria-pressed',String(mode==='practice'));$('#roundExam').setAttribute('aria-pressed',String(mode==='exam'));}
 function renderRoundTime(){const step=Number($('#timeWheel').value),base=BM_SHEETS[settings.level].seconds,seconds=BMRoundOptions.dialSeconds(step,base);$('#roundTime').textContent=seconds?seconds+' seconds':'No timer';$('#roundTimeDetail').textContent=seconds?(1+step/10).toFixed(1)+'× course default · '+base+' seconds':'Take your time';$('#timeWheel').setAttribute('aria-valuetext',seconds?seconds+' seconds':'No timer');$('#timeDial').style.setProperty('--wheel-angle',(-135+step/11*270)+'deg');}
-function prepareRound(kind){$('#roundExam').disabled=false;cancelSpeech();roundKind=kind;setRoundMode(settings.mode);$('#roundTitle').textContent=kind==='sums'?'Beat That':worksheetMode==='journey'?'CLIC':'Big Maths';$('#roundSubtitle').textContent=lvName()+' · '+(kind==='sums'?BM_SHEETS[settings.level].count+' questions':clicLabel());$('#roundTimer').hidden=kind!=='sums';$('#clicTimingNote').hidden=kind==='sums';$('#timeWheel').value=BMRoundOptions.defaultStep(settings.time);renderRoundTime();$('#roundRecognitionNote').textContent=settings.auto?'':'Automatic checking is off. A grown-up will mark answers at the end.';$('#roundSetup').showModal();}
+function prepareRound(kind){$('#roundExam').disabled=false;cancelSpeech();roundKind=kind;setRoundMode(settings.mode);$('#roundTitle').textContent=kind==='sums'?'Beat That':worksheetMode==='journey'?'CLIC':'Big Maths';$('#roundSubtitle').textContent=(kind==='clic'&&worksheetMode==='journey'?journeyCourse():lvName())+' · '+(kind==='sums'?BM_SHEETS[settings.level].count+' questions':clicLabel());$('#roundTimer').hidden=kind!=='sums';$('#clicTimingNote').hidden=kind==='sums';$('#timeWheel').value=BMRoundOptions.defaultStep(settings.time);renderRoundTime();$('#roundRecognitionNote').textContent=settings.auto?'':'Automatic checking is off. A grown-up will mark answers at the end.';$('#roundSetup').showModal();}
 $('#roundPractice').onclick=()=>setRoundMode('practice');$('#roundExam').onclick=()=>setRoundMode('exam');
 $('#timeWheel').oninput=renderRoundTime;
 $('#timeDial').onpointerdown=event=>{event.preventDefault();event.currentTarget.setPointerCapture(event.pointerId);turnTimeWheel(event);};
@@ -2430,7 +2506,7 @@ $('#roundCancel').onclick=()=>$('#roundSetup').close();
 $('#roundPlay').onclick=()=>{settings.mode=roundMode;save();const seconds=BMRoundOptions.dialSeconds(Number($('#timeWheel').value),BM_SHEETS[settings.level].seconds);$('#roundSetup').close();if(roundKind==='sums')startSums(seconds);else startClic();};
 
 /* ---------- ajustes y recarga ---------- */
-const APP_VERSION = 'v3.5.7';
+const APP_VERSION = 'v3.5.8';
 try{
   const prevV = localStorage.getItem('bm.app_ver');
   if(prevV !== APP_VERSION){
@@ -2526,6 +2602,6 @@ if(incomingProgress)$('#moveProgress').showModal();else if(!store.get('bm.onboar
 
 window.__bm={wk,genClic,gBT,startExtra:o=>startClic(o),MATH_NODES,toD,settings,S,C,Box,startSums,startClic,finishSums,finishClic,goQ};
 </script>
-<script src="maths-games.js?v=3.5.7"></script>
+<script src="maths-games.js?v=3.5.8"></script>
 </body>
 </html>

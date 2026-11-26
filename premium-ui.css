@@ -286,3 +286,26 @@ button,input,select{letter-spacing:0}button:focus-visible,summary:focus-visible,
 .resume-round[hidden]{display:none}
 #resumeExtra{align-self:flex-start}
 #sumScore{flex-wrap:wrap}
+
+/* Activity pieces in the CLIC question cards. */
+.clic-order{display:grid;justify-items:center;gap:14px;width:min(100%,550px)}
+.clic-number-pool,.clic-number-slots,.clic-missing-strip{display:flex;flex-wrap:wrap;gap:clamp(5px,1.5vw,13px);align-items:center;justify-content:center;margin:0;padding:0}
+.clic-number-slots{list-style:none}
+.clic-number-tile,.clic-number-slot,.clic-value-tile{display:grid;place-items:center;min-width:clamp(48px,11vw,99px);min-height:52px;padding:5px 9px;font-size:clamp(17px,4vw,29px);font-weight:800;font-variant-numeric:tabular-nums}
+.clic-number-tile{background:#fff5d4;color:#5a3e11;border-color:#dec487;box-shadow:0 4px 0 #d5ba77}
+.clic-number-tile:disabled{opacity:.45}
+.clic-number-slot{border:2px dashed #9dae9b;background:#f1f5ea;color:#536950;border-radius:14px}
+.clic-number-slot.filled{border-style:solid;background:#e8e0f4;color:#533c72}
+.clic-order[data-state="ok"] .clic-number-slot.filled{background:#e1f3dd;border-color:#589451;color:#315e30}
+.clic-order[data-state="bad"] .clic-number-slot.filled{background:#fce5df;border-color:#be7467;color:#70392d}
+.clic-order-answer,.clic-order-result{font-weight:750;color:#385846}
+.clic-value-tile{min-width:0;border-radius:12px;color:#314e3a;background:#eaf1e0}
+.clic-missing-strip .ans{width:clamp(64px,13vw,118px);height:clamp(54px,12vh,90px)}
+.clic-vertical{display:grid;justify-items:end;border-bottom:3px solid #8eae7f;padding:0 12px 7px;color:#314f3e;font-size:clamp(32px,7vw,56px);font-weight:800;line-height:1.08;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.clic-division{grid-template-columns:auto auto;align-items:center;border:0;gap:5px;padding:0}
+.clic-dividend{border-top:3px solid #719761;border-left:3px solid #719761;border-top-left-radius:9px;padding:3px 8px 0}
+.number-guide .number-missing .number-label{background:#eee5fa;outline:2px dashed #906ab2;color:#50396d;font-weight:900}
+@media(max-height:680px){.clic-order{gap:8px}.clic-order .btn{min-height:42px}.clic-number-slot{min-height:44px}}
+.clic-order-feedback{margin:0;color:#315e30;font-weight:800}
+.clic-order[data-state="bad"] .clic-order-feedback{color:#70392d}
+.clic-order-feedback:empty{display:none}

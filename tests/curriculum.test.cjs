@@ -55,3 +55,38 @@ test('CLIC 18 and 19 decimal scaling keeps the full value shown by the calculati
   assert.ok(Math.abs(Number(division.a)-Number(operand)/1000)<1e-9,division.label);
  }
 });
+
+test('CLIC written sets are distinct and repeatable, with a stable sequence of skills',()=>{
+ for(let level=1;level<=20;level++){
+  const count=content.setCount(level);
+  assert.equal(count,level<=4?1:10);
+  const variants=new Set();
+  for(let set=1;set<=count;set++){
+   const questions=content.buildSet(level,set);
+   assert.equal(questions.length,10);
+   assert.deepEqual(questions,content.buildSet(level,set));
+   assert.ok(questions.every((q,index)=>q.level===level&&q.set===set&&q.skill===level+'.'+(index+1)));
+   variants.add(JSON.stringify(questions.map(({set,...q})=>q)));
+  }
+  assert.equal(variants.size,count,'CLIC '+level);
+ }
+ assert.throws(()=>content.buildSet(4,2),/Unknown CLIC set/);
+});
+
+test('interactive ordering and gaps preserve numeric answers, including decimals',()=>{
+ for(const level of [2,6,9,12,13,14,15,19]) {
+  for(let set=1;set<=content.setCount(level);set++){
+   const q=content.buildSet(level,set).find(q=>q.order);
+   const expected=q.parts.map(p=>Number(p.a));
+   assert.deepEqual([...q.order].map(Number).sort((a,b)=>a-b),expected);
+   assert.notDeepEqual(q.order.map(Number),expected);
+  }
+ }
+ for(let set=1;set<=10;set++){
+  const q=content.buildSet(6,set).find(q=>q.sequence);
+  const values=q.sequence.map(n=>n===null?Number(q.a):Number(n));
+  assert.ok(values.slice(1).every((n,i)=>n-values[i]===2));
+ }
+ const q=content.buildSet(5,1).find(q=>q.equationParts);
+ assert.equal(Number(q.equationParts[0])+Number(q.a),Number(q.equationParts[4]));
+});
